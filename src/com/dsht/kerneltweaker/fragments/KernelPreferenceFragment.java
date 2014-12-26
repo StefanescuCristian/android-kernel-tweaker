@@ -49,9 +49,13 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 	private CustomCheckBoxPreference mSweep2sleep;
 	private CustomPreference mVibration;
 	private CustomPreference mAdvancedScheduler;
+	private CustomCheckBoxPreference mKernelKSMTimer;
+	private CustomPreference mKernelKSMPages;
+	private CustomPreference mKernelKSMSleep;
 	private CustomListPreference mCpuScheduler;
 	private CustomListPreference mCpuReadAhead;
 	private PreferenceCategory mSoundCategory;
+	private PreferenceCategory mKSMCategory;
 	private CustomPreference mSoundInfo;
 	private SharedPreferences mPrefs;
 	private PreferenceCategory mKernelCategory;
@@ -77,6 +81,10 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 	private static final String S2W_SLEEPONLY_FILE = "/sys/android_touch/sweep2sleep";
 	private static final String VIBRATION_FILE = "/sys/class/timed_output/vibrator/amp";
 	private static final String KSM_RUN_PATH = "/sys/kernel/mm/ksm/run";
+    private static final String KSM_SLEEP_PATH = "/sys/kernel/mm/ksm/sleep_millisecs";
+    private static final String KSM_PAGESTOSCAN_PATH = "/sys/kernel/mm/ksm/pages_to_scan";
+    private static final String KSM_DEFERRED_TIMER = "/sys/kernel/mm/ksm/deferred_timer";
+
 	
 	
 	private String color;
@@ -108,13 +116,20 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		Helpers.setPermissions(TCP_CURRENT);
 		Helpers.setPermissions(TCP_OPTIONS);
 		Helpers.setPermissions(KSM_RUN_PATH);
+		Helpers.setPermissions(KSM_SLEEP_PATH);
+		Helpers.setPermissions(KSM_PAGESTOSCAN_PATH);
+		Helpers.setPermissions(KSM_DEFERRED_TIMER);
 		
 
 		mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
 		mSoundCategory = (PreferenceCategory) findPreference("key_sound_category");
+		mKSMCategory = (PreferenceCategory) findPreference("key_ksm_category");
 		mSchedCategory = (PreferenceCategory) findPreference("key_sched_cat");
 		mKernelFsync = (CustomCheckBoxPreference) findPreference("key_fsync_switch");
 		mKernelKSM = (CustomCheckBoxPreference) findPreference("key_ksm_switch");
+		mKernelKSMTimer = (CustomCheckBoxPreference) findPreference("key_ksm_timer");
+		mKernelKSMPages = (CustomPreference) findPreference("key_ksm_pages");
+		mKernelKSMSleep = (CustomPreference) findPreference("key_ksm_sleep");
 		mKernelFcharge = (CustomCheckBoxPreference) findPreference("key_fcharge_switch");
 		mCpuScheduler = (CustomListPreference) findPreference("key_cpu_sched");
 		mAdvancedScheduler = (CustomPreference) findPreference("key_advanced_scheduler");
@@ -138,6 +153,9 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mSweep2sleep.setKey(S2W_SLEEPONLY_FILE);
 		mVibration.setKey(VIBRATION_FILE);
 		mKernelKSM.setKey(KSM_RUN_PATH);
+		mKernelKSMTimer.setKey(KSM_DEFERRED_TIMER);
+		mKernelKSMSleep.setKey(KSM_SLEEP_PATH);
+		mKernelKSMPages.setKey(KSM_PAGESTOSCAN_PATH);
 
 		mCpuScheduler.setKey(SCHEDULER_FILE);
 		mCpuReadAhead.setKey(READ_AHEAD_FILE);
@@ -151,7 +169,10 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mSweep2sleep.setCategory(category);
 		mVibration.setCategory(category);
 		mKernelKSM.setCategory(category);
-
+		mKernelKSMTimer.setCategory(category);
+		mKernelKSMSleep.setCategory(category);
+		mKernelKSMPages.setCategory(category);
+		
 		String[] schedulers = Helpers.getAvailableSchedulers();
 		String[] readAheadKb = {"128","256","384","512","640","768","896","1024","1152",
 				"1280","1408","1536","1664","1792","1920","2048", "2176", "2304", "2432", "2560", 
@@ -184,6 +205,9 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mSweep2sleep.setTitleColor(color);
 		mVibration.setTitleColor(color);
 		mKernelKSM.setTitleColor(color);
+		mKernelKSMTimer.setTitleColor(color);
+		mKernelKSMSleep.setTitleColor(color);
+		mKernelKSMPages.setTitleColor(color);
 		
 		mCpuScheduler.setEntries(schedulers);
 		mCpuScheduler.setEntryValues(schedulers);
@@ -197,6 +221,8 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mCpuScheduler.setOnPreferenceChangeListener(this);
 		mCpuReadAhead.setOnPreferenceChangeListener(this);
 		mVibration.setOnPreferenceClickListener(this);
+		mKernelKSMPages.setOnPreferenceClickListener(this);
+		mKernelKSMSleep.setOnPreferenceClickListener(this);
 
 		mKernelFsync.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 
@@ -275,9 +301,6 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 			}
 		});
 		
-		
-
-		
 		mKernelKSM.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 
 			@Override
@@ -297,7 +320,24 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 			}
 		});
 
+		mKernelKSMTimer.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 
+			@Override
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				String cmd = null;
+				String value = null;
+				if (newValue.toString().equals("true")) {
+					cmd = "echo 1 > "+KSM_DEFERRED_TIMER;
+					value = "1";
+				} else {
+					cmd = "echo 0 > "+KSM_DEFERRED_TIMER;
+					value = "0";
+				}
+				CMDProcessor.runSuCommand(cmd);
+				updateDb(preference, value, ((CustomCheckBoxPreference) preference).isBootChecked());
+				return true;
+			}
+		});
 
 		mKernelFcharge.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 
@@ -371,6 +411,18 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 			}
 		}
 		
+		if(!new File(KSM_DEFERRED_TIMER).exists()) {
+			mKernelCategory.removePreference(mKernelKSMTimer);
+		} else {
+			String dtState = Helpers.getFileContent(new File(KSM_DEFERRED_TIMER));
+			if(dtState.equals("1")) {
+				mKernelKSMTimer.setChecked(true);
+				mKernelKSMTimer.setValue("1");
+			}else if(dtState.equals("0")) {
+				mKernelKSMTimer.setChecked(false);
+				mKernelKSMTimer.setValue("0");
+			}
+		}
 
 		if(!new File(S2W_SLEEPONLY_FILE).exists()) {
 			mKernelCategory.removePreference(mSweep2sleep);
@@ -419,11 +471,10 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		if(f4.exists()) {
 			createPreference(mKernelCategory,f4, color, true);
 		}
-		if(new File(VIBRATION_FILE).exists()){
-			mVibration.setSummary(Helpers.getFileContent(new File(VIBRATION_FILE)));
-		}else {
-			mKernelCategory.removePreference(mVibration);
-		}
+		
+		mVibration.setSummary(Helpers.getFileContent(new File(VIBRATION_FILE)));
+		mKernelKSMPages.setSummary(Helpers.getFileContent(new File(KSM_PAGESTOSCAN_PATH)));
+		mKernelKSMSleep.setSummary(Helpers.getFileContent(new File(KSM_SLEEP_PATH)));
 
 		if(mSoundCategory.getPreferenceCount() == 1) {
 			mRootScreen.removePreference(mSoundCategory);
@@ -501,6 +552,62 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 			ft.commit();
 		}
 		if(pref == mVibration) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+			LayoutInflater inflater = getActivity().getLayoutInflater();
+			View v = inflater.inflate(R.layout.dialog_layout, null, false);
+			final EditText et = (EditText) v.findViewById(R.id.et);
+			String val = pref.getSummary().toString();
+			et.setText(val);
+			et.setRawInputType(InputType.TYPE_CLASS_NUMBER);
+			et.setGravity(Gravity.CENTER_HORIZONTAL);
+			List<DataItem> items = db.getAllItems();
+			builder.setView(v);
+			builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					// TODO Auto-generated method stub
+					String value = et.getText().toString();
+					pref.setSummary(value);
+					CMDProcessor.runSuCommand("echo \""+value+"\" > "+pref.getKey());
+					updateDb(pref, value, ((CustomPreference) pref).isBootChecked());
+				}
+			} );
+			AlertDialog dialog = builder.create();
+			dialog.show();
+			dialog.getWindow().getAttributes().windowAnimations = R.style.dialog_animation;
+			Window window = dialog.getWindow();
+			window.setLayout(800, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+		}
+		if(pref == mKernelKSMPages) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+			LayoutInflater inflater = getActivity().getLayoutInflater();
+			View v = inflater.inflate(R.layout.dialog_layout, null, false);
+			final EditText et = (EditText) v.findViewById(R.id.et);
+			String val = pref.getSummary().toString();
+			et.setText(val);
+			et.setRawInputType(InputType.TYPE_CLASS_NUMBER);
+			et.setGravity(Gravity.CENTER_HORIZONTAL);
+			List<DataItem> items = db.getAllItems();
+			builder.setView(v);
+			builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					// TODO Auto-generated method stub
+					String value = et.getText().toString();
+					pref.setSummary(value);
+					CMDProcessor.runSuCommand("echo \""+value+"\" > "+pref.getKey());
+					updateDb(pref, value, ((CustomPreference) pref).isBootChecked());
+				}
+			} );
+			AlertDialog dialog = builder.create();
+			dialog.show();
+			dialog.getWindow().getAttributes().windowAnimations = R.style.dialog_animation;
+			Window window = dialog.getWindow();
+			window.setLayout(800, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+		}
+		if(pref == mKernelKSMSleep) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
 			LayoutInflater inflater = getActivity().getLayoutInflater();
 			View v = inflater.inflate(R.layout.dialog_layout, null, false);

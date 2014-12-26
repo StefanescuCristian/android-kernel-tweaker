@@ -38,14 +38,30 @@
             android:key="key_s2ws_switch"
             android:summary="If enabled, you will be able to only turn off the screen by swiping on navigation bar"
             android:title="Sweep 2 Sleep " />
-                <com.dsht.kerneltweaker.CustomCheckBoxPreference
-            android:key="key_ksm_switch"
-            android:summary="Kernel Samepage Merge"
-            android:title="KSM" />
         <com.dsht.kerneltweaker.CustomPreference
             android:key="key_vibration"
             android:summary=""
             android:title="Vibration Intensity" />
+        </PreferenceCategory>
+        <PreferenceCategory
+            android:key="key_ksm_category"
+        	android:title="KSM" >>
+        <com.dsht.kerneltweaker.CustomCheckBoxPreference
+            android:key="key_ksm_switch"
+            android:summary="Enable Kernel Samepage Merging"
+            android:title="Enable" />
+        <com.dsht.kerneltweaker.CustomCheckBoxPreference
+            android:key="key_ksm_timer"
+            android:summary="Turn off KSM scanning when the screen is off"
+            android:title="Deferred timer" />
+        <com.dsht.kerneltweaker.CustomPreference
+            android:key="key_ksm_pages"
+            android:summary=""
+            android:title="KSM pages to scan" />
+        <com.dsht.kerneltweaker.CustomPreference
+            android:key="key_ksm_sleep"
+            android:summary=""
+            android:title="KSM sleep ms" />
     </PreferenceCategory>
     <PreferenceCategory
         android:key="key_sound_category"
