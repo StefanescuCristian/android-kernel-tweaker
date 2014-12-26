@@ -28,7 +28,6 @@ import com.dsht.kerneltweaker.fragments.LowMemoryKillerFragment;
 import com.dsht.kerneltweaker.fragments.PropModder;
 import com.dsht.kerneltweaker.fragments.ReviewBootPreferenceFragment;
 import com.dsht.kerneltweaker.fragments.UvPreferenceFragment;
-import com.dsht.kerneltweaker.fragments.WallpaperEffectsFragment;
 import com.dsht.open.CPUInfo;
 import com.dsht.open.TimeInState;
 import com.dsht.open.VM;
@@ -99,7 +98,6 @@ public class MainActivity extends FragmentActivity implements OnItemClickListene
 		0,
 		R.drawable.doc,
 		R.drawable.magic_wand,
-		R.drawable.eye,
 		0,
 		R.drawable.settings_one,
 		R.drawable.info
@@ -273,15 +271,11 @@ public class MainActivity extends FragmentActivity implements OnItemClickListene
 			f = new InitD();
 			glo = new CpuGlossaryFragment();
 			break;
-		case 20:
-			f = new WallpaperEffectsFragment();
-			glo = new CpuGlossaryFragment();
-			break;
-		case 22:
+		case 21:
 			f = new SettingsFragment();
 			glo = new CpuGlossaryFragment();
 			break;
-		case 23:
+		case 22:
 			f = new infos();
 			glo = new CpuGlossaryFragment();
 			//showCredits();
