@@ -42,7 +42,6 @@ import android.widget.EditText;
 public class KernelPreferenceFragment extends PreferenceFragment implements OnPreferenceChangeListener, OnPreferenceClickListener {
 
 	private CustomCheckBoxPreference mKernelFsync;
-
 	private CustomCheckBoxPreference mKernelKSM;
 	private CustomCheckBoxPreference mKernelFcharge;
 	private CustomCheckBoxPreference mDoubleTap;
@@ -75,7 +74,7 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 	private static final String TCP_CURRENT = "sysctl net.ipv4.tcp_congestion_control";
 	private static final String DT2W_FILE = "/sys/android_touch/doubletap2wake";
 	private static final String S2W_FILE = "/sys/android_touch/sweep2wake";
-	private static final String S2W_SLEEPONLY_FILE = "/sys/android_touch/s2w_s2sonly";
+	private static final String S2W_SLEEPONLY_FILE = "/sys/android_touch/sweep2sleep";
 	private static final String VIBRATION_FILE = "/sys/class/timed_output/vibrator/amp";
 	private static final String KSM_RUN_PATH = "/sys/kernel/mm/ksm/run";
 	
@@ -94,7 +93,6 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		}
 		
 		Helpers.setPermissions(DT2W_FILE);
-		
 		Helpers.setPermissions(FCHARGE_FILE);
 		Helpers.setPermissions(FSYNC_FILE);
 		Helpers.setPermissions(HEADSET_BOOST_FILE);
