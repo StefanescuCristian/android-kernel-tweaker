@@ -58,6 +58,10 @@
             android:key="key_f2s_switch"
             android:summary="If enabled, you will be able to only turn off the screen by swiping on navigation bar"
             android:title="Flick 2 Sleep " />
+                <com.dsht.kerneltweaker.CustomCheckBoxPreference
+            android:key="key_ksm_switch"
+            android:summary="Kernel Samepage Merge"
+            android:title="KSM" />
         <com.dsht.kerneltweaker.CustomPreference
             android:key="key_vibration"
             android:summary=""

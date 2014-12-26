@@ -45,6 +45,7 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 	private CustomCheckBoxPreference mKernelDynFsync;
 	private CustomCheckBoxPreference mKernelF2s;
 	private CustomCheckBoxPreference mKernelF2w;
+	private CustomCheckBoxPreference mKernelKSM;
 	private CustomCheckBoxPreference mKernelFcharge;
 	private CustomCheckBoxPreference mDoubleTap;
 	private CustomCheckBoxPreference mSweep2wake;
@@ -62,6 +63,7 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 	private Context mContext; 
 	private PreferenceScreen mRootScreen;
 	private PreferenceCategory mSchedCategory;
+
 	private static final String FSYNC_FILE = "/sys/module/sync/parameters/fsync_enabled";
 	private static final String SCHEDULER_FILE = "/sys/block/mmcblk0/queue/scheduler";
 	private static final String READ_AHEAD_FILE = "/sys/block/mmcblk0/queue/read_ahead_kb";
@@ -86,6 +88,7 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 	private static final String VIBRATION_FILE = "/sys/class/timed_output/vibrator/amp";
 	private static final String F2S_FILE = "sys/devices/virtual/htc_g_sensor/g_sensor/flick2sleep";
 	private static final String F2W_FILE = "sys/devices/virtual/htc_g_sensor/g_sensor/flick2wake";
+	private static final String KSM_RUN_PATH = "/sys/kernel/mm/ksm/run";
 	
 	
 	private String color;
@@ -122,6 +125,7 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		Helpers.setPermissions(TCP_OPTIONS);
 		Helpers.setPermissions(F2S_FILE);
 		Helpers.setPermissions(F2W_FILE);
+		Helpers.setPermissions(KSM_RUN_PATH);
 		
 
 		mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
@@ -131,6 +135,7 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mKernelDynFsync = (CustomCheckBoxPreference) findPreference("key_dynfsync_switch");
 		mKernelF2s = (CustomCheckBoxPreference) findPreference("key_f2s_switch");
 		mKernelF2w = (CustomCheckBoxPreference) findPreference("key_f2w_switch");
+		mKernelKSM = (CustomCheckBoxPreference) findPreference("key_ksm_switch");
 		mKernelFcharge = (CustomCheckBoxPreference) findPreference("key_fcharge_switch");
 		mCpuScheduler = (CustomListPreference) findPreference("key_cpu_sched");
 		mAdvancedScheduler = (CustomPreference) findPreference("key_advanced_scheduler");
@@ -159,6 +164,7 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mVibration.setKey(VIBRATION_FILE);
 		mKernelF2s.setKey(F2S_FILE);
 		mKernelF2w.setKey(F2W_FILE);
+		mKernelKSM.setKey(KSM_RUN_PATH);
 
 		mCpuScheduler.setKey(SCHEDULER_FILE);
 		mCpuReadAhead.setKey(READ_AHEAD_FILE);
@@ -176,6 +182,7 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mVibration.setCategory(category);
 		mKernelF2s.setCategory(category);
 		mKernelF2w.setCategory(category);
+		mKernelKSM.setCategory(category);
 
 		String[] schedulers = Helpers.getAvailableSchedulers();
 		String[] readAheadKb = {"128","256","384","512","640","768","896","1024","1152",
@@ -213,7 +220,8 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mVibration.setTitleColor(color);
 		mKernelF2s.setTitleColor(color);
 		mKernelF2w.setTitleColor(color);
-
+		mKernelKSM.setTitleColor(color);
+		
 		mCpuScheduler.setEntries(schedulers);
 		mCpuScheduler.setEntryValues(schedulers);
 		mCpuReadAhead.setEntries(readAheadKb);
@@ -354,6 +362,25 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 					value = "1";
 				} else {
 					cmd = "echo 0 > "+F2W_FILE;
+					value = "0";
+				}
+				CMDProcessor.runSuCommand(cmd);
+				updateDb(preference, value, ((CustomCheckBoxPreference) preference).isBootChecked());
+				return true;
+			}
+		});
+		
+		mKernelKSM.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+
+			@Override
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				String cmd = null;
+				String value = null;
+				if (newValue.toString().equals("true")) {
+					cmd = "echo 1 > "+KSM_RUN_PATH;
+					value = "1";
+				} else {
+					cmd = "echo 0 > "+KSM_RUN_PATH;
 					value = "0";
 				}
 				CMDProcessor.runSuCommand(cmd);
