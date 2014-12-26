@@ -67,7 +67,6 @@ public class GpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		mGpuFrequency = (CustomListPreference) findPreference("key_gpu_frequency");
 		mRoot = (PreferenceScreen) findPreference("key_root");
 		mGpuFrequency.setOnPreferenceChangeListener(this);
-		//mGpuFrequency.setSummary(mPrefs.getString(mGpuFrequency.getKey(), "Set GPU maximum frequency"));
 		color = "";
 		if(MainActivity.mPrefs.getBoolean(SettingsFragment.KEY_ENABLE_GLOBAL, false)) {
 			int col = MainActivity.mPrefs.getInt(SettingsFragment.KEY_GLOBAL_COLOR, Color.parseColor("#FFFFFF"));
@@ -83,25 +82,15 @@ public class GpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		mGpuFrequency.setCategory(category);
 		mGpuFrequency.setKey(GPU_MAX_FREQ_FILE);
 		
-		if(new File(GPU_FOLDER).exists()) {
-			addPreferences();
-			String gpuFrequencies = Helpers.getFileContent(new File(GPU_FREQUENCIES_FILE));
-			String[] frequencies = gpuFrequencies.split(" ");
-			String[] gpuNames = Helpers.getFreqToMhz(GPU_FREQUENCIES_FILE);
-			mGpuFrequency.setEntries(gpuNames);
-			mGpuFrequency.setEntryValues(frequencies);
-			mGpuFrequency.setSummary(Helpers.getFileContent(new File(GPU_MAX_FREQ_FILE)));
-			mGpuFrequency.setValue(Helpers.getFileContent(new File(GPU_MAX_FREQ_FILE)));
-		} else {
-			mCategory.removePreference(mGpuFrequency);
-			CustomPreference pref = new CustomPreference(mContext, true, category);
-			pref.setTitle("No Tweakable Values");
-			pref.setSummary("This kernel doesn\'t support GPU Tweaks");
-			pref.setTitleColor("#ff4444");
-			pref.setSummaryColor("#ff4444");
-			pref.excludeFromDialog(true);
-			mCategory.addPreference(pref);
-		}
+		//my kernel supports this, remove the check
+		addPreferences();
+		String gpuFrequencies = Helpers.getFileContent(new File(GPU_FREQUENCIES_FILE));
+		String[] frequencies = gpuFrequencies.split(" ");
+		String[] gpuNames = Helpers.getFreqToMhz(GPU_FREQUENCIES_FILE);
+		mGpuFrequency.setEntries(gpuNames);
+		mGpuFrequency.setEntryValues(frequencies);
+		mGpuFrequency.setSummary(Helpers.getFileContent(new File(GPU_MAX_FREQ_FILE)));
+		mGpuFrequency.setValue(Helpers.getFileContent(new File(GPU_MAX_FREQ_FILE)));
 		
 		setRetainInstance(true);
 
@@ -131,24 +120,12 @@ public class GpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		return false;
 	}
 
-
+//remove unnecessary checks
 	private void addPreferences() {
-		File f = new File("/sys/module/msm_kgsl_core/parameters/down_threshold");
-		File f2 = new File("/sys/module/msm_kgsl_core/parameters/sample_time_ms");
-		File f3 = new File("/sys/module/msm_kgsl_core/parameters/up_threshold");
-		File f4 = new File("/sys/module/msm_kgsl_core/parameters/simple_laziness");
-		File f5 = new File("/sys/module/msm_kgsl_core/parameters/simple_ramp_threshold");
-		if(f.exists())
-			createPreference(f, color);
-		if(f2.exists())
-			createPreference(f2, color);
-		if(f3.exists())
-			createPreference(f3, color);
-		if(f4.exists())
-			createPreference(f4, color);
-		if(f5.exists())
-			createPreference(f5, color);
-
+		File f = new File("/sys/module/msm_kgsl_core/parameters/simple_laziness");
+		File f1 = new File("/sys/module/msm_kgsl_core/parameters/simple_ramp_threshold");
+		createPreference(f, color);
+		createPreference(f1, color);
 	}
 
 	private void createPreference(File file, String color) {
