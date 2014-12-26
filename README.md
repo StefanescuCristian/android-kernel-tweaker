@@ -1,9 +1,10 @@
 Kernel Tweaker
 ==============
 
-A simple app for root users to manage CPU parameters and other stuff.
+A simple app for root users to manage CPU parameters and other stuff, modified for [big-bum kernel] (https://github.com/StefanescuCristian/hammerhead).
+More tunables will come soon.
 
-* **[Play Store link] (https://play.google.com/store/apps/details?id=com.dsht.kerneltweaker)**
+* Download the original work of @cesco89 on **[Play Store] (https://play.google.com/store/apps/details?id=com.dsht.kerneltweaker)**
 
 ---
 
