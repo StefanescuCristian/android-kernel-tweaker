@@ -397,7 +397,7 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		}
 		
 		String ksmdState = Helpers.getFileContent(new File(KSM_DEFERRED_TIMER));
-		if(dtState.equals("1")) {
+		if(ksmdState.equals("1")) {
 			mKernelKSMTimer.setChecked(true);
 			mKernelKSMTimer.setValue("1");
 		}else if(ksmdState.equals("0")) {
