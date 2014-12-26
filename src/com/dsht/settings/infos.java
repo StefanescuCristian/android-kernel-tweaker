@@ -15,18 +15,14 @@ public class infos extends PreferenceFragment implements OnPreferenceClickListen
 
 	private String KEY_DSHT = "key_dsht";
 	private String KEY_CESCO = "key_cesco";
+	private String KEY_BIG_BUM = "key_big-bum";
 	private String KEY_SOLLYX = "key_sollyx";
-	private String KEY_AOKP = "key_aokp";
-	private String KEY_OMNI = "key_omni";
-	private String KEY_DU = "key_du";
 	private String KEY_SLIDINGMENU = "key_slidingmenu";
 
 	private Preference mDsht, 
-	mCesco, 
+	mCesco,
+	mBig_Bum,
 	mSollyx,
-	mAokp,
-	mOmni,
-	mDu,
 	mSlidingMenu;
 
 	@Override
@@ -36,10 +32,8 @@ public class infos extends PreferenceFragment implements OnPreferenceClickListen
 
 		mDsht = findPreference(KEY_DSHT);
 		mCesco = findPreference(KEY_CESCO);
+		mBig_Bum = findPreference(KEY_BIG_BUM);
 		mSollyx = findPreference(KEY_SOLLYX);
-		mAokp = findPreference(KEY_AOKP);
-		mOmni = findPreference(KEY_OMNI);
-		mDu = findPreference(KEY_DU);
 		mSlidingMenu = findPreference(KEY_SLIDINGMENU);
 
 		PackageInfo pInfo = null;
@@ -57,52 +51,21 @@ public class infos extends PreferenceFragment implements OnPreferenceClickListen
 
 		mCesco.setIcon(R.drawable.cesco);
 		mSollyx.setIcon(R.drawable.sollyx_google);
-
-		/*	
-	    mAokp.setIcon(R.drawable.aokp);
-		mOmni.setIcon(R.drawable.omni);
-		mDu.setIcon(R.drawable.du); 
-		*/
+		mBig_Bum.setIcon(R.drawable.big_bum);
 
 		mSlidingMenu.setIcon(R.drawable.github);
 
 		mDsht.setOnPreferenceClickListener(this);
 		mCesco.setOnPreferenceClickListener(this);
 		mSollyx.setOnPreferenceClickListener(this);
-		//mAokp.setOnPreferenceClickListener(this);
-		//mOmni.setOnPreferenceClickListener(this);
-		//mDu.setOnPreferenceClickListener(this);
+		mBig_Bum.setOnPreferenceClickListener(this);
 		mSlidingMenu.setOnPreferenceClickListener(this);
 
 		if(MainActivity.menu.isMenuShowing()) {
 			MainActivity.menu.toggle(true);
 		}
 	}
-/*
- *
- * WIP: First start wizard
- *
- *
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		super.onCreateView(inflater, container, savedInstanceState);
-		View v = inflater.inflate(R.layout.layout_list, container,false);
-		ListView listView = (ListView) v.findViewById(android.R.id.list);
-		View header = inflater.inflate(R.layout.header, null, false);
-		listView.addHeaderView(header);
-		ImageView logo = (ImageView) header.findViewById(R.id.imageView1);
-		logo.setOnClickListener(new OnClickListener() {
 
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				getActivity().startActivity(new Intent(getActivity(), WizardActivity.class));
-			}
-			
-		});
-		return v;
-	}
- */
 
 	@Override
 	public boolean onPreferenceClick(Preference pref) {
@@ -117,17 +80,10 @@ public class infos extends PreferenceFragment implements OnPreferenceClickListen
 		if(pref == mSollyx) {
 			url = "https://plus.google.com/u/0/116757450567339042397/posts";
 		}
-		/*
-		if(pref == mAokp) {
-			url = "https://github.com/AOKP";
+		if(pref == mBig_Bum) {
+			url = "https://plus.google.com/+Cristian%C8%98tef%C4%83nescu/posts";
 		}
-		if(pref == mOmni) {
-			url = "https://github.com/omnirom/";
-		}
-		if(pref == mDu) {
-			url = "https://github.com/DirtyUnicorns-KitKat/";
-		}
-		*/
+		
 		if(pref == mSlidingMenu) {
 			url = "https://github.com/jfeinstein10/slidingmenu";
 		}

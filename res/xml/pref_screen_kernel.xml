@@ -26,6 +26,16 @@
             android:key="key_fcharge_switch"
             android:summary="If enabled, device will charge faster when connected through USB"
             android:title="Fast Charge" />
+            
+        <com.dsht.kerneltweaker.CustomPreference
+            android:key="key_vibration"
+            android:summary=""
+            android:title="Vibration Intensity" />
+    </PreferenceCategory>
+    
+    <PreferenceCategory 
+        android:key="key_wake_category"
+        android:title="Wake tweaks" >
         <com.dsht.kerneltweaker.CustomCheckBoxPreference
             android:key="key_dt2w_switch"
             android:summary="If enabled, you will be able to wake your device with a double tap on the screen"
@@ -38,12 +48,9 @@
             android:key="key_s2ws_switch"
             android:summary="If enabled, you will be able to only turn off the screen by swiping on navigation bar"
             android:title="Sweep 2 Sleep " />
-        <com.dsht.kerneltweaker.CustomPreference
-            android:key="key_vibration"
-            android:summary=""
-            android:title="Vibration Intensity" />
-        </PreferenceCategory>
-        <PreferenceCategory
+    </PreferenceCategory>
+
+    <PreferenceCategory
             android:key="key_ksm_category"
         	android:title="KSM" >>
         <com.dsht.kerneltweaker.CustomCheckBoxPreference

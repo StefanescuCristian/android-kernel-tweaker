@@ -24,6 +24,9 @@
             android:key="key_sollyx"
             android:summary="Graphics"
             android:title="Enrico Solazzo" />
+        <Preference
+            android:key="key_big-bum"
+            android:title="Cristian Ștefănescu" android:summary="Android fanboy"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="Open Source Projects" >
         <Preference android:summary="Some classes and xmls are based on the open source projects listed below." />

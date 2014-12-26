@@ -56,6 +56,7 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 	private CustomListPreference mCpuReadAhead;
 	private PreferenceCategory mSoundCategory;
 	private PreferenceCategory mKSMCategory;
+	private PreferenceCategory mWakeCategory;
 	private CustomPreference mSoundInfo;
 	private SharedPreferences mPrefs;
 	private PreferenceCategory mKernelCategory;
@@ -124,6 +125,7 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
 		mSoundCategory = (PreferenceCategory) findPreference("key_sound_category");
 		mKSMCategory = (PreferenceCategory) findPreference("key_ksm_category");
+		mWakeCategory = (PreferenceCategory) findPreference("key_wake_category");
 		mSchedCategory = (PreferenceCategory) findPreference("key_sched_cat");
 		mKernelFsync = (CustomCheckBoxPreference) findPreference("key_fsync_switch");
 		mKernelKSM = (CustomCheckBoxPreference) findPreference("key_ksm_switch");
