@@ -358,128 +358,87 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 				return true;
 			}
 		});
-
-		if(!new File(FSYNC_FILE).exists()) {
-			mKernelCategory.removePreference(mKernelFsync);
-		} else {
-			String fsyncState = Helpers.getFileContent(new File(FSYNC_FILE));
-			if(fsyncState.equals("Y")) {
-				mKernelFsync.setChecked(true);
-				mKernelFsync.setValue("Y");
-			}else if(fsyncState.equals("N")) {
-				mKernelFsync.setChecked(false);
-				mKernelFsync.setValue("N");
-			}
-		}
-
-		if(!new File(DT2W_FILE).exists()) {
-			mKernelCategory.removePreference(mDoubleTap);
-		} else {
-			String dtState = Helpers.getFileContent(new File(DT2W_FILE));
-			if(dtState.equals("1")) {
-				mDoubleTap.setChecked(true);
-				mDoubleTap.setValue("1");
-			}else if(dtState.equals("0")) {
-				mDoubleTap.setChecked(false);
-				mDoubleTap.setValue("0");
-			}
-		}
-
-		if(!new File(S2W_FILE).exists()) {
-			mKernelCategory.removePreference(mSweep2wake);
-		} else {
-			String s2wState = Helpers.getFileContent(new File(S2W_FILE));
-			if(s2wState.equals("1")) {
-				mSweep2wake.setChecked(true);
-				mSweep2wake.setValue("1");
-			}else if(s2wState.equals("0")) {
-				mSweep2wake.setChecked(false);
-				mSweep2wake.setValue("0");
-			}
-		}
-
+//remove not needed checks
 		
-		if(!new File(KSM_RUN_PATH).exists()) {
-			mKernelCategory.removePreference(mKernelKSM);
-		} else {
-			String dtState = Helpers.getFileContent(new File(KSM_RUN_PATH));
-			if(dtState.equals("1")) {
-				mKernelKSM.setChecked(true);
-				mKernelKSM.setValue("1");
-			}else if(dtState.equals("0")) {
-				mKernelKSM.setChecked(false);
-				mKernelKSM.setValue("0");
-			}
+		String fsyncState = Helpers.getFileContent(new File(FSYNC_FILE));
+		if(fsyncState.equals("Y")) {
+			mKernelFsync.setChecked(true);
+			mKernelFsync.setValue("Y");
+		}else if(fsyncState.equals("N")) {
+			mKernelFsync.setChecked(false);
+			mKernelFsync.setValue("N");
 		}
 		
-		if(!new File(KSM_DEFERRED_TIMER).exists()) {
-			mKernelCategory.removePreference(mKernelKSMTimer);
-		} else {
-			String dtState = Helpers.getFileContent(new File(KSM_DEFERRED_TIMER));
-			if(dtState.equals("1")) {
-				mKernelKSMTimer.setChecked(true);
-				mKernelKSMTimer.setValue("1");
-			}else if(dtState.equals("0")) {
-				mKernelKSMTimer.setChecked(false);
-				mKernelKSMTimer.setValue("0");
-			}
-		}
-
-		if(!new File(S2W_SLEEPONLY_FILE).exists()) {
-			mKernelCategory.removePreference(mSweep2sleep);
-		} else {
-			String s2wsState = Helpers.getFileContent(new File(S2W_SLEEPONLY_FILE));
-			if(s2wsState.equals("1")) {
-				mSweep2sleep.setChecked(true);
-				mSweep2sleep.setValue("1");
-			}else if(s2wsState.equals("0")) {
-				mSweep2sleep.setChecked(false);
-				mSweep2sleep.setValue("0");
-			}
-		}
-
-		if(!new File(FCHARGE_FILE).exists()) {
-			mKernelCategory.removePreference(mKernelFcharge);
-		} else {
-			String fchargeState = Helpers.getFileContent(new File(FCHARGE_FILE));
-			if(fchargeState.equals("0")) {
-				mKernelFcharge.setChecked(false);
-				mKernelFcharge.setValue("0");
-			} else if(fchargeState.equals("1")) {
-				mKernelFcharge.setChecked(true);
-				mKernelFcharge.setValue("1");
-			}
+		String dtState = Helpers.getFileContent(new File(DT2W_FILE));
+		if(dtState.equals("1")) {
+			mDoubleTap.setChecked(true);
+			mDoubleTap.setValue("1");
+		}else if(dtState.equals("0")) {
+			mDoubleTap.setChecked(false);
+			mDoubleTap.setValue("0");
 		}
 
 
-		if(mKernelCategory.getPreferenceCount() == 0) {
-			mRootScreen.removePreference(mKernelCategory);
+		String s2wState = Helpers.getFileContent(new File(S2W_FILE));
+		if(s2wState.equals("1")) {
+			mSweep2wake.setChecked(true);
+			mSweep2wake.setValue("1");
+		}else if(s2wState.equals("0")) {
+			mSweep2wake.setChecked(false);
+			mSweep2wake.setValue("0");
+		}
+
+
+		String ksmState = Helpers.getFileContent(new File(KSM_RUN_PATH));
+		if(ksmState.equals("1")) {
+			mKernelKSM.setChecked(true);
+			mKernelKSM.setValue("1");
+		}else if(ksmState.equals("0")) {
+			mKernelKSM.setChecked(false);
+			mKernelKSM.setValue("0");
+		}
+		
+		String ksmdState = Helpers.getFileContent(new File(KSM_DEFERRED_TIMER));
+		if(dtState.equals("1")) {
+			mKernelKSMTimer.setChecked(true);
+			mKernelKSMTimer.setValue("1");
+		}else if(ksmdState.equals("0")) {
+			mKernelKSMTimer.setChecked(false);
+			mKernelKSMTimer.setValue("0");
+		}
+
+		String s2wsState = Helpers.getFileContent(new File(S2W_SLEEPONLY_FILE));
+		if(s2wsState.equals("1")) {
+			mSweep2sleep.setChecked(true);
+			mSweep2sleep.setValue("1");
+		}else if(s2wsState.equals("0")) {
+			mSweep2sleep.setChecked(false);
+			mSweep2sleep.setValue("0");
+		}
+
+		String fchargeState = Helpers.getFileContent(new File(FCHARGE_FILE));
+		if(fchargeState.equals("0")) {
+			mKernelFcharge.setChecked(false);
+			mKernelFcharge.setValue("0");
+		} else if(fchargeState.equals("1")) {
+			mKernelFcharge.setChecked(true);
+			mKernelFcharge.setValue("1");
 		}
 
 		File f = new File(HEADSET_BOOST_FILE);
 		File f1 = new File(MIC_BOOST_FILE);
 		File f2 = new File(SPEAKER_BOOST_FILE);
 		File f3 = new File(VOLUME_BOOST_FILE);
-		File f4 = new File(TEMP_FILE);
-		if(f.exists())
-			createPreference(mSoundCategory,f, color, true);
-		if(f1.exists())
-			createPreference(mSoundCategory,f1, color, true);
-		if(f2.exists())
-			createPreference(mSoundCategory,f2, color, true);
-		if(f3.exists())
-			createPreference(mSoundCategory,f3, color, true);
-		if(f4.exists()) {
-			createPreference(mKernelCategory,f4, color, true);
-		}
+		
+		createPreference(mSoundCategory,f, color, true);
+		createPreference(mSoundCategory,f1, color, true);
+		createPreference(mSoundCategory,f2, color, true);
+		createPreference(mSoundCategory,f3, color, true);
+
 		
 		mVibration.setSummary(Helpers.getFileContent(new File(VIBRATION_FILE)));
 		mKernelKSMPages.setSummary(Helpers.getFileContent(new File(KSM_PAGESTOSCAN_PATH)));
 		mKernelKSMSleep.setSummary(Helpers.getFileContent(new File(KSM_SLEEP_PATH)));
-
-		if(mSoundCategory.getPreferenceCount() == 1) {
-			mRootScreen.removePreference(mSoundCategory);
-		}
 
 		if(RootTools.isBusyboxAvailable()) {
 			String[] availTCP = Helpers.readCommandStrdOut(TCP_OPTIONS, false).replaceAll("net.ipv4.tcp_available_congestion_control = ", "").replaceAll("\n", "").split(" ");
