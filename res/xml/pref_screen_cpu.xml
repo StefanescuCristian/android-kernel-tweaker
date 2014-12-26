@@ -11,6 +11,9 @@
         <com.dsht.kerneltweaker.CustomListPreference
             android:key="key_cpu_governor"
             android:title="@string/cpu_governor" />
+        <com.dsht.kerneltweaker.CustomPreference
+            android:key="key_cpu_temp"
+            android:title="CPU Throttle Temp"/>
     </PreferenceCategory>
     <PreferenceCategory 
         android:key="key_advanced"

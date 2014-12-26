@@ -44,11 +44,13 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 	private CustomListPreference mCpuMinFreq;
 	private CustomListPreference mCpuGovernor;
 	private CustomPreference mAdvancedGovernor;
+	private CustomPreference mCpuTemp;
 	private PreferenceCategory mAdvancedCategory;
 	private PreferenceScreen mRoot;
 	private static final String MAX_FREQ_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq";
 	private static final String GOVERNOR_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor";
 	private static final String MIN_FREQ_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq";
+	private static final String TEMP_FILE = "/sys/module/msm_thermal/parameters/temp_threshold";
 	private static final String category = "cpu";
 	private DatabaseHandler db = MainActivity.db;
 
@@ -66,12 +68,15 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		Helpers.setPermissions(MAX_FREQ_FILE);
 		Helpers.setPermissions(MIN_FREQ_FILE);
 		Helpers.setPermissions(GOVERNOR_FILE);
+		Helpers.setPermissions(TEMP_FILE);
+
 
 		mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
 		mRoot = (PreferenceScreen) findPreference("key_root");
 		mCpuMaxFreq = (CustomListPreference) findPreference("key_cpu_max");
 		mCpuMinFreq = (CustomListPreference) findPreference("key_cpu_min");
 		mCpuGovernor = (CustomListPreference) findPreference("key_cpu_governor");
+		mCpuTemp = (CustomPreference) findPreference("key_cpu_temp");
 		mAdvancedGovernor = (CustomPreference) findPreference("key_advanced_governor");
 		mAdvancedCategory = (PreferenceCategory) findPreference("key_advanced");
 		mAdvancedGovernor.setOnPreferenceClickListener(this);
@@ -93,15 +98,18 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		mCpuMinFreq.setTitleColor(color);
 		mCpuGovernor.setTitleColor(color);
 		mAdvancedGovernor.setTitleColor(color);
+		mCpuTemp.setTitleColor(color);
 
 		mCpuMaxFreq.setCategory(category);
 		mCpuMinFreq.setCategory(category);
 		mCpuGovernor.setCategory(category);
+		mCpuTemp.setCategory(category);
 
 		mCpuMaxFreq.setKey(MAX_FREQ_FILE);
 		mCpuMinFreq.setKey(MIN_FREQ_FILE);
 		mCpuGovernor.setKey(GOVERNOR_FILE);
-
+		mCpuTemp.setKey(TEMP_FILE);
+		
 		String[] frequencies = Helpers.getFrequencies();
 		String[] governors = Helpers.getGovernors();
 		String[] names = Helpers.getFrequenciesNames();
@@ -114,23 +122,20 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		mCpuGovernor.setEntryValues(governors);
 
 
-		if(new File(MAX_FREQ_FILE).exists()) {
-			mCpuMaxFreq.setSummary(Helpers.readOneLine(MAX_FREQ_FILE));
-			mCpuMaxFreq.setValue(mCpuMaxFreq.getSummary().toString());
-		}
-		if(new File(MIN_FREQ_FILE).exists()) {
-			mCpuMinFreq.setSummary(Helpers.readOneLine(MIN_FREQ_FILE));
-			mCpuMinFreq.setValue(mCpuMinFreq.getSummary().toString());
-		}
-		if(new File(GOVERNOR_FILE).exists()) {
-			Helpers.runRootCommand("chmod 655 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor");
-			mCpuGovernor.setSummary(Helpers.getCurrentGovernor());
-			mCpuGovernor.setValue(mCpuGovernor.getSummary().toString());
-		}
+		mCpuMaxFreq.setSummary(Helpers.readOneLine(MAX_FREQ_FILE));
+		mCpuMaxFreq.setValue(mCpuMaxFreq.getSummary().toString());
+
+		mCpuMinFreq.setSummary(Helpers.readOneLine(MIN_FREQ_FILE));
+		mCpuMinFreq.setValue(mCpuMinFreq.getSummary().toString());
+		Helpers.runRootCommand("chmod 655 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor");
+		mCpuGovernor.setSummary(Helpers.getCurrentGovernor());
+		mCpuGovernor.setValue(mCpuGovernor.getSummary().toString());
+		mCpuTemp.setSummary(Helpers.getFileContent(new File(TEMP_FILE)));
 
 		mCpuMaxFreq.setOnPreferenceChangeListener(this);
 		mCpuMinFreq.setOnPreferenceChangeListener(this);
 		mCpuGovernor.setOnPreferenceChangeListener(this);
+		mCpuTemp.setOnPreferenceClickListener(this);
 		mAdvancedGovernor.excludeFromDialog(true);
 
 		mAdvancedGovernor.hideBoot(true);
@@ -172,22 +177,50 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 			updateListDb(pref, value, ((CustomListPreference) pref).isBootChecked());
 
 		}
+
 		return false;
 	}
 
 	@Override
-	public boolean onPreferenceClick(Preference pref) {
+	public boolean onPreferenceClick(final Preference pref) {
 		// TODO Auto-generated method stub
-		Fragment f = null;
 		if(pref == mAdvancedGovernor) {
-			f = new CpuGovernorPreferenceFragment();
+			Fragment f = new CpuGovernorPreferenceFragment();
+			FragmentTransaction ft = getFragmentManager().beginTransaction();
+			// This adds the newly created Preference fragment to my main layout, shown below
+			ft.replace(R.id.activity_container,f);
+			// By hiding the main fragment, transparency isn't an issue
+			ft.addToBackStack("TAG");
+			ft.commit();
 		}
-		FragmentTransaction ft = getFragmentManager().beginTransaction();
-		// This adds the newly created Preference fragment to my main layout, shown below
-		ft.replace(R.id.activity_container,f);
-		// By hiding the main fragment, transparency isn't an issue
-		ft.addToBackStack("TAG");
-		ft.commit();
+		if(pref == mCpuTemp) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+			LayoutInflater inflater = getActivity().getLayoutInflater();
+			View v = inflater.inflate(R.layout.dialog_layout, null, false);
+			final EditText et = (EditText) v.findViewById(R.id.et);
+			String val = pref.getSummary().toString();
+			et.setText(val);
+			et.setRawInputType(InputType.TYPE_CLASS_NUMBER);
+			et.setGravity(Gravity.CENTER_HORIZONTAL);
+			List<DataItem> items = db.getAllItems();
+			builder.setView(v);
+			builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					// TODO Auto-generated method stub
+					String value = et.getText().toString();
+					pref.setSummary(value);
+					CMDProcessor.runSuCommand("echo \""+value+"\" > "+pref.getKey());
+					updateListDb(pref, value, ((CustomPreference) pref).isBootChecked());
+				}
+			} );
+			AlertDialog dialog = builder.create();
+			dialog.show();
+			dialog.getWindow().getAttributes().windowAnimations = R.style.dialog_animation;
+			Window window = dialog.getWindow();
+			window.setLayout(800, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+		}
 
 
 		return false;

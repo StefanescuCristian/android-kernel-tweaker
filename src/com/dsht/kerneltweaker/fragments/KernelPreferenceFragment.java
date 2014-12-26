@@ -67,7 +67,6 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 	private static final String SCHEDULER_FILE = "/sys/block/mmcblk0/queue/scheduler";
 	private static final String READ_AHEAD_FILE = "/sys/block/mmcblk0/queue/read_ahead_kb";
 	private static final String FCHARGE_FILE = "/sys/kernel/fast_charge/force_fast_charge";
-	private static final String TEMP_FILE = "/sys/module/msm_thermal/parameters/temp_threshold";
 
 	private static final String HEADSET_BOOST_FILE = "/sys/devices/virtual/misc/soundcontrol/headset_boost";
 	private static final String MIC_BOOST_FILE = "/sys/devices/virtual/misc/soundcontrol/mic_boost";
@@ -110,7 +109,6 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		Helpers.setPermissions(S2W_SLEEPONLY_FILE);
 		Helpers.setPermissions(SCHEDULER_FILE);
 		Helpers.setPermissions(SPEAKER_BOOST_FILE);
-		Helpers.setPermissions(TEMP_FILE);
 		Helpers.setPermissions(VIBRATION_FILE);
 		Helpers.setPermissions(VOLUME_BOOST_FILE);
 		Helpers.setPermissions(TCP_CURRENT);
