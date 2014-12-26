@@ -142,7 +142,8 @@ public class Utils {
                     .setView(aboutBodyView)
                     .setPositiveButton(R.string.about_ok,
                             new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int whichButton) {
+                                @Override
+								public void onClick(DialogInterface dialog, int whichButton) {
                                     dialog.dismiss();
                                 }
                             }

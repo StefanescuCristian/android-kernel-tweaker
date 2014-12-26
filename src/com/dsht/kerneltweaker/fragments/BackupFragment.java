@@ -1,11 +1,8 @@
 package com.dsht.kerneltweaker.fragments;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeoutException;
-
 import com.dsht.kerneltweaker.BackupBaseAdapter;
 import com.dsht.kerneltweaker.MainActivity;
 import com.dsht.kerneltweaker.R;
@@ -13,10 +10,6 @@ import com.dsht.kerneltweaker.SwipeDismissListViewTouchListener;
 import com.dsht.kerneltweaker.SwipeDismissListViewTouchListener.DismissCallbacks;
 import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
 import com.dsht.settings.SettingsFragment;
-import com.stericson.RootTools.RootTools;
-import com.stericson.RootTools.exceptions.RootDeniedException;
-import com.stericson.RootTools.execution.CommandCapture;
-
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.ProgressDialog;
@@ -79,8 +72,8 @@ public class BackupFragment extends Fragment implements OnClickListener, OnItemC
 		mRecovery = (TextView) v.findViewById(R.id.titlerecovery);
 		mBootImage = (ImageView) v.findViewById(R.id.image);
 		mRecoveryImage = (ImageView) v.findViewById(R.id.image2);
-		mSepar1 = (View) v.findViewById(R.id.view1);
-		mSepar2 = (View) v.findViewById(R.id.View2);
+		mSepar1 = v.findViewById(R.id.view1);
+		mSepar2 = v.findViewById(R.id.View2);
 		if(MainActivity.mPrefs.getBoolean(SettingsFragment.KEY_ENABLE_GLOBAL, false)) {
 			int color = MainActivity.mPrefs.getInt(SettingsFragment.KEY_GLOBAL_COLOR, Color.parseColor("#FFFFFF"));
 			mBoot.setTextColor(color);
@@ -114,6 +107,7 @@ public class BackupFragment extends Fragment implements OnClickListener, OnItemC
 				new SwipeDismissListViewTouchListener(
 						mList,
 						new DismissCallbacks() {
+							@Override
 							public void onDismiss(ListView listView, int[] reverseSortedPositions) {
 								for (int position : reverseSortedPositions) {
 									File f = listFiles.get(position);
@@ -164,9 +158,9 @@ public class BackupFragment extends Fragment implements OnClickListener, OnItemC
 	private void doBackup(final boolean boot) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
 		LinearLayout ll = new LinearLayout(mContext);
-		ll.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT));
+		ll.setLayoutParams(new LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT));
 		final EditText et = new EditText(mContext);
-		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		params.setMargins(40, 40, 40, 40);
 		params.gravity = Gravity.CENTER;
 		et.setLayoutParams(params);
@@ -190,7 +184,7 @@ public class BackupFragment extends Fragment implements OnClickListener, OnItemC
 		dialog.show();
 		dialog.getWindow().getAttributes().windowAnimations = R.style.dialog_animation;
 		Window window = dialog.getWindow();
-		window.setLayout(800, LayoutParams.WRAP_CONTENT);
+		window.setLayout(800, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 	}
 
 	public List<File> list(File[] files) {
@@ -223,7 +217,7 @@ public class BackupFragment extends Fragment implements OnClickListener, OnItemC
 		dialog.show();
 		dialog.getWindow().getAttributes().windowAnimations = R.style.dialog_animation;
 		Window window = dialog.getWindow();
-		window.setLayout(800, LayoutParams.WRAP_CONTENT);
+		window.setLayout(800, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 	}
 
 	public void installBoot(String bootPath) {

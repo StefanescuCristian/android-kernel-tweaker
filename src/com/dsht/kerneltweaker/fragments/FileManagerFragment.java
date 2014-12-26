@@ -1,18 +1,11 @@
 package com.dsht.kerneltweaker.fragments;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Arrays;
-import java.util.concurrent.TimeoutException;
-
 import com.dsht.kerneltweaker.FileBaseAdapter;
 import com.dsht.kerneltweaker.MainActivity;
 import com.dsht.kerneltweaker.R;
 import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
-import com.stericson.RootTools.RootTools;
-import com.stericson.RootTools.exceptions.RootDeniedException;
-import com.stericson.RootTools.execution.CommandCapture;
-
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -118,7 +111,7 @@ public class FileManagerFragment extends Fragment implements OnItemClickListener
 			dialog.show();
 			dialog.getWindow().getAttributes().windowAnimations = R.style.dialog_animation;
 			Window window = dialog.getWindow();
-			window.setLayout(800, LayoutParams.WRAP_CONTENT);
+			window.setLayout(800, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 			
 		}else if(filesList[position].getName().endsWith(".img")) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
@@ -142,7 +135,7 @@ public class FileManagerFragment extends Fragment implements OnItemClickListener
 			dialog.show();
 			dialog.getWindow().getAttributes().windowAnimations = R.style.dialog_animation;
 			Window window = dialog.getWindow();
-			window.setLayout(800, LayoutParams.WRAP_CONTENT);
+			window.setLayout(800, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		}
 	}
 	

@@ -16,7 +16,8 @@ public class ChildProcess {
             mStream = is;
             mBuffer = buf;
         }
-        public void run() {
+        @Override
+		public void run() {
             byte[] buf = new byte[PIPE_SIZE];
             try {
                 int len;
@@ -43,7 +44,8 @@ public class ChildProcess {
             mStream = os;
             mBuffer = buf;
         }
-        public void run() {
+        @Override
+		public void run() {
             int off = 0;
             byte[] buf = mBuffer.getBytes();
             try {

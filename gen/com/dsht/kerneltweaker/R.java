@@ -400,6 +400,7 @@ containing a value of this type.
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
 <tr><td><code>margin</code></td><td>0</td><td></td></tr>
 <tr><td><code>fullscreen</code></td><td>1</td><td></td></tr>
+<tr><td><code>none</code></td><td>2</td><td></td></tr>
 </table>
          */
         public static final int touchModeAbove=0x7f010006;
@@ -411,6 +412,7 @@ containing a value of this type.
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
 <tr><td><code>margin</code></td><td>0</td><td></td></tr>
 <tr><td><code>fullscreen</code></td><td>1</td><td></td></tr>
+<tr><td><code>none</code></td><td>2</td><td></td></tr>
 </table>
          */
         public static final int touchModeBehind=0x7f010007;
@@ -607,127 +609,128 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int view_pager_background_texture_light=0x7f02006c;
     }
     public static final class id {
-        public static final int TextView01=0x7f060030;
-        public static final int TextView02=0x7f06002f;
-        public static final int View2=0x7f06002c;
-        public static final int accordion=0x7f060010;
-        public static final int action_add=0x7f060071;
-        public static final int action_boot=0x7f060072;
-        public static final int action_delete=0x7f060070;
-        public static final int action_edit=0x7f060075;
-        public static final int action_minus=0x7f060076;
-        public static final int action_plus=0x7f060074;
-        public static final int activity_container=0x7f060018;
-        public static final int backup_boot=0x7f060023;
-        public static final int backup_recovery=0x7f060028;
-        public static final int btn_apply=0x7f06004b;
-        public static final int btn_cancel=0x7f06004c;
-        public static final int btn_layout=0x7f06004a;
-        public static final int button1=0x7f060046;
-        public static final int button2=0x7f060047;
-        public static final int button3=0x7f060049;
-        public static final int calendar_color_view=0x7f060036;
-        public static final int cancel=0x7f06003e;
-        public static final int cb=0x7f060053;
-        public static final int cb_boot=0x7f06001c;
-        public static final int cb_cache=0x7f06001d;
-        public static final int cb_compression=0x7f06001f;
-        public static final int cb_data=0x7f06001a;
-        public static final int cb_md5=0x7f060020;
-        public static final int cb_recovery=0x7f06001e;
-        public static final int cb_secure=0x7f06001b;
-        public static final int cb_system=0x7f060019;
-        public static final int clickRemove=0x7f060011;
-        public static final int color_picker=0x7f060033;
-        public static final int color_picker_checkmark=0x7f060035;
-        public static final int color_picker_swatch=0x7f060034;
-        public static final int cpu_info=0x7f060038;
-        public static final int cpu_info_core=0x7f06003a;
-        public static final int cpu_info_freq=0x7f06003b;
-        public static final int cpu_info_list=0x7f060062;
+        public static final int TextView01=0x7f060031;
+        public static final int TextView02=0x7f060030;
+        public static final int View2=0x7f06002d;
+        public static final int accordion=0x7f060006;
+        public static final int action_add=0x7f060072;
+        public static final int action_boot=0x7f060073;
+        public static final int action_delete=0x7f060071;
+        public static final int action_edit=0x7f060076;
+        public static final int action_minus=0x7f060077;
+        public static final int action_plus=0x7f060075;
+        public static final int activity_container=0x7f060019;
+        public static final int backup_boot=0x7f060024;
+        public static final int backup_recovery=0x7f060029;
+        public static final int btn_apply=0x7f06004c;
+        public static final int btn_cancel=0x7f06004d;
+        public static final int btn_layout=0x7f06004b;
+        public static final int button1=0x7f060047;
+        public static final int button2=0x7f060048;
+        public static final int button3=0x7f06004a;
+        public static final int calendar_color_view=0x7f060037;
+        public static final int cancel=0x7f06003f;
+        public static final int cb=0x7f060054;
+        public static final int cb_boot=0x7f06001d;
+        public static final int cb_cache=0x7f06001e;
+        public static final int cb_compression=0x7f060020;
+        public static final int cb_data=0x7f06001b;
+        public static final int cb_md5=0x7f060021;
+        public static final int cb_recovery=0x7f06001f;
+        public static final int cb_secure=0x7f06001c;
+        public static final int cb_system=0x7f06001a;
+        public static final int clickRemove=0x7f060012;
+        public static final int color_picker=0x7f060034;
+        public static final int color_picker_checkmark=0x7f060036;
+        public static final int color_picker_swatch=0x7f060035;
+        public static final int cpu_info=0x7f060039;
+        public static final int cpu_info_core=0x7f06003b;
+        public static final int cpu_info_freq=0x7f06003c;
+        public static final int cpu_info_list=0x7f060063;
         public static final int cubein=0x7f060007;
         public static final int cubeout=0x7f060008;
-        public static final int currvalue=0x7f060057;
-        public static final int divider=0x7f06006c;
-        public static final int dslist=0x7f06003d;
-        public static final int empty=0x7f06002e;
-        public static final int et=0x7f06003c;
-        public static final int et_name=0x7f060022;
-        public static final int filename=0x7f060031;
-        public static final int flingRemove=0x7f060012;
-        public static final int fliphorizontal=0x7f06000a;
-        public static final int flipvertical=0x7f060009;
+        public static final int currvalue=0x7f060058;
+        public static final int divider=0x7f06006d;
+        public static final int dslist=0x7f06003e;
+        public static final int empty=0x7f06002f;
+        public static final int et=0x7f06003d;
+        public static final int et_name=0x7f060023;
+        public static final int filename=0x7f060032;
+        public static final int flingRemove=0x7f060013;
+        public static final int fliphorizontal=0x7f060009;
+        public static final int flipvertical=0x7f06000a;
         public static final int fullscreen=0x7f060003;
-        public static final int help=0x7f060073;
-        public static final int icon=0x7f060043;
-        public static final int image=0x7f060024;
-        public static final int image2=0x7f060029;
-        public static final int imageView1=0x7f060045;
-        public static final int info=0x7f060044;
-        public static final int item_container=0x7f060040;
-        public static final int kernel_info=0x7f060037;
-        public static final int left=0x7f060000;
-        public static final int list=0x7f06004d;
-        public static final int margin=0x7f060002;
-        public static final int mem_info=0x7f060039;
-        public static final int menu_frame=0x7f060050;
-        public static final int menu_header=0x7f060051;
-        public static final int name=0x7f060041;
-        public static final int navbarlist=0x7f06002d;
-        public static final int next_button=0x7f06006e;
-        public static final int onDown=0x7f060013;
+        public static final int help=0x7f060074;
+        public static final int icon=0x7f060044;
+        public static final int image=0x7f060025;
+        public static final int image2=0x7f06002a;
+        public static final int imageView1=0x7f060046;
+        public static final int info=0x7f060045;
+        public static final int item_container=0x7f060041;
+        public static final int kernel_info=0x7f060038;
+        public static final int left=0x7f060001;
+        public static final int list=0x7f06004e;
+        public static final int margin=0x7f060004;
+        public static final int mem_info=0x7f06003a;
+        public static final int menu_frame=0x7f060051;
+        public static final int menu_header=0x7f060052;
+        public static final int name=0x7f060042;
+        public static final int navbarlist=0x7f06002e;
+        public static final int next_button=0x7f06006f;
+        public static final int none=0x7f060005;
+        public static final int onDown=0x7f060014;
         public static final int onLongPress=0x7f060015;
-        public static final int onMove=0x7f060014;
-        public static final int pager=0x7f060017;
-        public static final int preset_layout=0x7f06004e;
-        public static final int prev_button=0x7f06006d;
-        public static final int reboot=0x7f06003f;
-        public static final int refresh=0x7f06006f;
-        public static final int reset=0x7f060077;
-        public static final int restore=0x7f060078;
-        public static final int right=0x7f060001;
-        public static final int rotatedown=0x7f06000f;
-        public static final int rotateup=0x7f06000e;
-        public static final int sb_blur=0x7f06006b;
-        public static final int scrollView1=0x7f06004f;
-        public static final int seek_bar=0x7f060059;
-        public static final int seekbar=0x7f060056;
-        public static final int seekbar_dialog=0x7f060058;
-        public static final int selected_view=0x7f060004;
-        public static final int separator=0x7f060052;
-        public static final int setting_text=0x7f06005a;
-        public static final int slidingmenumain=0x7f06005b;
-        public static final int speed=0x7f060061;
-        public static final int stack=0x7f06000b;
-        public static final int standard=0x7f060005;
-        public static final int summary=0x7f060055;
-        public static final int summaryboot=0x7f060026;
-        public static final int summaryrecovery=0x7f06002b;
-        public static final int tablet=0x7f060006;
-        public static final int tabs=0x7f060016;
-        public static final int text=0x7f060021;
-        public static final int textView1=0x7f06006a;
-        public static final int title=0x7f060054;
-        public static final int titleboot=0x7f060025;
-        public static final int titlerecovery=0x7f06002a;
-        public static final int tv_boot=0x7f060032;
-        public static final int ui_additional_states=0x7f060066;
-        public static final int ui_bar=0x7f060060;
-        public static final int ui_duration_text=0x7f06005f;
-        public static final int ui_freq_text=0x7f06005d;
-        public static final int ui_header_additional_states=0x7f060065;
-        public static final int ui_header_total_state_time=0x7f060063;
-        public static final int ui_percentage_text=0x7f06005e;
-        public static final int ui_state_row=0x7f06005c;
-        public static final int ui_states_view=0x7f060067;
-        public static final int ui_states_warning=0x7f060068;
-        public static final int ui_total_state_time=0x7f060064;
-        public static final int value=0x7f060042;
-        public static final int view1=0x7f060027;
-        public static final int view2=0x7f060048;
-        public static final int wall=0x7f060069;
-        public static final int zoomin=0x7f06000c;
-        public static final int zoomout=0x7f06000d;
+        public static final int onMove=0x7f060016;
+        public static final int pager=0x7f060018;
+        public static final int preset_layout=0x7f06004f;
+        public static final int prev_button=0x7f06006e;
+        public static final int reboot=0x7f060040;
+        public static final int refresh=0x7f060070;
+        public static final int reset=0x7f060078;
+        public static final int restore=0x7f060079;
+        public static final int right=0x7f060002;
+        public static final int rotatedown=0x7f06000b;
+        public static final int rotateup=0x7f06000c;
+        public static final int sb_blur=0x7f06006c;
+        public static final int scrollView1=0x7f060050;
+        public static final int seek_bar=0x7f06005a;
+        public static final int seekbar=0x7f060057;
+        public static final int seekbar_dialog=0x7f060059;
+        public static final int selected_view=0x7f060000;
+        public static final int separator=0x7f060053;
+        public static final int setting_text=0x7f06005b;
+        public static final int slidingmenumain=0x7f06005c;
+        public static final int speed=0x7f060062;
+        public static final int stack=0x7f06000d;
+        public static final int standard=0x7f06000e;
+        public static final int summary=0x7f060056;
+        public static final int summaryboot=0x7f060027;
+        public static final int summaryrecovery=0x7f06002c;
+        public static final int tablet=0x7f06000f;
+        public static final int tabs=0x7f060017;
+        public static final int text=0x7f060022;
+        public static final int textView1=0x7f06006b;
+        public static final int title=0x7f060055;
+        public static final int titleboot=0x7f060026;
+        public static final int titlerecovery=0x7f06002b;
+        public static final int tv_boot=0x7f060033;
+        public static final int ui_additional_states=0x7f060067;
+        public static final int ui_bar=0x7f060061;
+        public static final int ui_duration_text=0x7f060060;
+        public static final int ui_freq_text=0x7f06005e;
+        public static final int ui_header_additional_states=0x7f060066;
+        public static final int ui_header_total_state_time=0x7f060064;
+        public static final int ui_percentage_text=0x7f06005f;
+        public static final int ui_state_row=0x7f06005d;
+        public static final int ui_states_view=0x7f060068;
+        public static final int ui_states_warning=0x7f060069;
+        public static final int ui_total_state_time=0x7f060065;
+        public static final int value=0x7f060043;
+        public static final int view1=0x7f060028;
+        public static final int view2=0x7f060049;
+        public static final int wall=0x7f06006a;
+        public static final int zoomin=0x7f060010;
+        public static final int zoomout=0x7f060011;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -2099,6 +2102,7 @@ containing a value of this type.
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
 <tr><td><code>margin</code></td><td>0</td><td></td></tr>
 <tr><td><code>fullscreen</code></td><td>1</td><td></td></tr>
+<tr><td><code>none</code></td><td>2</td><td></td></tr>
 </table>
           @attr name com.dsht.kerneltweaker:touchModeAbove
         */
@@ -2116,6 +2120,7 @@ containing a value of this type.
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
 <tr><td><code>margin</code></td><td>0</td><td></td></tr>
 <tr><td><code>fullscreen</code></td><td>1</td><td></td></tr>
+<tr><td><code>none</code></td><td>2</td><td></td></tr>
 </table>
           @attr name com.dsht.kerneltweaker:touchModeBehind
         */

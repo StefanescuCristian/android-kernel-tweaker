@@ -1,6 +1,5 @@
 package com.dsht.glossary;
 
-import com.dsht.kerneltweaker.CustomArrayAdapter;
 import com.dsht.kerneltweaker.GlossaryArrayAdapter;
 import com.dsht.kerneltweaker.R;
 

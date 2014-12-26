@@ -81,8 +81,8 @@ public class ColorPickerPalette extends TableLayout {
 
     private TableRow createTableRow() {
         TableRow row = new TableRow(getContext());
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT);
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+                android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
         row.setLayoutParams(params);
         return row;
     }

@@ -1,42 +1,18 @@
 package com.dsht.kerneltweaker.fragments;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.text.InputFilter;
-import android.text.InputFilter.LengthFilter;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.Toast;
-
-import java.io.BufferedOutputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
 import java.io.File;
-import java.io.FileWriter;
-
 import com.dsht.kerneltweaker.Helpers;
 import com.dsht.kerneltweaker.MainActivity;
 import com.dsht.kerneltweaker.R;
@@ -262,6 +238,7 @@ Preference.OnPreferenceChangeListener {
 	}
 
 	/* handle ListPreferences and EditTextPreferences */
+	@Override
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
 		if (newValue != null) {
 			Log.e(TAG, "New preference selected: " + newValue);

@@ -23,6 +23,7 @@ public class OutlineContainer extends FrameLayout implements Animatable {
 	private static final long ANIMATION_DURATION = 500;
 	private static final long FRAME_DURATION = 1000 / 60;
 	private final Interpolator mInterpolator = new Interpolator() {
+		@Override
 		public float getInterpolation(float t) {
 			t -= 1.0f;
 			return t * t * t + 1.0f;

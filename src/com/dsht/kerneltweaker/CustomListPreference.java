@@ -5,7 +5,6 @@ import java.util.List;
 import com.dsht.kerneltweaker.database.DataItem;
 import com.dsht.kerneltweaker.database.DatabaseHandler;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -16,12 +15,8 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager.LayoutParams;
 import android.widget.CheckBox;
-import android.widget.Checkable;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
@@ -109,7 +104,7 @@ public class CustomListPreference extends ListPreference implements OnCheckedCha
 		view.setBackground(getContext().getResources().getDrawable(R.drawable.selector));
 		
 		cb.setOnCheckedChangeListener(this);
-		separator = (View) view.findViewById(R.id.separator);
+		separator = view.findViewById(R.id.separator);
 		hideBootViews(hide);
 		ischecked = mPrefs.getBoolean(this.getTitle().toString(), false);
 	}

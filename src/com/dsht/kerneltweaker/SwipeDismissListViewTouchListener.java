@@ -11,6 +11,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -209,7 +210,7 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 mVelocityTracker = null;
                 mDownX = 0;
                 mDownView = null;
-                mDownPosition = ListView.INVALID_POSITION;
+                mDownPosition = AdapterView.INVALID_POSITION;
                 mSwiping = false;
                 break;
             }
@@ -263,7 +264,7 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                 mVelocityTracker = null;
                 mDownX = 0;
                 mDownView = null;
-                mDownPosition = ListView.INVALID_POSITION;
+                mDownPosition = AdapterView.INVALID_POSITION;
                 mSwiping = false;
                 break;
             }

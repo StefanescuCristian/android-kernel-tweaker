@@ -1,19 +1,12 @@
 package com.dsht.kerneltweaker.fragments;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.TimeoutException;
-
 import com.dsht.kerneltweaker.MainActivity;
 import com.dsht.kerneltweaker.R;
 import com.dsht.kerneltweaker.RecoveryBaseAdapter;
 import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
 import com.mobeta.android.dslv.DragSortController;
 import com.mobeta.android.dslv.DragSortListView;
-import com.stericson.RootTools.RootTools;
-import com.stericson.RootTools.exceptions.RootDeniedException;
-import com.stericson.RootTools.execution.CommandCapture;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;

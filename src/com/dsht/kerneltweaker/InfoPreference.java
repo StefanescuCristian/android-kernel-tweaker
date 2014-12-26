@@ -64,8 +64,8 @@ public class InfoPreference extends Preference implements OnClickListener {
 		mButton2=(Button)view.findViewById(R.id.button2);
 		mButton3=(Button)view.findViewById(R.id.button3);
 		image=(ImageView)view.findViewById(R.id.image);
-		mView1=(View)view.findViewById(R.id.view1);
-		mView2=(View)view.findViewById(R.id.view2);
+		mView1=view.findViewById(R.id.view1);
+		mView2=view.findViewById(R.id.view2);
 		
 		title.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
 		summary.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));

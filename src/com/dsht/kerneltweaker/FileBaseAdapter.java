@@ -3,10 +3,7 @@ package com.dsht.kerneltweaker;
 import java.io.File;
 import java.util.Date;
 
-import com.dsht.settings.SettingsFragment;
-
 import android.content.Context;
-import android.graphics.Color;
 import android.text.format.Formatter;
 import android.view.LayoutInflater;
 import android.view.View;

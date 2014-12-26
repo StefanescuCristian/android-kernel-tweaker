@@ -106,8 +106,8 @@ AbsListView.MultiChoiceModeListener {
 	public boolean onCreateActionMode(ActionMode mode, Menu menu) {
 		MenuInflater inflater=host.getMenuInflater();
 		inflater.inflate(R.menu.main, menu);
-		mDelete = (MenuItem) menu.findItem(R.id.action_delete);
-		mAdd = (MenuItem) menu.findItem(R.id.action_add);
+		mDelete = menu.findItem(R.id.action_delete);
+		mAdd = menu.findItem(R.id.action_add);
 
 		if(delete) {
 			mode.setTitle("Delete items");

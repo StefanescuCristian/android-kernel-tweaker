@@ -1,10 +1,7 @@
 package com.dsht.kerneltweaker.fragments;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.TimeoutException;
-
 import com.dsht.kerneltweaker.CustomListPreference;
 import com.dsht.kerneltweaker.CustomPreference;
 import com.dsht.kerneltweaker.Helpers;
@@ -17,10 +14,6 @@ import com.dsht.kerneltweaker.database.DatabaseHandler;
 import com.dsht.kerneltweaker.database.VddDatabaseHandler;
 import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
 import com.dsht.settings.SettingsFragment;
-import com.stericson.RootTools.RootTools;
-import com.stericson.RootTools.exceptions.RootDeniedException;
-import com.stericson.RootTools.execution.CommandCapture;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -37,13 +30,12 @@ import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager.LayoutParams;
+import android.widget.AbsListView;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -248,7 +240,7 @@ public class ReviewBootPreferenceFragment extends PreferenceFragment {
 
 		listView = (ListView) v.findViewById(android.R.id.list);
 		listView.setFastScrollEnabled(true);
-		listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+		listView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE_MODAL);
 		registerForContextMenu(listView);
 		listView.setMultiChoiceModeListener(new ListViewMultiChoiceModeListener(
 				mContext,getActivity(),
@@ -315,7 +307,7 @@ public class ReviewBootPreferenceFragment extends PreferenceFragment {
 					dialog.show();
 					dialog.getWindow().getAttributes().windowAnimations = R.style.dialog_animation;
 					Window window = dialog.getWindow();
-					window.setLayout(800, LayoutParams.WRAP_CONTENT);
+					window.setLayout(800, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 					return true;
 				}
 

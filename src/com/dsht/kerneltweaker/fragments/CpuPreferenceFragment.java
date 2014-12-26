@@ -1,14 +1,10 @@
 package com.dsht.kerneltweaker.fragments;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.TimeoutException;
-
 import com.dsht.kerneltweaker.CustomListPreference;
 import com.dsht.kerneltweaker.CustomPreference;
 import com.dsht.kerneltweaker.Helpers;
-import com.dsht.kerneltweaker.ListViewMultiChoiceModeListener;
 import com.dsht.kerneltweaker.MainActivity;
 import com.dsht.kerneltweaker.R;
 import com.dsht.kerneltweaker.database.DataItem;
@@ -16,9 +12,6 @@ import com.dsht.kerneltweaker.database.DatabaseHandler;
 import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
 import com.dsht.settings.SettingsFragment;
 import com.stericson.RootTools.RootTools;
-import com.stericson.RootTools.exceptions.RootDeniedException;
-import com.stericson.RootTools.execution.CommandCapture;
-
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -44,7 +37,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 import android.widget.EditText;
-import android.widget.ListView;
 
 public class CpuPreferenceFragment extends PreferenceFragment implements OnPreferenceChangeListener, OnPreferenceClickListener {
 	private Context mContext;
@@ -301,7 +293,7 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 				dialog.show();
 				dialog.getWindow().getAttributes().windowAnimations = R.style.dialog_animation;
 				Window window = dialog.getWindow();
-				window.setLayout(800, LayoutParams.WRAP_CONTENT);
+				window.setLayout(800, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 				return true;
 			}
 

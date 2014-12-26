@@ -1,27 +1,18 @@
 package com.dsht.kerneltweaker.fragments;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.TimeoutException;
-
 import com.dsht.glossary.ConservativeGlossaryFragment;
-import com.dsht.glossary.CpuGlossaryFragment;
 import com.dsht.glossary.InteractiveGlossaryFragment;
 import com.dsht.glossary.OndemandGlossaryFragment;
 import com.dsht.kerneltweaker.CustomPreference;
 import com.dsht.kerneltweaker.Helpers;
-import com.dsht.kerneltweaker.ListViewMultiChoiceModeListener;
 import com.dsht.kerneltweaker.MainActivity;
 import com.dsht.kerneltweaker.R;
 import com.dsht.kerneltweaker.database.DataItem;
 import com.dsht.kerneltweaker.database.DatabaseHandler;
 import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
 import com.dsht.settings.SettingsFragment;
-import com.stericson.RootTools.RootTools;
-import com.stericson.RootTools.exceptions.RootDeniedException;
-import com.stericson.RootTools.execution.CommandCapture;
-
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -45,7 +36,6 @@ import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 
 public class CpuGovernorPreferenceFragment extends PreferenceFragment {
 
@@ -151,9 +141,9 @@ public class CpuGovernorPreferenceFragment extends PreferenceFragment {
 								// TODO Auto-generated method stub
 								AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
 								LinearLayout ll = new LinearLayout(mContext);
-								ll.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT));
+								ll.setLayoutParams(new LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT));
 								final EditText et = new EditText(mContext);
-								LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+								LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 								params.setMargins(40, 40, 40, 40);
 								params.gravity = Gravity.CENTER;
 								String val = p.getSummary().toString();
@@ -178,7 +168,7 @@ public class CpuGovernorPreferenceFragment extends PreferenceFragment {
 								dialog.show();
 								dialog.getWindow().getAttributes().windowAnimations = R.style.dialog_animation;
 								Window window = dialog.getWindow();
-								window.setLayout(800, LayoutParams.WRAP_CONTENT);
+								window.setLayout(800, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 								return true;
 							}
 

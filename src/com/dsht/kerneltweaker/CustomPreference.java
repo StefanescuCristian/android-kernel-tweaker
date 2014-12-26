@@ -5,7 +5,6 @@ import java.util.List;
 import com.dsht.kerneltweaker.database.DataItem;
 import com.dsht.kerneltweaker.database.DatabaseHandler;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -14,10 +13,7 @@ import android.os.AsyncTask;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager.LayoutParams;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
@@ -153,7 +149,7 @@ public class CustomPreference extends Preference implements OnCheckedChangeListe
 		cb.setChecked(mPrefs.getBoolean(this.getTitle().toString(), false));
 		cb.setOnCheckedChangeListener(this);
 		
-		separator = (View) view.findViewById(R.id.separator);
+		separator = view.findViewById(R.id.separator);
 		
 		hideBootViews(hide);
 		checked = mPrefs.getBoolean(this.getTitle().toString(), false);

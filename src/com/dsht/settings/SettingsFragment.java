@@ -10,14 +10,9 @@ import com.dsht.kerneltweaker.R;
 import com.dsht.kerneltweaker.Startup;
 
 import android.app.AlertDialog;
-import android.app.Fragment;
-import android.app.AlertDialog.Builder;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.CheckBoxPreference;
@@ -30,7 +25,6 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class SettingsFragment extends PreferenceFragment implements OnPreferenceChangeListener, OnPreferenceClickListener {
 
@@ -111,8 +105,8 @@ public class SettingsFragment extends PreferenceFragment implements OnPreference
 
 		mPersonalCat = (PreferenceCategory) findPreference(KEY_PERSONAL_CAT);
 
-		mLog = (Preference) findPreference(KEY_SLOG);
-		mRunLog = (Preference) findPreference(KEY_RUNLOG);
+		mLog = findPreference(KEY_SLOG);
+		mRunLog = findPreference(KEY_RUNLOG);
 
 
 		boolean enabled = mPrefs.getBoolean(KEY_ENABLE_GLOBAL, false);

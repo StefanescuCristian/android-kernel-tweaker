@@ -55,7 +55,8 @@ public class CPUStateMonitor implements Constants {
         public int freq = 0;
         public long duration = 0;
 
-        public int compareTo(CpuState state) {
+        @Override
+		public int compareTo(CpuState state) {
             Integer a = freq;
             Integer b = state.freq;
             return a.compareTo(b);

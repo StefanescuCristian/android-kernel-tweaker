@@ -121,15 +121,17 @@ public class JazzyViewPager extends ViewPager {
 		OutlineContainer out = new OutlineContainer(getContext());
 		out.setLayoutParams(generateDefaultLayoutParams());
 		child.setLayoutParams(new OutlineContainer.LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+				android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT));
 		out.addView(child);
 		return out;
 	}
 
+	@Override
 	public void addView(View child) {
 		super.addView(wrapChild(child));
 	}
 
+	@Override
 	public void addView(View child, int index) {
 		super.addView(wrapChild(child), index);
 	}
@@ -138,6 +140,7 @@ public class JazzyViewPager extends ViewPager {
 		super.addView(wrapChild(child), params);
 	}
 
+	@Override
 	public void addView(View child, int width, int height) {
 		super.addView(wrapChild(child), width, height);
 	}

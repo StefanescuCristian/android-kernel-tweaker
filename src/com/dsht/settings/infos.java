@@ -2,8 +2,6 @@ package com.dsht.settings;
 
 import com.dsht.kerneltweaker.MainActivity;
 import com.dsht.kerneltweaker.R;
-import com.dsht.wizard.WizardActivity;
-
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -12,12 +10,6 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceFragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ListView;
 
 public class infos extends PreferenceFragment implements OnPreferenceClickListener {
 
@@ -42,13 +34,13 @@ public class infos extends PreferenceFragment implements OnPreferenceClickListen
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.infos);
 
-		mDsht = (Preference) findPreference(KEY_DSHT);
-		mCesco = (Preference) findPreference(KEY_CESCO);
-		mSollyx = (Preference) findPreference(KEY_SOLLYX);
-		mAokp = (Preference) findPreference(KEY_AOKP);
-		mOmni = (Preference) findPreference(KEY_OMNI);
-		mDu = (Preference) findPreference(KEY_DU);
-		mSlidingMenu = (Preference) findPreference(KEY_SLIDINGMENU);
+		mDsht = findPreference(KEY_DSHT);
+		mCesco = findPreference(KEY_CESCO);
+		mSollyx = findPreference(KEY_SOLLYX);
+		mAokp = findPreference(KEY_AOKP);
+		mOmni = findPreference(KEY_OMNI);
+		mDu = findPreference(KEY_DU);
+		mSlidingMenu = findPreference(KEY_SLIDINGMENU);
 
 		PackageInfo pInfo = null;
 		try {

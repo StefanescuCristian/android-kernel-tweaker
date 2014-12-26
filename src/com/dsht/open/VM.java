@@ -3,7 +3,6 @@ package com.dsht.open;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -17,12 +16,10 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AbsListView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SeekBar;
@@ -138,7 +135,7 @@ public class VM extends PreferenceFragment implements SharedPreferences.OnShared
 		super.onCreateView(inflater, container, savedInstanceState);
 		View v = inflater.inflate(R.layout.layout_list, container,false);
 		ListView listView = (ListView) v.findViewById(android.R.id.list);
-		listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+		listView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE_MODAL);
 		registerForContextMenu(listView);
 		listView.setMultiChoiceModeListener(new ListViewMultiChoiceModeListener(
 				context,getActivity(),

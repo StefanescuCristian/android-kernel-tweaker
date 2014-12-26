@@ -1,10 +1,7 @@
 package com.dsht.glossary;
 
-import com.dsht.kerneltweaker.CustomArrayAdapter;
 import com.dsht.kerneltweaker.GlossaryArrayAdapter;
 import com.dsht.kerneltweaker.R;
-import com.dsht.kerneltweaker.fragments.CpuPreferenceFragment;
-
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;

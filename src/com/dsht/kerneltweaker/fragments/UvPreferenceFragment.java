@@ -1,9 +1,6 @@
 package com.dsht.kerneltweaker.fragments;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.TimeoutException;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -40,9 +37,6 @@ import com.dsht.kerneltweaker.database.DatabaseHandler;
 import com.dsht.kerneltweaker.database.VddDatabaseHandler;
 import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
 import com.dsht.settings.SettingsFragment;
-import com.stericson.RootTools.RootTools;
-import com.stericson.RootTools.exceptions.RootDeniedException;
-import com.stericson.RootTools.execution.CommandCapture;
 
 public class UvPreferenceFragment extends PreferenceFragment {
 
@@ -177,7 +171,7 @@ public class UvPreferenceFragment extends PreferenceFragment {
 		super.onCreateOptionsMenu(menu, inflater);
 		if(Helpers.UvTableExists(UV_TABLE_FILE)) {
 			inflater.inflate(R.menu.menu_uv, menu);
-			boot = (MenuItem) menu.findItem(R.id.action_boot);
+			boot = menu.findItem(R.id.action_boot);
 			if(isVdd) {
 				if(vddItems.size() != 0) {
 					boot.setChecked(true);
@@ -301,9 +295,9 @@ public class UvPreferenceFragment extends PreferenceFragment {
 							// TODO Auto-generated method stub
 							AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
 							LinearLayout ll = new LinearLayout(mContext);
-							ll.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT));
+							ll.setLayoutParams(new LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT));
 							final EditText et = new EditText(mContext);
-							LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+							LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 							params.setMargins(40, 40, 40, 40);
 							params.gravity = Gravity.CENTER;
 							final String val = p.getKey().toString();
@@ -348,7 +342,7 @@ public class UvPreferenceFragment extends PreferenceFragment {
 							dialog.show();
 							dialog.getWindow().getAttributes().windowAnimations = R.style.dialog_animation;
 							Window window = dialog.getWindow();
-							window.setLayout(800, LayoutParams.WRAP_CONTENT);
+							window.setLayout(800, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 							return true;
 						}
 					});

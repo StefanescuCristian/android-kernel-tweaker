@@ -21,14 +21,12 @@ package com.dsht.open;
 
 import android.app.Fragment;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -349,6 +347,7 @@ public class TimeInState extends Fragment implements Constants {
 	protected class CurCPUThread extends Thread {
 		private boolean mInterrupt = false;
 
+		@Override
 		public void interrupt() {
 			mInterrupt = true;
 		}
@@ -377,6 +376,7 @@ public class TimeInState extends Fragment implements Constants {
 	}
 
 	protected Handler mCurCPUHandler = new Handler() {
+		@Override
 		public void handleMessage(Message msg) {
 			String[] freqArray = (String[]) msg.obj;
 			for (int i = 0; i < freqArray.length; i++) {

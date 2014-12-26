@@ -1,6 +1,5 @@
 package com.dsht.kerneltweaker;
 
-import java.util.Iterator;
 import java.util.List;
 
 import com.dsht.kerneltweaker.database.DataItem;

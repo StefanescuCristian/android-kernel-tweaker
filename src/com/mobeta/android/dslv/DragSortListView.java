@@ -648,11 +648,13 @@ public class DragSortListView extends ListView {
             mAdapter = adapter;
             
             mAdapter.registerDataSetObserver(new DataSetObserver() {
-                public void onChanged() {
+                @Override
+				public void onChanged() {
                     notifyDataSetChanged();
                 }
 
-                public void onInvalidated() {
+                @Override
+				public void onInvalidated() {
                     notifyDataSetInvalidated();
                 }
             });
@@ -1065,7 +1067,7 @@ public class DragSortListView extends ListView {
             // Log.d("mobeta", "edgeTop="+edgeTop+" edgeBot="+edgeBottom);
 
             int slideRgnHeight = (int) (0.5f * mSlideRegionFrac * edgeToEdge);
-            float slideRgnHeightF = (float) slideRgnHeight;
+            float slideRgnHeightF = slideRgnHeight;
             int slideEdgeTop = edgeTop + slideRgnHeight;
             int slideEdgeBottom = edgeBottom - slideRgnHeight;
 
@@ -1073,7 +1075,7 @@ public class DragSortListView extends ListView {
             if (mFloatViewMid < slideEdgeTop) {
                 mFirstExpPos = itemPos - 1;
                 mSecondExpPos = itemPos;
-                mSlideFrac = 0.5f * ((float) (slideEdgeTop - mFloatViewMid)) / slideRgnHeightF;
+                mSlideFrac = 0.5f * (slideEdgeTop - mFloatViewMid) / slideRgnHeightF;
                 // Log.d("mobeta",
                 // "firstExp="+mFirstExpPos+" secExp="+mSecondExpPos+" slideFrac="+mSlideFrac);
             } else if (mFloatViewMid < slideEdgeBottom) {
@@ -1082,7 +1084,7 @@ public class DragSortListView extends ListView {
             } else {
                 mFirstExpPos = itemPos;
                 mSecondExpPos = itemPos + 1;
-                mSlideFrac = 0.5f * (1.0f + ((float) (edgeBottom - mFloatViewMid))
+                mSlideFrac = 0.5f * (1.0f + (edgeBottom - mFloatViewMid)
                         / slideRgnHeightF);
                 // Log.d("mobeta",
                 // "firstExp="+mFirstExpPos+" secExp="+mSecondExpPos+" slideFrac="+mSlideFrac);
@@ -1142,7 +1144,7 @@ public class DragSortListView extends ListView {
 
         public SmoothAnimator(float smoothness, int duration) {
             mAlpha = smoothness;
-            mDurationF = (float) duration;
+            mDurationF = duration;
             mA = mD = 1f / (2f * mAlpha * (1f - mAlpha));
             mB = mAlpha / (2f * (mAlpha - 1f));
             mC = 1f / (1f - mAlpha);
@@ -1187,7 +1189,7 @@ public class DragSortListView extends ListView {
                 return;
             }
 
-            float fraction = ((float) (SystemClock.uptimeMillis() - mStartTime)) / mDurationF;
+            float fraction = (SystemClock.uptimeMillis() - mStartTime) / mDurationF;
 
             if (fraction >= 1f) {
                 onUpdate(1f, 1f);
@@ -1371,7 +1373,7 @@ public class DragSortListView extends ListView {
             if (item != null) {
                 if (mFirstChildHeight == -1) {
                     mFirstChildHeight = getChildHeight(mFirstPos, item, false);
-                    mFirstStartBlank = (float) (item.getHeight() - mFirstChildHeight);
+                    mFirstStartBlank = item.getHeight() - mFirstChildHeight;
                 }
                 blank = Math.max((int) (f * mFirstStartBlank), 1);
                 lp = item.getLayoutParams();
@@ -1383,7 +1385,7 @@ public class DragSortListView extends ListView {
                 if (item != null) {
                     if (mSecondChildHeight == -1) {
                         mSecondChildHeight = getChildHeight(mSecondPos, item, false);
-                        mSecondStartBlank = (float) (item.getHeight() - mSecondChildHeight);
+                        mSecondStartBlank = item.getHeight() - mSecondChildHeight;
                     }
                     blank = Math.max((int) (f * mSecondStartBlank), 1);
                     lp = item.getLayoutParams();
@@ -1837,7 +1839,7 @@ public class DragSortListView extends ListView {
     private void updateScrollStarts() {
         final int padTop = getPaddingTop();
         final int listHeight = getHeight() - padTop - getPaddingBottom();
-        float heightF = (float) listHeight;
+        float heightF = listHeight;
 
         mUpScrollStartYF = padTop + mDragUpScrollStartFrac * heightF;
         mDownScrollStartYF = padTop + (1.0f - mDragDownScrollStartFrac) * heightF;
@@ -2908,13 +2910,13 @@ public class DragSortListView extends ListView {
             }
 
             mCurrTime = SystemClock.uptimeMillis();
-            dt = (float) (mCurrTime - mPrevTime);
+            dt = mCurrTime - mPrevTime;
 
             // dy is change in View position of a list item; i.e. positive dy
             // means user is scrolling up (list item moves down the screen,
             // remember
             // y=0 is at top of View).
-            dy = (int) Math.round(mScrollSpeed * dt);
+            dy = Math.round(mScrollSpeed * dt);
 
             int movePos;
             if (dy >= 0) {

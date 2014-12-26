@@ -1,9 +1,6 @@
 package com.dsht.kerneltweaker.fragments;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.TimeoutException;
-
 import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -25,15 +22,11 @@ import android.widget.TextView;
 import com.dsht.kerneltweaker.CustomBaseAdapter;
 import com.dsht.kerneltweaker.Helpers;
 import com.dsht.kerneltweaker.MainActivity;
-import com.dsht.kerneltweaker.PresetsBaseAdapter;
 import com.dsht.kerneltweaker.R;
 import com.dsht.kerneltweaker.database.DataItem;
 import com.dsht.kerneltweaker.database.DatabaseHandler;
 import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
 import com.dsht.settings.SettingsFragment;
-import com.stericson.RootTools.RootTools;
-import com.stericson.RootTools.exceptions.RootDeniedException;
-import com.stericson.RootTools.execution.CommandCapture;
 
 public class LowMemoryKillerFragment extends Fragment {
 
@@ -106,7 +99,7 @@ public class LowMemoryKillerFragment extends Fragment {
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		super.onCreateOptionsMenu(menu, inflater);
 		inflater.inflate(R.menu.menu_lmk, menu);
-		boot = (MenuItem) menu.findItem(R.id.action_boot);
+		boot = menu.findItem(R.id.action_boot);
 		for (DataItem item : items) {
 			if(item.getName().contains(MINFREE_FILE)) {
 				boot.setChecked(true);
