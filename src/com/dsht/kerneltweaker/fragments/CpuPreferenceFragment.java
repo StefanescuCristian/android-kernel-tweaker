@@ -45,18 +45,11 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 	private CustomListPreference mCpuMinFreq;
 	private CustomListPreference mCpuGovernor;
 	private CustomPreference mAdvancedGovernor;
-	private PreferenceCategory mHotPlugCategory;
-	private CustomListPreference mCpuquiet;
-	private CustomPreference mAdvancedCpuquiet;
 	private PreferenceCategory mAdvancedCategory;
 	private PreferenceScreen mRoot;
 	private static final String MAX_FREQ_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq";
 	private static final String GOVERNOR_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor";
 	private static final String MIN_FREQ_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq";
-	private static final String HOTPLUG_FILE ="/sys/devices/virtual/misc/mako_hotplug_control/"; 
-	private static final String CPUQUIET_DIR = "/sys/devices/system/cpu/cpuquiet";
-	private static final String CPUQUIET_FILE = "/sys/devices/system/cpu/cpuquiet/current_governor";
-	private static final String CPUQUIET_GOVERNORS = "/sys/devices/system/cpu/cpuquiet/available_governors";
 	private static final String category = "cpu";
 	private DatabaseHandler db = MainActivity.db;
 
@@ -74,27 +67,16 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		Helpers.setPermissions(MAX_FREQ_FILE);
 		Helpers.setPermissions(MIN_FREQ_FILE);
 		Helpers.setPermissions(GOVERNOR_FILE);
-		Helpers.setPermissions(HOTPLUG_FILE);
-		Helpers.setPermissions(CPUQUIET_FILE);
-		Helpers.setPermissions(CPUQUIET_DIR);
-		Helpers.setPermissions(CPUQUIET_GOVERNORS);
 
 		mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
 		mRoot = (PreferenceScreen) findPreference("key_root");
-		mHotPlugCategory = (PreferenceCategory) findPreference("key_hotplug_category");
 		mCpuMaxFreq = (CustomListPreference) findPreference("key_cpu_max");
 		mCpuMinFreq = (CustomListPreference) findPreference("key_cpu_min");
 		mCpuGovernor = (CustomListPreference) findPreference("key_cpu_governor");
 		mAdvancedGovernor = (CustomPreference) findPreference("key_advanced_governor");
-		mAdvancedCpuquiet = (CustomPreference) findPreference("key_advanced_cpuquiet");
-		mCpuquiet = (CustomListPreference) findPreference("key_cpuquiet");
 		mAdvancedCategory = (PreferenceCategory) findPreference("key_advanced");
 		mAdvancedGovernor.setOnPreferenceClickListener(this);
-		mAdvancedCpuquiet.setOnPreferenceClickListener(this);
 
-		if(!new File(CPUQUIET_DIR).exists()) {
-			mAdvancedCategory.removePreference(mAdvancedCpuquiet);
-		}
 
 		String color = "";
 		if(MainActivity.mPrefs.getBoolean(SettingsFragment.KEY_ENABLE_GLOBAL, false)) {
@@ -112,19 +94,14 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		mCpuMinFreq.setTitleColor(color);
 		mCpuGovernor.setTitleColor(color);
 		mAdvancedGovernor.setTitleColor(color);
-		mCpuquiet.setTitleColor(color);
-		mAdvancedCpuquiet.setTitleColor(color);
 
 		mCpuMaxFreq.setCategory(category);
 		mCpuMinFreq.setCategory(category);
 		mCpuGovernor.setCategory(category);
-		mCpuquiet.setCategory(category);
 
 		mCpuMaxFreq.setKey(MAX_FREQ_FILE);
 		mCpuMinFreq.setKey(MIN_FREQ_FILE);
 		mCpuGovernor.setKey(GOVERNOR_FILE);
-		mCpuquiet.setKey(CPUQUIET_FILE);
-
 
 		String[] frequencies = Helpers.getFrequencies();
 		String[] governors = Helpers.getGovernors();
@@ -136,19 +113,6 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		mCpuMinFreq.setEntryValues(frequencies);
 		mCpuGovernor.setEntries(governors);
 		mCpuGovernor.setEntryValues(governors);
-
-		if(new File(CPUQUIET_DIR).exists()) {
-			String cpuquiet = Helpers.getFileContent(new File(CPUQUIET_GOVERNORS));
-			String[] cpuquiet_govs = cpuquiet.trim().replaceAll("\n", "").split(" ");
-			String currQuiet = Helpers.getFileContent(new File(CPUQUIET_FILE)).trim().replace("\n", "");
-			mCpuquiet.setSummary(currQuiet);
-			mCpuquiet.setEntries(cpuquiet_govs);
-			mCpuquiet.setEntryValues(cpuquiet_govs);
-			mCpuquiet.setValue(currQuiet);
-
-		} else {
-			mHotPlugCategory.removePreference(mCpuquiet);
-		}
 
 
 		if(new File(MAX_FREQ_FILE).exists()) {
@@ -169,18 +133,7 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		mCpuMinFreq.setOnPreferenceChangeListener(this);
 		mCpuGovernor.setOnPreferenceChangeListener(this);
 		mAdvancedGovernor.excludeFromDialog(true);
-		mCpuquiet.setOnPreferenceChangeListener(this);
 
-		if(new File(HOTPLUG_FILE).exists()) {
-			createPreference(mHotPlugCategory,new File(HOTPLUG_FILE+"cores_on_touch"), color );
-			createPreference(mHotPlugCategory,new File(HOTPLUG_FILE+"first_level"), color );
-		} 
-
-		if(mHotPlugCategory.getPreferenceCount() == 0) {
-			mRoot.removePreference(mHotPlugCategory);
-		}
-
-		mAdvancedCpuquiet.hideBoot(true);
 		mAdvancedGovernor.hideBoot(true);
 		setRetainInstance(true);
 	}
@@ -220,13 +173,6 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 			updateListDb(pref, value, ((CustomListPreference) pref).isBootChecked());
 
 		}
-		if(pref == mCpuquiet) {
-			String value = (String) newValue;
-			mCpuquiet.setSummary(value);
-			mCpuquiet.setValue(value);
-			CMDProcessor.runSuCommand("echo "+value+" > "+CPUQUIET_FILE);
-			updateListDb(pref, value, ((CustomListPreference) pref).isBootChecked());
-		}
 		return false;
 	}
 
@@ -236,9 +182,6 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		Fragment f = null;
 		if(pref == mAdvancedGovernor) {
 			f = new CpuGovernorPreferenceFragment();
-		}
-		if(pref == mAdvancedCpuquiet) {
-			f = new CpuquietGovernorPreferenceFragment();
 		}
 		FragmentTransaction ft = getFragmentManager().beginTransaction();
 		// This adds the newly created Preference fragment to my main layout, shown below
