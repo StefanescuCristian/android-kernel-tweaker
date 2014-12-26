@@ -42,16 +42,12 @@ import android.widget.EditText;
 public class KernelPreferenceFragment extends PreferenceFragment implements OnPreferenceChangeListener, OnPreferenceClickListener {
 
 	private CustomCheckBoxPreference mKernelFsync;
-	private CustomCheckBoxPreference mKernelDynFsync;
-	private CustomCheckBoxPreference mKernelF2s;
-	private CustomCheckBoxPreference mKernelF2w;
+
 	private CustomCheckBoxPreference mKernelKSM;
 	private CustomCheckBoxPreference mKernelFcharge;
 	private CustomCheckBoxPreference mDoubleTap;
 	private CustomCheckBoxPreference mSweep2wake;
 	private CustomCheckBoxPreference mSweep2sleep;
-	private CustomCheckBoxPreference mIntelliPlug;
-	private CustomCheckBoxPreference mEcoMode;
 	private CustomPreference mVibration;
 	private CustomPreference mAdvancedScheduler;
 	private CustomListPreference mCpuScheduler;
@@ -70,7 +66,6 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 	private static final String FCHARGE_FILE = "/sys/kernel/fast_charge/force_fast_charge";
 	private static final String TEMP_FILE = "/sys/module/msm_thermal/parameters/temp_threshold";
 
-	private static final String SOUNDCONTROL_FILE = "/sys/kernel/sound_control_3";
 	private static final String HEADSET_BOOST_FILE = "/sys/devices/virtual/misc/soundcontrol/headset_boost";
 	private static final String MIC_BOOST_FILE = "/sys/devices/virtual/misc/soundcontrol/mic_boost";
 	private static final String SPEAKER_BOOST_FILE = "/sys/devices/virtual/misc/soundcontrol/speaker_boost";
@@ -81,13 +76,7 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 	private static final String DT2W_FILE = "/sys/android_touch/doubletap2wake";
 	private static final String S2W_FILE = "/sys/android_touch/sweep2wake";
 	private static final String S2W_SLEEPONLY_FILE = "/sys/android_touch/s2w_s2sonly";
-	private static final String INTELLIPLUG_FILE = "/sys/module/intelli_plug/parameters/intelli_plug_active";
-	private static final String ECOMODE_FILE = "/sys/module/intelli_plug/parameters/eco_mode_active";
-	private static final String DYNFSYNC_FILE = "/sys/kernel/dyn_fsync/Dyn_fsync_active";
-	private static final String FAUXSOUND_FILE = "/sys/kernel/sound_control_3";
 	private static final String VIBRATION_FILE = "/sys/class/timed_output/vibrator/amp";
-	private static final String F2S_FILE = "sys/devices/virtual/htc_g_sensor/g_sensor/flick2sleep";
-	private static final String F2W_FILE = "sys/devices/virtual/htc_g_sensor/g_sensor/flick2wake";
 	private static final String KSM_RUN_PATH = "/sys/kernel/mm/ksm/run";
 	
 	
@@ -105,13 +94,10 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		}
 		
 		Helpers.setPermissions(DT2W_FILE);
-		Helpers.setPermissions(DYNFSYNC_FILE);
-		Helpers.setPermissions(ECOMODE_FILE);
-		Helpers.setPermissions(FAUXSOUND_FILE);
+		
 		Helpers.setPermissions(FCHARGE_FILE);
 		Helpers.setPermissions(FSYNC_FILE);
 		Helpers.setPermissions(HEADSET_BOOST_FILE);
-		Helpers.setPermissions(INTELLIPLUG_FILE);
 		Helpers.setPermissions(MIC_BOOST_FILE);
 		Helpers.setPermissions(READ_AHEAD_FILE);
 		Helpers.setPermissions(S2W_FILE);
@@ -123,8 +109,6 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		Helpers.setPermissions(VOLUME_BOOST_FILE);
 		Helpers.setPermissions(TCP_CURRENT);
 		Helpers.setPermissions(TCP_OPTIONS);
-		Helpers.setPermissions(F2S_FILE);
-		Helpers.setPermissions(F2W_FILE);
 		Helpers.setPermissions(KSM_RUN_PATH);
 		
 
@@ -132,9 +116,6 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mSoundCategory = (PreferenceCategory) findPreference("key_sound_category");
 		mSchedCategory = (PreferenceCategory) findPreference("key_sched_cat");
 		mKernelFsync = (CustomCheckBoxPreference) findPreference("key_fsync_switch");
-		mKernelDynFsync = (CustomCheckBoxPreference) findPreference("key_dynfsync_switch");
-		mKernelF2s = (CustomCheckBoxPreference) findPreference("key_f2s_switch");
-		mKernelF2w = (CustomCheckBoxPreference) findPreference("key_f2w_switch");
 		mKernelKSM = (CustomCheckBoxPreference) findPreference("key_ksm_switch");
 		mKernelFcharge = (CustomCheckBoxPreference) findPreference("key_fcharge_switch");
 		mCpuScheduler = (CustomListPreference) findPreference("key_cpu_sched");
@@ -146,24 +127,18 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mDoubleTap = (CustomCheckBoxPreference) findPreference("key_dt2w_switch");
 		mSweep2wake = (CustomCheckBoxPreference) findPreference("key_s2w_switch");
 		mSweep2sleep = (CustomCheckBoxPreference) findPreference("key_s2ws_switch");
-		mIntelliPlug = (CustomCheckBoxPreference) findPreference("key_intelliplug_switch");
-		mEcoMode = (CustomCheckBoxPreference) findPreference("key_ecomode_switch");
+
 		mVibration = (CustomPreference) findPreference("key_vibration");
 		db = MainActivity.db;
 
 		mKernelFsync.setKey(FSYNC_FILE);
-		mKernelDynFsync.setKey(DYNFSYNC_FILE);
 		mKernelFcharge.setKey(FCHARGE_FILE);
 		mCpuScheduler.setKey(SCHEDULER_FILE);
 		mCpuReadAhead.setKey(READ_AHEAD_FILE);
 		mDoubleTap.setKey(DT2W_FILE);
 		mSweep2wake.setKey(S2W_FILE);
 		mSweep2sleep.setKey(S2W_SLEEPONLY_FILE);
-		mIntelliPlug.setKey(INTELLIPLUG_FILE);
-		mEcoMode.setKey(ECOMODE_FILE);
 		mVibration.setKey(VIBRATION_FILE);
-		mKernelF2s.setKey(F2S_FILE);
-		mKernelF2w.setKey(F2W_FILE);
 		mKernelKSM.setKey(KSM_RUN_PATH);
 
 		mCpuScheduler.setKey(SCHEDULER_FILE);
@@ -172,16 +147,11 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mCpuScheduler.setCategory(category);
 		mCpuReadAhead.setCategory(category);
 		mKernelFsync.setCategory(category);
-		mKernelDynFsync.setCategory(category);
 		mKernelFcharge.setCategory(category);
 		mDoubleTap.setCategory(category);
 		mSweep2wake.setCategory(category);
 		mSweep2sleep.setCategory(category);
-		mIntelliPlug.setCategory(category);
-		mEcoMode.setCategory(category);
 		mVibration.setCategory(category);
-		mKernelF2s.setCategory(category);
-		mKernelF2w.setCategory(category);
 		mKernelKSM.setCategory(category);
 
 		String[] schedulers = Helpers.getAvailableSchedulers();
@@ -201,7 +171,6 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		}
 
 		mKernelFsync.setTitleColor(color);
-		mKernelDynFsync.setTitleColor(color);
 		mKernelFcharge.setTitleColor(color);
 		mCpuScheduler.setTitleColor(color);
 		mAdvancedScheduler.setTitleColor(color);
@@ -215,11 +184,7 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mDoubleTap.setTitleColor(color);
 		mSweep2wake.setTitleColor(color);
 		mSweep2sleep.setTitleColor(color);
-		mIntelliPlug.setTitleColor(color);
-		mEcoMode.setTitleColor(color);
 		mVibration.setTitleColor(color);
-		mKernelF2s.setTitleColor(color);
-		mKernelF2w.setTitleColor(color);
 		mKernelKSM.setTitleColor(color);
 		
 		mCpuScheduler.setEntries(schedulers);
@@ -251,25 +216,6 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 				CMDProcessor.runSuCommand(cmd);
 				updateDb(preference, value, ((CustomCheckBoxPreference) preference).isBootChecked());
 				
-				return true;
-			}
-		});
-
-		mKernelDynFsync.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-
-			@Override
-			public boolean onPreferenceChange(Preference preference, Object newValue) {
-				String cmd = null;
-				String value = null;
-				if (newValue.toString().equals("true")) {
-					cmd = "echo 1 > "+DYNFSYNC_FILE;
-					value = "1";
-				} else {
-					cmd = "echo 0 > "+DYNFSYNC_FILE;
-					value = "0";
-				}
-				CMDProcessor.runSuCommand(cmd);
-				updateDb(preference, value, ((CustomCheckBoxPreference) preference).isBootChecked());
 				return true;
 			}
 		});
@@ -332,43 +278,7 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		});
 		
 		
-		mKernelF2s.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 
-			@Override
-			public boolean onPreferenceChange(Preference preference, Object newValue) {
-				String cmd = null;
-				String value = null;
-				if (newValue.toString().equals("true")) {
-					cmd = "echo 1 > "+F2S_FILE;
-					value = "1";
-				} else {
-					cmd = "echo 0 > "+F2S_FILE;
-					value = "0";
-				}
-				CMDProcessor.runSuCommand(cmd);
-				updateDb(preference, value, ((CustomCheckBoxPreference) preference).isBootChecked());
-				return true;
-			}
-		});
-
-		mKernelF2w.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-
-			@Override
-			public boolean onPreferenceChange(Preference preference, Object newValue) {
-				String cmd = null;
-				String value = null;
-				if (newValue.toString().equals("true")) {
-					cmd = "echo 1 > "+F2W_FILE;
-					value = "1";
-				} else {
-					cmd = "echo 0 > "+F2W_FILE;
-					value = "0";
-				}
-				CMDProcessor.runSuCommand(cmd);
-				updateDb(preference, value, ((CustomCheckBoxPreference) preference).isBootChecked());
-				return true;
-			}
-		});
 		
 		mKernelKSM.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 
@@ -389,45 +299,7 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 			}
 		});
 
-		mIntelliPlug.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 
-			@Override
-			public boolean onPreferenceChange(Preference preference, Object newValue) {
-				String cmd = null;
-				String value = null;
-				if (newValue.toString().equals("true")) {
-					cmd = "echo 1 > "+INTELLIPLUG_FILE;
-					value = "1";
-				} else {
-					cmd = "echo 0 > "+INTELLIPLUG_FILE;
-					value = "0";
-				}
-				CMDProcessor.runSuCommand(cmd);
-				updateDb(preference, value, ((CustomCheckBoxPreference) preference).isBootChecked());
-				return true;
-			}
-		});
-
-		mEcoMode.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-
-			@Override
-			public boolean onPreferenceChange(Preference preference, Object newValue) {
-				SharedPreferences.Editor editor = mPrefs.edit();
-				String cmd = null;
-				String value = null;
-				if (newValue.toString().equals("true")) {
-					cmd = "echo 1 > "+ECOMODE_FILE;
-					value = "1";
-				} else {
-					cmd = "echo 0 > "+ECOMODE_FILE;
-					value = "0";
-				}
-				CMDProcessor.runSuCommand(cmd);
-				updateDb(preference, value, ((CustomCheckBoxPreference) preference).isBootChecked());
-				editor.commit();
-				return true;
-			}
-		});
 
 		mKernelFcharge.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 
@@ -461,19 +333,6 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 			}
 		}
 
-		if(!new File(DYNFSYNC_FILE).exists()) {
-			mKernelCategory.removePreference(mKernelDynFsync);
-		} else {
-			String fsyncState = Helpers.getFileContent(new File(DYNFSYNC_FILE));
-			if(fsyncState.equals("1")) {
-				mKernelDynFsync.setChecked(true);
-				mKernelDynFsync.setValue("1");
-			}else if(fsyncState.equals("0")) {
-				mKernelDynFsync.setChecked(false);
-				mKernelDynFsync.setValue("0");
-			}
-		}
-
 		if(!new File(DT2W_FILE).exists()) {
 			mKernelCategory.removePreference(mDoubleTap);
 		} else {
@@ -499,31 +358,18 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 				mSweep2wake.setValue("0");
 			}
 		}
+
 		
-		
-		if(!new File(F2S_FILE).exists()) {
-			mKernelCategory.removePreference(mKernelF2s);
+		if(!new File(KSM_RUN_PATH).exists()) {
+			mKernelCategory.removePreference(mKernelKSM);
 		} else {
-			String dtState = Helpers.getFileContent(new File(F2S_FILE));
+			String dtState = Helpers.getFileContent(new File(KSM_RUN_PATH));
 			if(dtState.equals("1")) {
-				mKernelF2s.setChecked(true);
-				mKernelF2s.setValue("1");
+				mKernelKSM.setChecked(true);
+				mKernelKSM.setValue("1");
 			}else if(dtState.equals("0")) {
-				mKernelF2s.setChecked(false);
-				mKernelF2s.setValue("0");
-			}
-		}
-		
-		if(!new File(F2W_FILE).exists()) {
-			mKernelCategory.removePreference(mKernelF2w);
-		} else {
-			String dtState = Helpers.getFileContent(new File(F2W_FILE));
-			if(dtState.equals("1")) {
-				mKernelF2w.setChecked(true);
-				mKernelF2w.setValue("1");
-			}else if(dtState.equals("0")) {
-				mKernelF2w.setChecked(false);
-				mKernelF2w.setValue("0");
+				mKernelKSM.setChecked(false);
+				mKernelKSM.setValue("0");
 			}
 		}
 		
@@ -554,31 +400,6 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 			}
 		}
 
-		if(!new File(INTELLIPLUG_FILE).exists()) {
-			mKernelCategory.removePreference(mIntelliPlug);
-		} else {
-			String fchargeState = Helpers.getFileContent(new File(INTELLIPLUG_FILE));
-			if(fchargeState.equals("0")) {
-				mIntelliPlug.setChecked(false);
-				mIntelliPlug.setValue("0");
-			} else if(fchargeState.equals("1")) {
-				mIntelliPlug.setChecked(true);
-				mIntelliPlug.setValue("1");
-			}
-		}
-
-		if(!new File(ECOMODE_FILE).exists()) {
-			mKernelCategory.removePreference(mEcoMode);
-		} else {
-			String fchargeState = Helpers.getFileContent(new File(ECOMODE_FILE));
-			if(fchargeState.equals("0")) {
-				mEcoMode.setChecked(false);
-				mEcoMode.setValue("0");
-			} else if(fchargeState.equals("1")) {
-				mEcoMode.setChecked(true);
-				mEcoMode.setValue("1");
-			}
-		}
 
 		if(mKernelCategory.getPreferenceCount() == 0) {
 			mRootScreen.removePreference(mKernelCategory);
@@ -605,17 +426,7 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		}else {
 			mKernelCategory.removePreference(mVibration);
 		}
-		/*
-		if(new File(FAUXSOUND_FILE).exists()) {
-			File[] files = new File(FAUXSOUND_FILE).listFiles();
-			Arrays.sort(files);
-			for(File file: files) {
-				if(!file.getName().contains("version")) {
-					createPreference(mSoundCategory,file, color, false);
-				}
-			}
-		}
-		*/
+
 		if(mSoundCategory.getPreferenceCount() == 1) {
 			mRootScreen.removePreference(mSoundCategory);
 		}
