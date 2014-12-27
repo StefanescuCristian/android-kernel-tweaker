@@ -352,7 +352,6 @@ default value of 20 it means that if the CPU usage needs to be below
         <item>Fsync</item>
         <item>Fast Charge</item>
         <item>Vibration Intensity</item>
-        <item>Temp_threshold</item>
         <item>Headset_boost</item>
         <item>Mic_boost</item>
         <item>Speaker_boost</item>
@@ -410,7 +409,6 @@ default value of 20 it means that if the CPU usage needs to be below
         <item>Fast Charge function will drain more current from PC or Notebook when your device is plugged, so your device will charge faster.
             Fast Charge will not damage your device and will not damage your laptop.</item>
         <item>This parameter will change the vibration strength. Increasing this value means a stronger vibration feedback. Minimum values is 0, maximum 100</item>
-        <item>Maximum CPU temperature before the CPU gets throttled down to become cooler. Values are in °C</item>
         <item>Increase or decrease headsets gain. Values from -20 to 20</item>
         <item>Increase or decrease microphone gain. Values from -20 to 20</item>
         <item>Increase or decrease speaker gain. Values from -20 to 20</item>

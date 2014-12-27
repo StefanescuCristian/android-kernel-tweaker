@@ -51,6 +51,8 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 	private CustomCheckBoxPreference mKernelKSMTimer;
 	private CustomPreference mKernelKSMPages;
 	private CustomPreference mKernelKSMSleep;
+	private CustomPreference mKernelKSMMB;
+	private CustomPreference mKernelKSMShared;
 	private CustomListPreference mCpuScheduler;
 	private CustomListPreference mCpuReadAhead;
 	private PreferenceCategory mSoundCategory;
@@ -83,7 +85,8 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
     private static final String KSM_SLEEP_PATH = "/sys/kernel/mm/ksm/sleep_millisecs";
     private static final String KSM_PAGESTOSCAN_PATH = "/sys/kernel/mm/ksm/pages_to_scan";
     private static final String KSM_DEFERRED_TIMER = "/sys/kernel/mm/ksm/deferred_timer";
-
+    private static final String KSM_SAVED_MB = "/sys/kernel/mm/ksm/pages_sharing";
+    private static final String KSM_SHARED_MB = "/sys/kernel/mm/ksm/pages_shared";
 	
 	
 	private String color;
@@ -117,6 +120,7 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		Helpers.setPermissions(KSM_SLEEP_PATH);
 		Helpers.setPermissions(KSM_PAGESTOSCAN_PATH);
 		Helpers.setPermissions(KSM_DEFERRED_TIMER);
+
 		
 
 		mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
@@ -129,6 +133,8 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mKernelKSMTimer = (CustomCheckBoxPreference) findPreference("key_ksm_timer");
 		mKernelKSMPages = (CustomPreference) findPreference("key_ksm_pages");
 		mKernelKSMSleep = (CustomPreference) findPreference("key_ksm_sleep");
+		mKernelKSMMB = (CustomPreference) findPreference("key_ksm_mb");
+		mKernelKSMShared = (CustomPreference) findPreference("key_ksm_share");
 		mKernelFcharge = (CustomCheckBoxPreference) findPreference("key_fcharge_switch");
 		mCpuScheduler = (CustomListPreference) findPreference("key_cpu_sched");
 		mAdvancedScheduler = (CustomPreference) findPreference("key_advanced_scheduler");
@@ -171,6 +177,8 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mKernelKSMTimer.setCategory(category);
 		mKernelKSMSleep.setCategory(category);
 		mKernelKSMPages.setCategory(category);
+		mKernelKSMMB.setCategory(category);
+		mKernelKSMShared.setCategory(category);
 		
 		String[] schedulers = Helpers.getAvailableSchedulers();
 		String[] readAheadKb = {"128","256","384","512","640","768","896","1024","1152",
@@ -207,6 +215,8 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mKernelKSMTimer.setTitleColor(color);
 		mKernelKSMSleep.setTitleColor(color);
 		mKernelKSMPages.setTitleColor(color);
+		mKernelKSMMB.setTitleColor(color);
+		mKernelKSMShared.setTitleColor(color);
 		
 		mCpuScheduler.setEntries(schedulers);
 		mCpuScheduler.setEntryValues(schedulers);
@@ -222,6 +232,9 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mVibration.setOnPreferenceClickListener(this);
 		mKernelKSMPages.setOnPreferenceClickListener(this);
 		mKernelKSMSleep.setOnPreferenceClickListener(this);
+		
+		mKernelKSMMB.hideBoot(true);
+		mKernelKSMShared.hideBoot(true);
 
 		mKernelFsync.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 
@@ -437,7 +450,13 @@ public class KernelPreferenceFragment extends PreferenceFragment implements OnPr
 		mVibration.setSummary(Helpers.getFileContent(new File(VIBRATION_FILE)));
 		mKernelKSMPages.setSummary(Helpers.getFileContent(new File(KSM_PAGESTOSCAN_PATH)));
 		mKernelKSMSleep.setSummary(Helpers.getFileContent(new File(KSM_SLEEP_PATH)));
-
+		String savedMB;
+		savedMB = new String(Integer.toString(Integer.parseInt(Helpers.getFileContent(new File(KSM_SAVED_MB))) * 4096 / 1024 / 1024));
+		mKernelKSMMB.setSummary(savedMB);
+		String sharedMB;
+		sharedMB = new String(Integer.toString(Integer.parseInt(Helpers.getFileContent(new File(KSM_SHARED_MB))) * 4096 / 1024 / 1024));
+		mKernelKSMShared.setSummary(sharedMB);
+		
 		if(RootTools.isBusyboxAvailable()) {
 			String[] availTCP = Helpers.readCommandStrdOut(TCP_OPTIONS, false).replaceAll("net.ipv4.tcp_available_congestion_control = ", "").replaceAll("\n", "").split(" ");
 			CustomListPreference pref = new CustomListPreference(mContext, category);

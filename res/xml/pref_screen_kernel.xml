@@ -69,6 +69,14 @@
             android:key="key_ksm_sleep"
             android:summary=""
             android:title="KSM sleep ms" />
+        <com.dsht.kerneltweaker.CustomPreference
+            android:key="key_ksm_mb"
+            android:summary=""
+            android:title="KSM saved MB" />
+        <com.dsht.kerneltweaker.CustomPreference
+            android:key="key_ksm_share"
+            android:summary=""
+            android:title="KSM shared MB" />
     </PreferenceCategory>
     <PreferenceCategory
         android:key="key_sound_category"
