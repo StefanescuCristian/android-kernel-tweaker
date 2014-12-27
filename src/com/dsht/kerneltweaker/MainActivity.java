@@ -12,7 +12,6 @@ import java.util.concurrent.TimeoutException;
 import com.dsht.glossary.CpuGlossaryFragment;
 import com.dsht.glossary.GpuGlossaryFragment;
 import com.dsht.glossary.KernelGlossaryFragment;
-import com.dsht.glossary.LmkGlossaryFragment;
 import com.dsht.glossary.UvGlossaryFragment;
 import com.dsht.glossary.VmGlossaryFragment;
 import com.dsht.kerneltweaker.database.DatabaseHandler;
@@ -24,7 +23,6 @@ import com.dsht.kerneltweaker.fragments.FileManagerFragment;
 import com.dsht.kerneltweaker.fragments.GpuPreferenceFragment;
 import com.dsht.kerneltweaker.fragments.InitD;
 import com.dsht.kerneltweaker.fragments.KernelPreferenceFragment;
-import com.dsht.kerneltweaker.fragments.LowMemoryKillerFragment;
 import com.dsht.kerneltweaker.fragments.PropModder;
 import com.dsht.kerneltweaker.fragments.ReviewBootPreferenceFragment;
 import com.dsht.kerneltweaker.fragments.UvPreferenceFragment;
@@ -87,7 +85,6 @@ public class MainActivity extends FragmentActivity implements OnItemClickListene
 		R.drawable.plus_minus,
 		0,
 		R.drawable.beaker,
-		R.drawable.life_guard,
 		R.drawable.settings_two,
 		0,
 		R.drawable.heart,
@@ -240,42 +237,38 @@ public class MainActivity extends FragmentActivity implements OnItemClickListene
 			glo = new KernelGlossaryFragment();
 			break;
 		case 9:
-			f = new LowMemoryKillerFragment();
-			glo = new LmkGlossaryFragment();
-			break;
-		case 10:
 			f = new VM();
 			glo = new VmGlossaryFragment();
 			break;
-		case 12:
+		case 11:
 			f = new ReviewBootPreferenceFragment();
 			glo = new CpuGlossaryFragment();
 			break;
-		case 14:
+		case 13:
 			f = new FileManagerFragment();
 			glo = new CpuGlossaryFragment();
 			break;
-		case 15:
+		case 14:
 			f = new BackupFragment();
 			glo = new CpuGlossaryFragment();
 			break;
-		case 16:
+		case 15:
 			f = new CustomRecoveryCommandFragment();
 			glo = new CpuGlossaryFragment();
 			break;
-		case 18:
+		case 17:
 			f = new PropModder();
 			glo = new CpuGlossaryFragment();
 			break;
-		case 19:
+		case 18:
 			f = new InitD();
 			glo = new CpuGlossaryFragment();
 			break;
-		case 21:
+		case 20:
 			f = new SettingsFragment();
 			glo = new CpuGlossaryFragment();
 			break;
-		case 22:
+		case 21:
 			f = new infos();
 			glo = new CpuGlossaryFragment();
 			//showCredits();

@@ -87,9 +87,6 @@ public class CustomBaseAdapter extends BaseAdapter {
 		if(mPrefs.getBoolean(SettingsFragment.KEY_ENABLE_GLOBAL, false)) {
 			int color = mPrefs.getInt(SettingsFragment.KEY_GLOBAL_COLOR, Color.parseColor("#FFFFFF"));
 			title.setTextColor(color);
-		}else if(mPrefs.getBoolean(SettingsFragment.KEY_ENABLE_PERSONAL, false)) {
-			int col = MainActivity.mPrefs.getInt(SettingsFragment.KEY_LMK, Color.parseColor("#ff0099cc"));
-			title.setTextColor(col);
 		} 
 		else {
 			int color = Color.parseColor( mContext.getResources().getStringArray(R.array.menu_colors)[6]);

@@ -50,7 +50,6 @@ AbsListView.MultiChoiceModeListener {
 	private static final String gpuCat = "gpu";
 	private static final String uvCat ="uv";
 	private static final String kernelCat = "kernel";
-	private static final String LmkCat = "lmk";
 	private static final String GovCat = "governor";
 	private static final String SchedCat ="scheduler";
 	private static final String QuietCat ="cpuquiet";
@@ -66,7 +65,6 @@ AbsListView.MultiChoiceModeListener {
 			PreferenceCategory mGov,
 			PreferenceCategory mSched,
 			PreferenceCategory mQuiet,
-			PreferenceCategory mVm,
 			DatabaseHandler db,
 			VddDatabaseHandler vddDb,
 			boolean delete) {
@@ -160,9 +158,6 @@ AbsListView.MultiChoiceModeListener {
 						if(pref.getCategory().equals(kernelCat)) {
 							mKernel.removePreference(pref);
 						}
-						if(pref.getCategory().equals(LmkCat)) {
-							mLmk.removePreference(pref);
-						}
 						if(pref.getCategory().equals(GovCat)) {
 							mGov.removePreference(pref);
 						}
@@ -204,9 +199,6 @@ AbsListView.MultiChoiceModeListener {
 						}
 						if(pref.getCategory().equals(kernelCat)) {
 							mKernel.removePreference(pref);
-						}
-						if(pref.getCategory().equals(LmkCat)) {
-							mLmk.removePreference(pref);
 						}
 						if(pref.getCategory().equals(GovCat)) {
 							mGov.removePreference(pref);

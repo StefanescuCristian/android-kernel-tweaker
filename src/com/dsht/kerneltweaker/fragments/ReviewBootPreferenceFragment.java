@@ -60,7 +60,6 @@ public class ReviewBootPreferenceFragment extends PreferenceFragment {
 	private static final String gpuCat = "gpu";
 	private static final String uvCat ="uv";
 	private static final String kernelCat = "kernel";
-	private static final String LmkCat = "lmk";
 	private static final String GovCat = "governor";
 	private static final String SchedCat ="scheduler";
 	private static final String QuietCat ="cpuquiet";
@@ -98,7 +97,6 @@ public class ReviewBootPreferenceFragment extends PreferenceFragment {
 		mGpu = (PreferenceCategory) findPreference("cat_gpu");
 		mUv = (PreferenceCategory) findPreference("cat_uv");
 		mKernel = (PreferenceCategory) findPreference("cat_kernel");
-		mLmk = (PreferenceCategory) findPreference("cat_lmk");
 		mGov = (PreferenceCategory) findPreference("cat_gov");
 		mSched = (PreferenceCategory) findPreference("cat_sched");
 		mQuiet = (PreferenceCategory) findPreference("cat_quiet");
@@ -177,10 +175,6 @@ public class ReviewBootPreferenceFragment extends PreferenceFragment {
 						createPreference(mKernel,fPath, fName, value, color, category, false);
 					}
 				}
-				else if(category.equals(LmkCat)) {
-					String color = getColor(6);
-					createPreference(mLmk,fPath, fName, value, color, category, false);
-				}
 				else if(category.equals(GovCat)) {
 					String color = getColor(12);
 					createPreference(mGov,fPath, fName, value, color, category, false);
@@ -248,7 +242,6 @@ public class ReviewBootPreferenceFragment extends PreferenceFragment {
 				mGpu,
 				mUv,
 				mKernel,
-				mLmk,
 				mGov,
 				mSched,
 				mQuiet,
@@ -462,21 +455,18 @@ public class ReviewBootPreferenceFragment extends PreferenceFragment {
 				col = MainActivity.mPrefs.getInt(SettingsFragment.KEY_KERNEL, Color.parseColor("#FFFFFF"));
 				break;
 			case 6:
-				col = MainActivity.mPrefs.getInt(SettingsFragment.KEY_LMK, Color.parseColor("#FFFFFF"));
-				break;
-			case 7:
 				col = MainActivity.mPrefs.getInt(SettingsFragment.KEY_VM, Color.parseColor("#FFFFFF"));
 				break;
-			case 8:
+			case 7:
 				col = MainActivity.mPrefs.getInt(SettingsFragment.KEY_REVIEW, Color.parseColor("#FFFFFF"));
 				break;
-			case 9:
+			case 8:
 				col = MainActivity.mPrefs.getInt(SettingsFragment.KEY_FILE, Color.parseColor("#FFFFFF"));
 				break;
-			case 10:
+			case 9:
 				col = MainActivity.mPrefs.getInt(SettingsFragment.KEY_BAK, Color.parseColor("#FFFFFF"));
 				break;
-			case 11:
+			case 10:
 				col = MainActivity.mPrefs.getInt(SettingsFragment.KEY_RECOVERY, Color.parseColor("#FFFFFF"));
 				break;
 			}

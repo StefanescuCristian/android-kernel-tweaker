@@ -114,27 +114,24 @@ public class CustomArrayAdapter extends BaseAdapter {
 					color = mPrefs.getInt(SettingsFragment.KEY_KERNEL, Color.parseColor("#FFFFFF"));
 					break;
 				case 9:
-					color = mPrefs.getInt(SettingsFragment.KEY_LMK, Color.parseColor("#FFFFFF"));
-					break;
-				case 10:
 					color = mPrefs.getInt(SettingsFragment.KEY_VM, Color.parseColor("#FFFFFF"));
 					break;
-				case 12:
+				case 11:
 					color = mPrefs.getInt(SettingsFragment.KEY_REVIEW, Color.parseColor("#FFFFFF"));
 					break;
-				case 14:
+				case 13:
 					color = mPrefs.getInt(SettingsFragment.KEY_FILE, Color.parseColor("#FFFFFF"));
 					break;
-				case 15:
+				case 14:
 					color = mPrefs.getInt(SettingsFragment.KEY_BAK, Color.parseColor("#FFFFFF"));
 					break;
-				case 16:
+				case 15:
 					color = mPrefs.getInt(SettingsFragment.KEY_RECOVERY, Color.parseColor("#FFFFFF"));
 					break;
-				case 18:
+				case 17:
 					color = mPrefs.getInt(SettingsFragment.KEY_PROP, Color.parseColor("#FFFFFF"));
 					break;
-				case 19:
+				case 18:
 					color = mPrefs.getInt(SettingsFragment.KEY_INIT, Color.parseColor("#FFFFFF"));
 					break;
 				}

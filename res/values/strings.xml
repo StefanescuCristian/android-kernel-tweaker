@@ -69,7 +69,6 @@
         <item>UV Table</item>
         <item>--Kernel Params</item>
         <item>Kernel</item>
-        <item>Low Memory Killer</item>
         <item>Virtual Machine</item>
         <item>--Set on boot</item>
         <item>Review Items</item>
@@ -91,7 +90,6 @@
         <item>Tweak GPU Parameters</item>
         <item>Manage CPU Voltage</item>
         <item>Tweak Kernel Parameters</item>
-        <item>Tweak native task killer</item>
         <item>VM Settings</item>
         <item>Review values set at boot</item>
         <item>Manage some file types</item>
@@ -101,8 +99,6 @@
         <item>Informations and credits</item>
     </string-array>
     <string-array name="menu_colors">
-        <item>#ff0099cc</item>
-        <item>#ff0099cc</item>
         <item>#ff0099cc</item>
         <item>#ff0099cc</item>
         <item>#ff0099cc</item>

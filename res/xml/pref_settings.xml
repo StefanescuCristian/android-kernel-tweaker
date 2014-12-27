@@ -94,14 +94,6 @@
             app:cal_numColumns="5" />
         <it.gmariotti.android.example.colorpicker.calendarstock.ColorPickerPreference
             android:defaultValue="@android:color/white"
-            android:key="key_color_lmk"
-            android:negativeButtonText="@null"
-            android:positiveButtonText="@null"
-            android:title="Low Memory Killer"
-            app:cal_itemLayout="@layout/calendar_grid_item_color"
-            app:cal_numColumns="5" />
-        <it.gmariotti.android.example.colorpicker.calendarstock.ColorPickerPreference
-            android:defaultValue="@android:color/white"
             android:key="key_color_vm"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"

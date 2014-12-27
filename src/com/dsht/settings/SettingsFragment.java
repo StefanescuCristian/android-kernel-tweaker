@@ -38,7 +38,6 @@ public class SettingsFragment extends PreferenceFragment implements OnPreference
 	public static final String KEY_GPU = "key_color_gpu";
 	public static final String KEY_UV = "key_color_uv";
 	public static final String KEY_KERNEL = "key_color_kernel";
-	public static final String KEY_LMK = "key_color_lmk";
 	public static final String KEY_VM = "key_color_vm";
 	public static final String KEY_REVIEW = "key_color_review";
 	public static final String KEY_FILE = "key_color_file";
@@ -90,7 +89,6 @@ public class SettingsFragment extends PreferenceFragment implements OnPreference
 		mGpu = (ColorPickerPreference) findPreference(KEY_GPU);
 		mUv = (ColorPickerPreference) findPreference(KEY_UV);
 		mKernel = (ColorPickerPreference) findPreference(KEY_KERNEL);
-		mLmk = (ColorPickerPreference) findPreference(KEY_LMK);
 		mVm = (ColorPickerPreference) findPreference(KEY_VM);
 		mReview = (ColorPickerPreference) findPreference(KEY_REVIEW);
 		mFile = (ColorPickerPreference) findPreference(KEY_FILE);
@@ -119,7 +117,6 @@ public class SettingsFragment extends PreferenceFragment implements OnPreference
 		mGpu.setOnPreferenceChangeListener(this);
 		mUv.setOnPreferenceChangeListener(this);
 		mKernel.setOnPreferenceChangeListener(this);
-		mLmk.setOnPreferenceChangeListener(this);
 		mVm.setOnPreferenceChangeListener(this);
 		mReview.setOnPreferenceChangeListener(this);
 		mFile.setOnPreferenceChangeListener(this);
@@ -198,10 +195,6 @@ public class SettingsFragment extends PreferenceFragment implements OnPreference
 			return true;
 		}
 		if(pref == mKernel) {
-			MainActivity.mAdapter.notifyDataSetChanged();
-			return true;
-		}
-		if(pref == mLmk) {
 			MainActivity.mAdapter.notifyDataSetChanged();
 			return true;
 		}
