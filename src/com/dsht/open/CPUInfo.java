@@ -36,7 +36,7 @@ import android.widget.TextView;
 
 import com.dsht.kerneltweaker.Helpers;
 import com.dsht.kerneltweaker.MainActivity;
-import com.dsht.kerneltweaker.R;
+import com.bb.kerneltweaker.R;
 
 public class CPUInfo extends Fragment implements Constants {
 

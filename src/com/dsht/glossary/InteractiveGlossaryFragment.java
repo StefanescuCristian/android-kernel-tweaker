@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.dsht.kerneltweaker.GlossaryArrayAdapter;
-import com.dsht.kerneltweaker.R;
+import com.bb.kerneltweaker.R;
 
 public class InteractiveGlossaryFragment extends Fragment {
 

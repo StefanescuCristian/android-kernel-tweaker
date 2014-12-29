@@ -11,7 +11,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 
-import com.dsht.kerneltweaker.R;
+import com.bb.kerneltweaker.R;
 
 public class OutlineContainer extends FrameLayout implements Animatable {
 

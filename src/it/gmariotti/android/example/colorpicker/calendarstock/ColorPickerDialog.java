@@ -30,7 +30,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.dsht.kerneltweaker.R;
+import com.bb.kerneltweaker.R;
 
 
 

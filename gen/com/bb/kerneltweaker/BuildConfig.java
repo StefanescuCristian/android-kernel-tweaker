@@ -1,5 +1,5 @@
 /** Automatically generated file. DO NOT MODIFY */
-package com.dsht.kerneltweaker;
+package com.bb.kerneltweaker;
 
 public final class BuildConfig {
     public final static boolean DEBUG = true;

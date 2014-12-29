@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.dsht.kerneltweaker.GlossaryArrayAdapter;
-import com.dsht.kerneltweaker.R;
+import com.bb.kerneltweaker.R;
 
 public class CpuGlossaryFragment extends Fragment implements OnItemClickListener {
 

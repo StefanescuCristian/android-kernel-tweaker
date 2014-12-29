@@ -23,6 +23,7 @@ import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.bb.kerneltweaker.R;
 import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
 import com.dsht.kernetweaker.cmdprocessor.CMDProcessor.CommandResult2;
 import com.dsht.settings.SettingsFragment;

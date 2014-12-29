@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bb.kerneltweaker.R;
 import com.dsht.settings.SettingsFragment;
 
 public class RecoveryBaseAdapter extends BaseAdapter {

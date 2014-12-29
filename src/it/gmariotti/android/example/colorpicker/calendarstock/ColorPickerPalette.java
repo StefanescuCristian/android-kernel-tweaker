@@ -32,7 +32,7 @@ import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
-import com.dsht.kerneltweaker.R;
+import com.bb.kerneltweaker.R;
 
 
 

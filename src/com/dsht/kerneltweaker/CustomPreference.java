@@ -16,6 +16,7 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
 
+import com.bb.kerneltweaker.R;
 import com.dsht.kerneltweaker.database.DataItem;
 import com.dsht.kerneltweaker.database.DatabaseHandler;
 

@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
+import com.bb.kerneltweaker.R;
 import com.dsht.kerneltweaker.database.DataItem;
 import com.dsht.kerneltweaker.database.DatabaseHandler;
 import com.dsht.kerneltweaker.database.VddDatabaseHandler;

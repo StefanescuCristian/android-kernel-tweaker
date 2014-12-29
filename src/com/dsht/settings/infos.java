@@ -10,7 +10,7 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceFragment;
 
 import com.dsht.kerneltweaker.MainActivity;
-import com.dsht.kerneltweaker.R;
+import com.bb.kerneltweaker.R;
 
 public class infos extends PreferenceFragment implements OnPreferenceClickListener {
 

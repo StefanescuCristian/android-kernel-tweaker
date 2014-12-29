@@ -29,7 +29,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.dsht.kerneltweaker.R;
+import com.bb.kerneltweaker.R;
 
 /**
  * ColorPreference based on ColorPickerDialog of Stock Calendar

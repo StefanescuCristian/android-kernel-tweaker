@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.bb.kerneltweaker.R;
 import com.dsht.settings.SettingsFragment;
 
 public class PresetsBaseAdapter extends BaseAdapter {

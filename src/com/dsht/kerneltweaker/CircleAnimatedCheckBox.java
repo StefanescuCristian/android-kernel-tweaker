@@ -9,6 +9,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.CheckBox;
+import com.bb.kerneltweaker.R;
 
 public class CircleAnimatedCheckBox extends CheckBox {
 

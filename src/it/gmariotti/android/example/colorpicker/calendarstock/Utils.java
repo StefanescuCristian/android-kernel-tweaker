@@ -35,7 +35,7 @@ import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
-import com.dsht.kerneltweaker.R;
+import com.bb.kerneltweaker.R;
 
 /**
  * 

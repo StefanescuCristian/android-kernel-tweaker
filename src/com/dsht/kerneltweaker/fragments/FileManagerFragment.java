@@ -23,7 +23,7 @@ import android.widget.TextView;
 
 import com.dsht.kerneltweaker.FileBaseAdapter;
 import com.dsht.kerneltweaker.MainActivity;
-import com.dsht.kerneltweaker.R;
+import com.bb.kerneltweaker.R;
 import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
 
 public class FileManagerFragment extends Fragment implements OnItemClickListener{

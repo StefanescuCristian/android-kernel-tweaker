@@ -25,7 +25,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 
 import com.dsht.kerneltweaker.MainActivity;
-import com.dsht.kerneltweaker.R;
+import com.bb.kerneltweaker.R;
 import com.dsht.kerneltweaker.RecoveryBaseAdapter;
 import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
 import com.mobeta.android.dslv.DragSortController;

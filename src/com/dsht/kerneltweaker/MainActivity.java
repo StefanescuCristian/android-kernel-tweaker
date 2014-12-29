@@ -34,6 +34,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 
+import com.bb.kerneltweaker.R;
 import com.dsht.glossary.CpuGlossaryFragment;
 import com.dsht.glossary.GpuGlossaryFragment;
 import com.dsht.glossary.KernelGlossaryFragment;

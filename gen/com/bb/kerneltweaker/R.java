@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.dsht.kerneltweaker;
+package com.bb.kerneltweaker;
 
 public final class R {
     public static final class anim {
@@ -1257,8 +1257,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #CircleAnimatedCheckBox_cb_color com.dsht.kerneltweaker:cb_color}</code></td><td></td></tr>
-           <tr><td><code>{@link #CircleAnimatedCheckBox_cb_pressed_ring_width com.dsht.kerneltweaker:cb_pressed_ring_width}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleAnimatedCheckBox_cb_color com.bb.kerneltweaker:cb_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircleAnimatedCheckBox_cb_pressed_ring_width com.bb.kerneltweaker:cb_pressed_ring_width}</code></td><td></td></tr>
            </table>
            @see #CircleAnimatedCheckBox_cb_color
            @see #CircleAnimatedCheckBox_cb_pressed_ring_width
@@ -1267,7 +1267,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f01000e, 0x7f01000f
         };
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#cb_color}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#cb_color}
           attribute's value can be found in the {@link #CircleAnimatedCheckBox} array.
 
 
@@ -1278,11 +1278,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:cb_color
+          @attr name com.bb.kerneltweaker:cb_color
         */
         public static final int CircleAnimatedCheckBox_cb_color = 0;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#cb_pressed_ring_width}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#cb_pressed_ring_width}
           attribute's value can be found in the {@link #CircleAnimatedCheckBox} array.
 
 
@@ -1294,7 +1294,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:cb_pressed_ring_width
+          @attr name com.bb.kerneltweaker:cb_pressed_ring_width
         */
         public static final int CircleAnimatedCheckBox_cb_pressed_ring_width = 1;
         /** Attributes that can be used with a ColorPickerPreference.
@@ -1303,9 +1303,9 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ColorPickerPreference_cal_choices com.dsht.kerneltweaker:cal_choices}</code></td><td></td></tr>
-           <tr><td><code>{@link #ColorPickerPreference_cal_itemLayout com.dsht.kerneltweaker:cal_itemLayout}</code></td><td></td></tr>
-           <tr><td><code>{@link #ColorPickerPreference_cal_numColumns com.dsht.kerneltweaker:cal_numColumns}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorPickerPreference_cal_choices com.bb.kerneltweaker:cal_choices}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorPickerPreference_cal_itemLayout com.bb.kerneltweaker:cal_itemLayout}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorPickerPreference_cal_numColumns com.bb.kerneltweaker:cal_numColumns}</code></td><td></td></tr>
            </table>
            @see #ColorPickerPreference_cal_choices
            @see #ColorPickerPreference_cal_itemLayout
@@ -1315,27 +1315,27 @@ containing a value of this type.
             0x7f01001b, 0x7f01001c, 0x7f01001d
         };
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#cal_choices}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#cal_choices}
           attribute's value can be found in the {@link #ColorPickerPreference} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.dsht.kerneltweaker:cal_choices
+          @attr name com.bb.kerneltweaker:cal_choices
         */
         public static final int ColorPickerPreference_cal_choices = 1;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#cal_itemLayout}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#cal_itemLayout}
           attribute's value can be found in the {@link #ColorPickerPreference} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.dsht.kerneltweaker:cal_itemLayout
+          @attr name com.bb.kerneltweaker:cal_itemLayout
         */
         public static final int ColorPickerPreference_cal_itemLayout = 0;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#cal_numColumns}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#cal_numColumns}
           attribute's value can be found in the {@link #ColorPickerPreference} array.
 
 
@@ -1345,7 +1345,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:cal_numColumns
+          @attr name com.bb.kerneltweaker:cal_numColumns
         */
         public static final int ColorPickerPreference_cal_numColumns = 2;
         /** Attributes that can be used with a DragSortListView.
@@ -1354,24 +1354,24 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #DragSortListView_click_remove_id com.dsht.kerneltweaker:click_remove_id}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_collapsed_height com.dsht.kerneltweaker:collapsed_height}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_drag_enabled com.dsht.kerneltweaker:drag_enabled}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_drag_handle_id com.dsht.kerneltweaker:drag_handle_id}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_drag_scroll_start com.dsht.kerneltweaker:drag_scroll_start}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_drag_start_mode com.dsht.kerneltweaker:drag_start_mode}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_drop_animation_duration com.dsht.kerneltweaker:drop_animation_duration}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_fling_handle_id com.dsht.kerneltweaker:fling_handle_id}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_float_alpha com.dsht.kerneltweaker:float_alpha}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_float_background_color com.dsht.kerneltweaker:float_background_color}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_max_drag_scroll_speed com.dsht.kerneltweaker:max_drag_scroll_speed}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_remove_animation_duration com.dsht.kerneltweaker:remove_animation_duration}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_remove_enabled com.dsht.kerneltweaker:remove_enabled}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_remove_mode com.dsht.kerneltweaker:remove_mode}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_slide_shuffle_speed com.dsht.kerneltweaker:slide_shuffle_speed}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_sort_enabled com.dsht.kerneltweaker:sort_enabled}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_track_drag_sort com.dsht.kerneltweaker:track_drag_sort}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_use_default_controller com.dsht.kerneltweaker:use_default_controller}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_click_remove_id com.bb.kerneltweaker:click_remove_id}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_collapsed_height com.bb.kerneltweaker:collapsed_height}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_drag_enabled com.bb.kerneltweaker:drag_enabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_drag_handle_id com.bb.kerneltweaker:drag_handle_id}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_drag_scroll_start com.bb.kerneltweaker:drag_scroll_start}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_drag_start_mode com.bb.kerneltweaker:drag_start_mode}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_drop_animation_duration com.bb.kerneltweaker:drop_animation_duration}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_fling_handle_id com.bb.kerneltweaker:fling_handle_id}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_float_alpha com.bb.kerneltweaker:float_alpha}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_float_background_color com.bb.kerneltweaker:float_background_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_max_drag_scroll_speed com.bb.kerneltweaker:max_drag_scroll_speed}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_remove_animation_duration com.bb.kerneltweaker:remove_animation_duration}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_remove_enabled com.bb.kerneltweaker:remove_enabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_remove_mode com.bb.kerneltweaker:remove_mode}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_slide_shuffle_speed com.bb.kerneltweaker:slide_shuffle_speed}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_sort_enabled com.bb.kerneltweaker:sort_enabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_track_drag_sort com.bb.kerneltweaker:track_drag_sort}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_use_default_controller com.bb.kerneltweaker:use_default_controller}</code></td><td></td></tr>
            </table>
            @see #DragSortListView_click_remove_id
            @see #DragSortListView_collapsed_height
@@ -1400,7 +1400,7 @@ containing a value of this type.
             0x7f01002e, 0x7f01002f
         };
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#click_remove_id}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#click_remove_id}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1410,11 +1410,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:click_remove_id
+          @attr name com.bb.kerneltweaker:click_remove_id
         */
         public static final int DragSortListView_click_remove_id = 16;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#collapsed_height}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#collapsed_height}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1426,11 +1426,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:collapsed_height
+          @attr name com.bb.kerneltweaker:collapsed_height
         */
         public static final int DragSortListView_collapsed_height = 0;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#drag_enabled}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#drag_enabled}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1440,11 +1440,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:drag_enabled
+          @attr name com.bb.kerneltweaker:drag_enabled
         */
         public static final int DragSortListView_drag_enabled = 10;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#drag_handle_id}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#drag_handle_id}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1454,11 +1454,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:drag_handle_id
+          @attr name com.bb.kerneltweaker:drag_handle_id
         */
         public static final int DragSortListView_drag_handle_id = 14;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#drag_scroll_start}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#drag_scroll_start}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1468,11 +1468,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:drag_scroll_start
+          @attr name com.bb.kerneltweaker:drag_scroll_start
         */
         public static final int DragSortListView_drag_scroll_start = 1;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#drag_start_mode}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#drag_start_mode}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1486,11 +1486,11 @@ containing a value of this type.
 <tr><td><code>onMove</code></td><td>1</td><td></td></tr>
 <tr><td><code>onLongPress</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name com.dsht.kerneltweaker:drag_start_mode
+          @attr name com.bb.kerneltweaker:drag_start_mode
         */
         public static final int DragSortListView_drag_start_mode = 13;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#drop_animation_duration}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#drop_animation_duration}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1500,11 +1500,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:drop_animation_duration
+          @attr name com.bb.kerneltweaker:drop_animation_duration
         */
         public static final int DragSortListView_drop_animation_duration = 9;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#fling_handle_id}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#fling_handle_id}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1514,11 +1514,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:fling_handle_id
+          @attr name com.bb.kerneltweaker:fling_handle_id
         */
         public static final int DragSortListView_fling_handle_id = 15;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#float_alpha}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#float_alpha}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1528,11 +1528,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:float_alpha
+          @attr name com.bb.kerneltweaker:float_alpha
         */
         public static final int DragSortListView_float_alpha = 6;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#float_background_color}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#float_background_color}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1543,11 +1543,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:float_background_color
+          @attr name com.bb.kerneltweaker:float_background_color
         */
         public static final int DragSortListView_float_background_color = 3;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#max_drag_scroll_speed}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#max_drag_scroll_speed}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1557,11 +1557,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:max_drag_scroll_speed
+          @attr name com.bb.kerneltweaker:max_drag_scroll_speed
         */
         public static final int DragSortListView_max_drag_scroll_speed = 2;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#remove_animation_duration}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#remove_animation_duration}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1571,11 +1571,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:remove_animation_duration
+          @attr name com.bb.kerneltweaker:remove_animation_duration
         */
         public static final int DragSortListView_remove_animation_duration = 8;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#remove_enabled}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#remove_enabled}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1585,11 +1585,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:remove_enabled
+          @attr name com.bb.kerneltweaker:remove_enabled
         */
         public static final int DragSortListView_remove_enabled = 12;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#remove_mode}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#remove_mode}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1602,11 +1602,11 @@ containing a value of this type.
 <tr><td><code>clickRemove</code></td><td>0</td><td></td></tr>
 <tr><td><code>flingRemove</code></td><td>1</td><td></td></tr>
 </table>
-          @attr name com.dsht.kerneltweaker:remove_mode
+          @attr name com.bb.kerneltweaker:remove_mode
         */
         public static final int DragSortListView_remove_mode = 4;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#slide_shuffle_speed}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#slide_shuffle_speed}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1616,11 +1616,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:slide_shuffle_speed
+          @attr name com.bb.kerneltweaker:slide_shuffle_speed
         */
         public static final int DragSortListView_slide_shuffle_speed = 7;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#sort_enabled}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#sort_enabled}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1630,11 +1630,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:sort_enabled
+          @attr name com.bb.kerneltweaker:sort_enabled
         */
         public static final int DragSortListView_sort_enabled = 11;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#track_drag_sort}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#track_drag_sort}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1644,11 +1644,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:track_drag_sort
+          @attr name com.bb.kerneltweaker:track_drag_sort
         */
         public static final int DragSortListView_track_drag_sort = 5;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#use_default_controller}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#use_default_controller}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1658,7 +1658,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:use_default_controller
+          @attr name com.bb.kerneltweaker:use_default_controller
         */
         public static final int DragSortListView_use_default_controller = 17;
         /** Attributes that can be used with a InfoPreference.
@@ -1667,13 +1667,13 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #InfoPreference_button1_link com.dsht.kerneltweaker:button1_link}</code></td><td></td></tr>
-           <tr><td><code>{@link #InfoPreference_button1_text com.dsht.kerneltweaker:button1_text}</code></td><td></td></tr>
-           <tr><td><code>{@link #InfoPreference_button2_link com.dsht.kerneltweaker:button2_link}</code></td><td></td></tr>
-           <tr><td><code>{@link #InfoPreference_button2_text com.dsht.kerneltweaker:button2_text}</code></td><td></td></tr>
-           <tr><td><code>{@link #InfoPreference_button3_link com.dsht.kerneltweaker:button3_link}</code></td><td></td></tr>
-           <tr><td><code>{@link #InfoPreference_button3_text com.dsht.kerneltweaker:button3_text}</code></td><td></td></tr>
-           <tr><td><code>{@link #InfoPreference_image com.dsht.kerneltweaker:image}</code></td><td></td></tr>
+           <tr><td><code>{@link #InfoPreference_button1_link com.bb.kerneltweaker:button1_link}</code></td><td></td></tr>
+           <tr><td><code>{@link #InfoPreference_button1_text com.bb.kerneltweaker:button1_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #InfoPreference_button2_link com.bb.kerneltweaker:button2_link}</code></td><td></td></tr>
+           <tr><td><code>{@link #InfoPreference_button2_text com.bb.kerneltweaker:button2_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #InfoPreference_button3_link com.bb.kerneltweaker:button3_link}</code></td><td></td></tr>
+           <tr><td><code>{@link #InfoPreference_button3_text com.bb.kerneltweaker:button3_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #InfoPreference_image com.bb.kerneltweaker:image}</code></td><td></td></tr>
            </table>
            @see #InfoPreference_button1_link
            @see #InfoPreference_button1_text
@@ -1688,73 +1688,73 @@ containing a value of this type.
             0x7f010014, 0x7f010015, 0x7f010016
         };
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#button1_link}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#button1_link}
           attribute's value can be found in the {@link #InfoPreference} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.dsht.kerneltweaker:button1_link
+          @attr name com.bb.kerneltweaker:button1_link
         */
         public static final int InfoPreference_button1_link = 4;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#button1_text}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#button1_text}
           attribute's value can be found in the {@link #InfoPreference} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.dsht.kerneltweaker:button1_text
+          @attr name com.bb.kerneltweaker:button1_text
         */
         public static final int InfoPreference_button1_text = 1;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#button2_link}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#button2_link}
           attribute's value can be found in the {@link #InfoPreference} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.dsht.kerneltweaker:button2_link
+          @attr name com.bb.kerneltweaker:button2_link
         */
         public static final int InfoPreference_button2_link = 5;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#button2_text}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#button2_text}
           attribute's value can be found in the {@link #InfoPreference} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.dsht.kerneltweaker:button2_text
+          @attr name com.bb.kerneltweaker:button2_text
         */
         public static final int InfoPreference_button2_text = 2;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#button3_link}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#button3_link}
           attribute's value can be found in the {@link #InfoPreference} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.dsht.kerneltweaker:button3_link
+          @attr name com.bb.kerneltweaker:button3_link
         */
         public static final int InfoPreference_button3_link = 6;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#button3_text}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#button3_text}
           attribute's value can be found in the {@link #InfoPreference} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.dsht.kerneltweaker:button3_text
+          @attr name com.bb.kerneltweaker:button3_text
         */
         public static final int InfoPreference_button3_text = 3;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#image}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#image}
           attribute's value can be found in the {@link #InfoPreference} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.dsht.kerneltweaker:image
+          @attr name com.bb.kerneltweaker:image
         */
         public static final int InfoPreference_image = 0;
         /** Attributes that can be used with a JazzyViewPager.
@@ -1763,10 +1763,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #JazzyViewPager_fadeEnable com.dsht.kerneltweaker:fadeEnable}</code></td><td></td></tr>
-           <tr><td><code>{@link #JazzyViewPager_outlineColor com.dsht.kerneltweaker:outlineColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #JazzyViewPager_outlineEnabled com.dsht.kerneltweaker:outlineEnabled}</code></td><td></td></tr>
-           <tr><td><code>{@link #JazzyViewPager_style com.dsht.kerneltweaker:style}</code></td><td></td></tr>
+           <tr><td><code>{@link #JazzyViewPager_fadeEnable com.bb.kerneltweaker:fadeEnable}</code></td><td></td></tr>
+           <tr><td><code>{@link #JazzyViewPager_outlineColor com.bb.kerneltweaker:outlineColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #JazzyViewPager_outlineEnabled com.bb.kerneltweaker:outlineEnabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #JazzyViewPager_style com.bb.kerneltweaker:style}</code></td><td></td></tr>
            </table>
            @see #JazzyViewPager_fadeEnable
            @see #JazzyViewPager_outlineColor
@@ -1777,7 +1777,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f010017, 0x7f010018, 0x7f010019, 0x7f01001a
         };
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#fadeEnable}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#fadeEnable}
           attribute's value can be found in the {@link #JazzyViewPager} array.
 
 
@@ -1787,11 +1787,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:fadeEnable
+          @attr name com.bb.kerneltweaker:fadeEnable
         */
         public static final int JazzyViewPager_fadeEnable = 1;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#outlineColor}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#outlineColor}
           attribute's value can be found in the {@link #JazzyViewPager} array.
 
 
@@ -1799,11 +1799,11 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          @attr name com.dsht.kerneltweaker:outlineColor
+          @attr name com.bb.kerneltweaker:outlineColor
         */
         public static final int JazzyViewPager_outlineColor = 3;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#outlineEnabled}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#outlineEnabled}
           attribute's value can be found in the {@link #JazzyViewPager} array.
 
 
@@ -1813,11 +1813,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:outlineEnabled
+          @attr name com.bb.kerneltweaker:outlineEnabled
         */
         public static final int JazzyViewPager_outlineEnabled = 2;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#style}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#style}
           attribute's value can be found in the {@link #JazzyViewPager} array.
 
 
@@ -1840,7 +1840,7 @@ containing a value of this type.
 <tr><td><code>rotatedown</code></td><td>10</td><td></td></tr>
 <tr><td><code>accordion</code></td><td>11</td><td></td></tr>
 </table>
-          @attr name com.dsht.kerneltweaker:style
+          @attr name com.bb.kerneltweaker:style
         */
         public static final int JazzyViewPager_style = 0;
         /** Attributes that can be used with a SlidingMenu.
@@ -1849,20 +1849,20 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SlidingMenu_behindOffset com.dsht.kerneltweaker:behindOffset}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_behindScrollScale com.dsht.kerneltweaker:behindScrollScale}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_behindWidth com.dsht.kerneltweaker:behindWidth}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_fadeDegree com.dsht.kerneltweaker:fadeDegree}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_fadeEnabled com.dsht.kerneltweaker:fadeEnabled}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_mode com.dsht.kerneltweaker:mode}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_selectorDrawable com.dsht.kerneltweaker:selectorDrawable}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_selectorEnabled com.dsht.kerneltweaker:selectorEnabled}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_shadowDrawable com.dsht.kerneltweaker:shadowDrawable}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_shadowWidth com.dsht.kerneltweaker:shadowWidth}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_touchModeAbove com.dsht.kerneltweaker:touchModeAbove}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_touchModeBehind com.dsht.kerneltweaker:touchModeBehind}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_viewAbove com.dsht.kerneltweaker:viewAbove}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_viewBehind com.dsht.kerneltweaker:viewBehind}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_behindOffset com.bb.kerneltweaker:behindOffset}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_behindScrollScale com.bb.kerneltweaker:behindScrollScale}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_behindWidth com.bb.kerneltweaker:behindWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_fadeDegree com.bb.kerneltweaker:fadeDegree}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_fadeEnabled com.bb.kerneltweaker:fadeEnabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_mode com.bb.kerneltweaker:mode}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_selectorDrawable com.bb.kerneltweaker:selectorDrawable}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_selectorEnabled com.bb.kerneltweaker:selectorEnabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_shadowDrawable com.bb.kerneltweaker:shadowDrawable}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_shadowWidth com.bb.kerneltweaker:shadowWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_touchModeAbove com.bb.kerneltweaker:touchModeAbove}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_touchModeBehind com.bb.kerneltweaker:touchModeBehind}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_viewAbove com.bb.kerneltweaker:viewAbove}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_viewBehind com.bb.kerneltweaker:viewBehind}</code></td><td></td></tr>
            </table>
            @see #SlidingMenu_behindOffset
            @see #SlidingMenu_behindScrollScale
@@ -1886,7 +1886,7 @@ containing a value of this type.
             0x7f01000c, 0x7f01000d
         };
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#behindOffset}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#behindOffset}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -1898,11 +1898,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:behindOffset
+          @attr name com.bb.kerneltweaker:behindOffset
         */
         public static final int SlidingMenu_behindOffset = 3;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#behindScrollScale}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#behindScrollScale}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -1912,11 +1912,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:behindScrollScale
+          @attr name com.bb.kerneltweaker:behindScrollScale
         */
         public static final int SlidingMenu_behindScrollScale = 5;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#behindWidth}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#behindWidth}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -1928,11 +1928,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:behindWidth
+          @attr name com.bb.kerneltweaker:behindWidth
         */
         public static final int SlidingMenu_behindWidth = 4;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#fadeDegree}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#fadeDegree}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -1942,11 +1942,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:fadeDegree
+          @attr name com.bb.kerneltweaker:fadeDegree
         */
         public static final int SlidingMenu_fadeDegree = 11;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#fadeEnabled}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#fadeEnabled}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -1956,11 +1956,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:fadeEnabled
+          @attr name com.bb.kerneltweaker:fadeEnabled
         */
         public static final int SlidingMenu_fadeEnabled = 10;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#mode}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#mode}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -1973,21 +1973,21 @@ containing a value of this type.
 <tr><td><code>left</code></td><td>0</td><td></td></tr>
 <tr><td><code>right</code></td><td>1</td><td></td></tr>
 </table>
-          @attr name com.dsht.kerneltweaker:mode
+          @attr name com.bb.kerneltweaker:mode
         */
         public static final int SlidingMenu_mode = 0;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#selectorDrawable}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#selectorDrawable}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.dsht.kerneltweaker:selectorDrawable
+          @attr name com.bb.kerneltweaker:selectorDrawable
         */
         public static final int SlidingMenu_selectorDrawable = 13;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#selectorEnabled}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#selectorEnabled}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -1997,21 +1997,21 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:selectorEnabled
+          @attr name com.bb.kerneltweaker:selectorEnabled
         */
         public static final int SlidingMenu_selectorEnabled = 12;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#shadowDrawable}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#shadowDrawable}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.dsht.kerneltweaker:shadowDrawable
+          @attr name com.bb.kerneltweaker:shadowDrawable
         */
         public static final int SlidingMenu_shadowDrawable = 8;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#shadowWidth}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#shadowWidth}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -2023,11 +2023,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.dsht.kerneltweaker:shadowWidth
+          @attr name com.bb.kerneltweaker:shadowWidth
         */
         public static final int SlidingMenu_shadowWidth = 9;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#touchModeAbove}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#touchModeAbove}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -2041,11 +2041,11 @@ containing a value of this type.
 <tr><td><code>fullscreen</code></td><td>1</td><td></td></tr>
 <tr><td><code>none</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name com.dsht.kerneltweaker:touchModeAbove
+          @attr name com.bb.kerneltweaker:touchModeAbove
         */
         public static final int SlidingMenu_touchModeAbove = 6;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#touchModeBehind}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#touchModeBehind}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -2059,27 +2059,27 @@ containing a value of this type.
 <tr><td><code>fullscreen</code></td><td>1</td><td></td></tr>
 <tr><td><code>none</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name com.dsht.kerneltweaker:touchModeBehind
+          @attr name com.bb.kerneltweaker:touchModeBehind
         */
         public static final int SlidingMenu_touchModeBehind = 7;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#viewAbove}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#viewAbove}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.dsht.kerneltweaker:viewAbove
+          @attr name com.bb.kerneltweaker:viewAbove
         */
         public static final int SlidingMenu_viewAbove = 1;
         /**
-          <p>This symbol is the offset where the {@link com.dsht.kerneltweaker.R.attr#viewBehind}
+          <p>This symbol is the offset where the {@link com.bb.kerneltweaker.R.attr#viewBehind}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.dsht.kerneltweaker:viewBehind
+          @attr name com.bb.kerneltweaker:viewBehind
         */
         public static final int SlidingMenu_viewBehind = 2;
     };

@@ -29,7 +29,7 @@ import android.widget.TextView;
 
 import com.dsht.kerneltweaker.BackupBaseAdapter;
 import com.dsht.kerneltweaker.MainActivity;
-import com.dsht.kerneltweaker.R;
+import com.bb.kerneltweaker.R;
 import com.dsht.kerneltweaker.SwipeDismissListViewTouchListener;
 import com.dsht.kerneltweaker.SwipeDismissListViewTouchListener.DismissCallbacks;
 import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;

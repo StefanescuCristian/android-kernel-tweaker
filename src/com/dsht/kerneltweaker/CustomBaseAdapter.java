@@ -17,6 +17,7 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
+import com.bb.kerneltweaker.R;
 import com.dsht.kerneltweaker.database.DataItem;
 import com.dsht.kerneltweaker.database.DatabaseHandler;
 import com.dsht.settings.SettingsFragment;

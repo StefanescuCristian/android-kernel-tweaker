@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.bb.kerneltweaker.R;
 
 public class FileBaseAdapter extends BaseAdapter {
 

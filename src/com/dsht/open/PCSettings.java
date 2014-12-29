@@ -28,7 +28,7 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 
 import com.dsht.kerneltweaker.Helpers;
-import com.dsht.kerneltweaker.R;
+import com.bb.kerneltweaker.R;
 
 
 public class PCSettings extends PreferenceFragment implements Constants, OnPreferenceChangeListener {

@@ -23,7 +23,7 @@ import android.widget.TextView;
 
 import com.dsht.kerneltweaker.Helpers;
 import com.dsht.kerneltweaker.MainActivity;
-import com.dsht.kerneltweaker.R;
+import com.bb.kerneltweaker.R;
 import com.dsht.kerneltweaker.Startup;
 
 public class SettingsFragment extends PreferenceFragment implements OnPreferenceChangeListener, OnPreferenceClickListener {

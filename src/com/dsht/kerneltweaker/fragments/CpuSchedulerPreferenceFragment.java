@@ -26,7 +26,7 @@ import android.widget.LinearLayout;
 import com.dsht.kerneltweaker.CustomPreference;
 import com.dsht.kerneltweaker.Helpers;
 import com.dsht.kerneltweaker.MainActivity;
-import com.dsht.kerneltweaker.R;
+import com.bb.kerneltweaker.R;
 import com.dsht.kerneltweaker.database.DataItem;
 import com.dsht.kerneltweaker.database.DatabaseHandler;
 import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;

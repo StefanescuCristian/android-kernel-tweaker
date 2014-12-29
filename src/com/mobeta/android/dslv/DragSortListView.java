@@ -49,7 +49,7 @@ import android.widget.Checkable;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.dsht.kerneltweaker.R;
+import com.bb.kerneltweaker.R;
 
 /**
  * ListView subclass that mediates drag and drop resorting of items.
