@@ -48,8 +48,8 @@ public class CpuGlossaryFragment extends Fragment implements OnItemClickListener
 	public void onItemClick(AdapterView<?> arg0, View parent, int position, long id) {
 		// TODO Auto-generated method stub
 		View v = list.getChildAt(position);
-		TextView tv = (TextView) v.findViewById(android.R.id.text1);
-		if(tv.getText().toString().equalsIgnoreCase("governor")) {
+		//TextView tv = (TextView) v.findViewById(android.R.id.text1);
+		if(position == 2) {
 			FragmentTransaction ft = getFragmentManager().beginTransaction();
 			GovernorGlossaryFragment glo = new GovernorGlossaryFragment();
 			// This adds the newly created Preference fragment to my main layout, shown below
