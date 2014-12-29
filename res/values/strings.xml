@@ -111,7 +111,7 @@
         <item>#ff0099cc</item>
         <item>#ff0099cc</item>
         <item>#ff0099cc</item>
-        <item>#ff0099cc</item>
+        
     </string-array>
     <string-array name="flash_dialog">
         <item>Flash Package</item>
@@ -167,6 +167,7 @@
         <item>Touchboost ms</item>
         <item>Input boost freq</item>
         <item>Boost sync freq</item>
+        <item>Hotplug boost</item>
     </string-array>
     <string-array name="glo_cpu_descs">
         <item>The maximum frequency the CPU will use. You can lower it to increase battery life, or increase it for performance</item>
@@ -176,6 +177,7 @@
         <item>Minimum interval a CPU is boosted when input is detected</item>
         <item>This will boost your minimum CPU speed to the selected frequency when you touch the screen or press a button</item>
         <item>When CPU loading crosses the preset threshold the current CPU is raised to this frequency</item>
+        <item>Hotplug Boost is similar to input boost but it occurs when CPUs go online.</item>
     </string-array>
     <string-array name="glo_gov_titles">
         <item>Performance</item>
