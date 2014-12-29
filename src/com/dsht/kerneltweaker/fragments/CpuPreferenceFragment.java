@@ -48,15 +48,18 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 	private CustomListPreference mCpuBoostFreq;
 	private CustomListPreference mCpuSync;
 	private CustomListPreference mCpuGovernor;
+	private CustomListPreference mScroffFreq;
 	private CustomPreference mAdvancedGovernor;
 	private CustomPreference mCpuTemp;
 	private CustomPreference mCpuBoostMs;
 	private CustomPreference mInputBoostMs;
 	private PreferenceCategory mAdvancedCategory;
 	private PreferenceCategory mCpuBoostCategory;
+	private PreferenceCategory mScroffCategory;
 	private PreferenceScreen mRoot;
 	private CustomCheckBoxPreference mCpuBoostHp;
 	private CustomCheckBoxPreference mCpuBoostLbs;
+	private CustomCheckBoxPreference mScroff;
 	private static final String MAX_FREQ_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq";
 	private static final String GOVERNOR_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor";
 	private static final String MIN_FREQ_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq";
@@ -67,6 +70,8 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 	private static final String CPU_BOOST_FREQ = "/sys/module/cpu_boost/parameters/input_boost_freq";
 	private static final String INPUT_BOOST_MS = "/sys/module/cpu_boost/parameters/input_boost_ms";
 	private static final String SYNC_THRESHOLD = "/sys/module/cpu_boost/parameters/sync_threshold";
+	private static final String SCROFF_ENABLE = "/sys/devices/system/cpu/cpu0/cpufreq/screen_off_max";
+	private static final String SCROFF_FREQ = "/sys/devices/system/cpu/cpu0/cpufreq/screen_off_max_freq";
 	private static final String category = "cpu";
 	private DatabaseHandler db = MainActivity.db;
 
@@ -91,7 +96,8 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		Helpers.setPermissions(INPUT_BOOST_MS);
 		Helpers.setPermissions(CPU_BOOST_FREQ);
 		Helpers.setPermissions(SYNC_THRESHOLD);
-
+		Helpers.setPermissions(SCROFF_ENABLE);
+		Helpers.setPermissions(SCROFF_FREQ);
 
 
 		mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
@@ -107,9 +113,12 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		mAdvancedGovernor = (CustomPreference) findPreference("key_advanced_governor");
 		mAdvancedCategory = (PreferenceCategory) findPreference("key_advanced");
 		mCpuBoostCategory = (PreferenceCategory) findPreference("key_boost_category");
+		mScroffCategory = (PreferenceCategory) findPreference("key_scroff_category");
 		mAdvancedGovernor.setOnPreferenceClickListener(this);
 		mCpuBoostHp = (CustomCheckBoxPreference) findPreference("key_cpu_boost_hp");
 		mCpuBoostLbs = (CustomCheckBoxPreference) findPreference("key_cpu_boost_lbs");
+		mScroff = (CustomCheckBoxPreference) findPreference("key_scroff_enable");
+		mScroffFreq = (CustomListPreference) findPreference("key_scroff_freq");
 
 		String color = "";
 		if(MainActivity.mPrefs.getBoolean(SettingsFragment.KEY_ENABLE_GLOBAL, false)) {
@@ -134,6 +143,8 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		mCpuBoostLbs.setTitleColor(color);
 		mCpuBoostMs.setTitleColor(color);
 		mInputBoostMs.setTitleColor(color);
+		mScroff.setTitleColor(color);
+		mScroffFreq.setTitleColor(color);
 
 		mCpuMaxFreq.setCategory(category);
 		mCpuMinFreq.setCategory(category);
@@ -145,6 +156,8 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		mCpuBoostMs.setCategory(category);
 		mInputBoostMs.setCategory(category);
 		mCpuSync.setCategory(category);
+		mScroff.setCategory(category);
+		mScroffFreq.setCategory(category);
 
 		mCpuMaxFreq.setKey(MAX_FREQ_FILE);
 		mCpuMinFreq.setKey(MIN_FREQ_FILE);
@@ -156,6 +169,8 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		mCpuBoostMs.setKey(CPU_BOOST_MS);
 		mInputBoostMs.setKey(INPUT_BOOST_MS);
 		mCpuSync.setKey(SYNC_THRESHOLD);
+		mScroff.setKey(SCROFF_ENABLE);
+		mScroffFreq.setKey(SCROFF_FREQ);
 		
 		String[] frequencies = Helpers.getFrequencies();
 		String[] governors = Helpers.getGovernors();
@@ -169,6 +184,9 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		
 		mCpuBoostFreq.setEntries(names);
 		mCpuBoostFreq.setEntryValues(frequencies);
+		
+		mScroffFreq.setEntries(names);
+		mScroffFreq.setEntryValues(frequencies);
 		
 		mCpuSync.setEntries(names);
 		mCpuSync.setEntryValues(frequencies);
@@ -186,6 +204,9 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		mCpuBoostFreq.setSummary(Helpers.readOneLine(CPU_BOOST_FREQ));
 		mCpuBoostFreq.setValue(mCpuBoostFreq.getSummary().toString());
 		
+		mScroffFreq.setSummary(Helpers.readOneLine(SCROFF_FREQ));
+		mScroffFreq.setValue(mScroffFreq.getSummary().toString());
+		
 		mCpuSync.setSummary(Helpers.readOneLine(SYNC_THRESHOLD));
 		mCpuSync.setValue(mCpuSync.getSummary().toString());
 		
@@ -199,6 +220,7 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		mCpuMaxFreq.setOnPreferenceChangeListener(this);
 		mCpuMinFreq.setOnPreferenceChangeListener(this);
 		mCpuBoostFreq.setOnPreferenceChangeListener(this);
+		mScroffFreq.setOnPreferenceChangeListener(this);
 		mCpuSync.setOnPreferenceChangeListener(this);
 		mCpuGovernor.setOnPreferenceChangeListener(this);
 		mCpuTemp.setOnPreferenceClickListener(this);
@@ -265,7 +287,37 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 			mCpuBoostLbs.setValue("N");
 		}
 		
+		mScroff.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+
+			@Override
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				String cmd = null;
+				String value = null;
+				if (newValue.toString().equals("true")) {
+					cmd = "echo 1 > "+SCROFF_ENABLE;
+					value = "1";
+				} else {
+					cmd = "echo 0 > "+SCROFF_ENABLE;
+					value = "0";
+				}
+				CMDProcessor.runSuCommand(cmd);
+				updateListDb(preference, value, ((CustomCheckBoxPreference) preference).isBootChecked());
+				return true;
+			}
+		});
+		
+		String ScroffState = Helpers.getFileContent(new File(SCROFF_ENABLE));
+		if(ScroffState.equals("1")) {
+			mScroff.setChecked(true);
+			mScroff.setValue("1");
+		}else if(ScroffState.equals("0")) {
+			mScroff.setChecked(false);
+			mScroff.setValue("0");
+		}
+		
 	}
+	
+	
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -314,6 +366,13 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 			mCpuSync.setSummary(value);
 			mCpuSync.setValue(value);
 			CMDProcessor.runSuCommand("echo "+value+" > "+SYNC_THRESHOLD);
+			updateListDb(pref, value,((CustomListPreference) pref).isBootChecked());
+		}
+		if(pref == mScroffFreq) {
+			String value = (String) newValue;
+			mScroffFreq.setSummary(value);
+			mScroffFreq.setValue(value);
+			CMDProcessor.runSuCommand("echo "+value+" > "+SCROFF_FREQ);
 			updateListDb(pref, value,((CustomListPreference) pref).isBootChecked());
 		}
 		return false;

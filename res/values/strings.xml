@@ -146,22 +146,22 @@
     <string name="menu_less">-25mV</string>
     <string name="menu_plus">+25mV</string>
     <string name="uv_title">UV Table Values</string>
-    <string name="cpu_max">CPU Max Frequency</string>
-    <string name="cpu_min">CPU Min Frequency</string>
+    <string name="cpu_max">CPU max frequency</string>
+    <string name="cpu_min">CPU min frequency</string>
     <string name="cpu_governor">Governor</string>
     <string name="cpu_hotplug">Hotplug</string>
-    <string name="cpu_advanced">Advanced Options</string>
-    <string name="cpu_adv_gov_title">Governor Tuning</string>
+    <string name="cpu_advanced">Advanced options</string>
+    <string name="cpu_adv_gov_title">Governor tuning</string>
     <string name="cpu_adv_gov_desc">Fine tune governor parameters</string>
-    <string name="gov_title">Tweakable Governor Values</string>
+    <string name="gov_title">Tweakable governor values</string>
     <string name="gpu_category">GPU parameters</string>
-    <string name="gpu_freq_title">GPU Max Frequency</string>
+    <string name="gpu_freq_title">GPU max frequency</string>
     <string name="gpu_freq_desc">Set GPU maximum frequency</string>
     <string name="menu_glossary">GLOSSARY</string>
 
     <string-array name="glo_cpu_titles">
-        <item>Max Frequency</item>
-        <item>Min Frequency</item>
+        <item>Max frequency</item>
+        <item>Min frequency</item>
         <item>Governor</item>
         <item>Boost ms</item>
         <item>Touchboost ms</item>

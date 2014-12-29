@@ -36,10 +36,10 @@
             android:title="Interval touchboost is hold (ms)" />
         <com.dsht.kerneltweaker.CustomListPreference
             android:key="key_boost_freq"
-            android:title="Input boost freq" />
+            android:title="Input boost frequency" />
         <com.dsht.kerneltweaker.CustomListPreference
             android:key="key_sync_freq"
-            android:title="Boost sync freq" />
+            android:title="Boost sync frequency" />
         <com.dsht.kerneltweaker.CustomCheckBoxPreference
             android:key="key_cpu_boost_hp"
             android:summary="Enable hotplug boost"
@@ -49,5 +49,15 @@
             android:summary="Enable load based syncs"
             android:title="Load based sync" />
 	</PreferenceCategory>
-
+	<PreferenceCategory
+	    android:key="key_scroff_category"
+	    android:title="Screen off limiter" >
+        <com.dsht.kerneltweaker.CustomCheckBoxPreference
+            android:key="key_scroff_enable"
+            android:summary="Enable screen off frequency limiter"
+            android:title="Screen off limiter" />
+        <com.dsht.kerneltweaker.CustomListPreference
+            android:key="key_scroff_freq"
+            android:title="Max freqeuncy when screen is off" />
+	</PreferenceCategory>
 </PreferenceScreen>
