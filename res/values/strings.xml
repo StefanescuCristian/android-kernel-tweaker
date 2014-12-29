@@ -61,11 +61,11 @@
 
     <string-array name="menu_entries">
         <item>--Device Info</item>
-        <item>Cpu Stats</item>
-        <item>Cpu Info</item>
+        <item>CPU Stats</item>
+        <item>CPU Info</item>
         <item>--SoC Params</item>
-        <item>Cpu Parameters</item>
-        <item>Gpu Parameters</item>
+        <item>CPU Parameters</item>
+        <item>GPU Parameters</item>
         <item>UV Table</item>
         <item>--Kernel Params</item>
         <item>Kernel</item>
