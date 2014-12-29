@@ -14,7 +14,9 @@
 
     <Preference 
         android:key="key_dsht" />
-
+	<Preference 
+        android:key="key_bb" />
+    
     <PreferenceCategory android:title="Developers" >
         <Preference
             android:key="key_cesco"
