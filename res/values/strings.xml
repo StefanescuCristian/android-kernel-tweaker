@@ -182,11 +182,9 @@
     <string-array name="glo_gov_titles">
         <item>Performance</item>
         <item>Powersave</item>
-        <item>Userspace</item>
         <item>Ondemand</item>
-        <item>Conservative</item>
         <item>Interactive</item>
-        <item>Smartass</item>
+        <item>Bacon</item>
     </string-array>
     <string-array name="glo_gov_descs">
         <item>The CPUfreq governor performance sets the CPU statically to the
@@ -195,19 +193,11 @@ scaling_max_freq.</item>
         <item>The CPUfreq governor powersave sets the CPU statically to the
 lowest frequency within the borders of scaling_min_freq and
 scaling_max_freq.</item>
-        <item>The CPUfreq governor userspace allows the user, or any userspace
-program running with UID root, to set the CPU to a specific frequency
-by making a sysfs file scaling_setspeed available in the CPU-device
-directory.</item>
         <item>The CPUfreq governor ondemand sets the CPU depending on the
 current usage. To do this the CPU must have the capability to
 switch the frequency very quickly.</item>
-        <item>The CPUfreq governor conservative, much like the ondemand
-governor, sets the CPU depending on the current usage.  It differs in
-behaviour in that it gracefully increases and decreases the CPU speed
-rather than jumping to max speed the moment there is any load on the
-CPU.  This behaviour more suitable in a battery powered environment.</item>
-        <item>The CPUfreq governor interactive is designed for latency-sensitive,
+        <item>This is the interactive governor from CM hammerhead device tree.
+            The CPUfreq governor interactive is designed for latency-sensitive,
 interactive workloads. This governor sets the CPU speed depending on
 usage, similar to ondemand and conservative governors.  However,
 the governor is more aggressive about scaling the CPU speed up in
@@ -226,9 +216,7 @@ If the cpu was not sufficiently busy to immediately ramp to MAX speed,
 then governor evaluates the cpu load since the last speed adjustment,
 choosing the highest value between that longer-term load or the
 short-term load since idle exit to determine the cpu speed to ramp to.</item>
-        <item>Result of Erasmux rewriting the complete code of interactive governor.
-             Main goal is to optimize battery life without comprising performance. 
-             Still, not as battery friendly as smartassV2 since screen-on minimum frequency is greater than frequencies used during screen-off. Smartass would jump up to highest frequency too often as well.</item>
+        <item>Bacon is based on CM interactive from bacon (Oneplus One). Its code is closer to Google\'s interactive</item>
     </string-array>
     <string-array name="glo_ondemand_titles">
         <item>sampling_rate</item>
