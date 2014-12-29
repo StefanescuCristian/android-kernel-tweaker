@@ -23,5 +23,31 @@
             android:summary="@string/cpu_adv_gov_desc"
             android:title="@string/cpu_adv_gov_title" />
     </PreferenceCategory>
+    <PreferenceCategory 
+        android:key="key_boost_category"
+        android:title="CPU boost driver" >
+        <com.dsht.kerneltweaker.CustomPreference
+            android:key="key_cpu_boost_ms"
+            android:summary=""
+            android:title="Interval a CPU is boosted (ms)" />
+        <com.dsht.kerneltweaker.CustomPreference
+            android:key="key_input_boost_ms"
+            android:summary=""
+            android:title="Interval touchboost is hold (ms)" />
+        <com.dsht.kerneltweaker.CustomListPreference
+            android:key="key_boost_freq"
+            android:title="Input boost freq" />
+        <com.dsht.kerneltweaker.CustomListPreference
+            android:key="key_sync_freq"
+            android:title="Boost sync freq" />
+        <com.dsht.kerneltweaker.CustomCheckBoxPreference
+            android:key="key_cpu_boost_hp"
+            android:summary="Enable hotplug boost"
+            android:title="Hotplug boost" />
+        <com.dsht.kerneltweaker.CustomCheckBoxPreference
+            android:key="key_cpu_boost_lbs"
+            android:summary="Enable load based syncs"
+            android:title="Load based sync" />
+	</PreferenceCategory>
 
 </PreferenceScreen>

@@ -2,6 +2,8 @@ package com.dsht.kerneltweaker.fragments;
 
 import java.io.File;
 import java.util.List;
+
+import com.dsht.kerneltweaker.CustomCheckBoxPreference;
 import com.dsht.kerneltweaker.CustomListPreference;
 import com.dsht.kerneltweaker.CustomPreference;
 import com.dsht.kerneltweaker.Helpers;
@@ -42,15 +44,28 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 	private SharedPreferences mPrefs;
 	private CustomListPreference mCpuMaxFreq;
 	private CustomListPreference mCpuMinFreq;
+	private CustomListPreference mCpuBoostFreq;
+	private CustomListPreference mCpuSync;
 	private CustomListPreference mCpuGovernor;
 	private CustomPreference mAdvancedGovernor;
 	private CustomPreference mCpuTemp;
+	private CustomPreference mCpuBoostMs;
+	private CustomPreference mInputBoostMs;
 	private PreferenceCategory mAdvancedCategory;
+	private PreferenceCategory mCpuBoostCategory;
 	private PreferenceScreen mRoot;
+	private CustomCheckBoxPreference mCpuBoostHp;
+	private CustomCheckBoxPreference mCpuBoostLbs;
 	private static final String MAX_FREQ_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq";
 	private static final String GOVERNOR_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor";
 	private static final String MIN_FREQ_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq";
 	private static final String TEMP_FILE = "/sys/module/msm_thermal/parameters/temp_threshold";
+	private static final String CPU_BOOST_HP = "/sys/module/cpu_boost/parameters/hotplug_boost";
+	private static final String CPU_BOOST_LBS = "/sys/module/cpu_boost/parameters/load_based_syncs";
+	private static final String CPU_BOOST_MS = "/sys/module/cpu_boost/parameters/boost_ms";
+	private static final String CPU_BOOST_FREQ = "/sys/module/cpu_boost/parameters/input_boost_freq";
+	private static final String INPUT_BOOST_MS = "/sys/module/cpu_boost/parameters/input_boost_ms";
+	private static final String SYNC_THRESHOLD = "/sys/module/cpu_boost/parameters/sync_threshold";
 	private static final String category = "cpu";
 	private DatabaseHandler db = MainActivity.db;
 
@@ -69,18 +84,31 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		Helpers.setPermissions(MIN_FREQ_FILE);
 		Helpers.setPermissions(GOVERNOR_FILE);
 		Helpers.setPermissions(TEMP_FILE);
+		Helpers.setPermissions(CPU_BOOST_HP);
+		Helpers.setPermissions(CPU_BOOST_LBS);
+		Helpers.setPermissions(CPU_BOOST_MS);
+		Helpers.setPermissions(INPUT_BOOST_MS);
+		Helpers.setPermissions(CPU_BOOST_FREQ);
+		Helpers.setPermissions(SYNC_THRESHOLD);
+
 
 
 		mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
 		mRoot = (PreferenceScreen) findPreference("key_root");
 		mCpuMaxFreq = (CustomListPreference) findPreference("key_cpu_max");
 		mCpuMinFreq = (CustomListPreference) findPreference("key_cpu_min");
+		mCpuBoostFreq = (CustomListPreference) findPreference("key_boost_freq");
+		mCpuSync = (CustomListPreference) findPreference("key_sync_freq");
 		mCpuGovernor = (CustomListPreference) findPreference("key_cpu_governor");
 		mCpuTemp = (CustomPreference) findPreference("key_cpu_temp");
+		mCpuBoostMs = (CustomPreference) findPreference("key_cpu_boost_ms");
+		mInputBoostMs = (CustomPreference) findPreference("key_input_boost_ms");
 		mAdvancedGovernor = (CustomPreference) findPreference("key_advanced_governor");
 		mAdvancedCategory = (PreferenceCategory) findPreference("key_advanced");
+		mCpuBoostCategory = (PreferenceCategory) findPreference("key_boost_category");
 		mAdvancedGovernor.setOnPreferenceClickListener(this);
-
+		mCpuBoostHp = (CustomCheckBoxPreference) findPreference("key_cpu_boost_hp");
+		mCpuBoostLbs = (CustomCheckBoxPreference) findPreference("key_cpu_boost_lbs");
 
 		String color = "";
 		if(MainActivity.mPrefs.getBoolean(SettingsFragment.KEY_ENABLE_GLOBAL, false)) {
@@ -96,19 +124,37 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 		}
 		mCpuMaxFreq.setTitleColor(color);
 		mCpuMinFreq.setTitleColor(color);
+		mCpuBoostFreq.setTitleColor(color);
+		mCpuSync.setTitleColor(color);
 		mCpuGovernor.setTitleColor(color);
 		mAdvancedGovernor.setTitleColor(color);
 		mCpuTemp.setTitleColor(color);
+		mCpuBoostHp.setTitleColor(color);
+		mCpuBoostLbs.setTitleColor(color);
+		mCpuBoostMs.setTitleColor(color);
+		mInputBoostMs.setTitleColor(color);
 
 		mCpuMaxFreq.setCategory(category);
 		mCpuMinFreq.setCategory(category);
+		mCpuBoostFreq.setCategory(category);
 		mCpuGovernor.setCategory(category);
 		mCpuTemp.setCategory(category);
+		mCpuBoostHp.setCategory(category);
+		mCpuBoostLbs.setCategory(category);
+		mCpuBoostMs.setCategory(category);
+		mInputBoostMs.setCategory(category);
+		mCpuSync.setCategory(category);
 
 		mCpuMaxFreq.setKey(MAX_FREQ_FILE);
 		mCpuMinFreq.setKey(MIN_FREQ_FILE);
+		mCpuBoostFreq.setKey(CPU_BOOST_FREQ);
 		mCpuGovernor.setKey(GOVERNOR_FILE);
 		mCpuTemp.setKey(TEMP_FILE);
+		mCpuBoostHp.setKey(CPU_BOOST_HP);
+		mCpuBoostLbs.setKey(CPU_BOOST_LBS);
+		mCpuBoostMs.setKey(CPU_BOOST_MS);
+		mInputBoostMs.setKey(INPUT_BOOST_MS);
+		mCpuSync.setKey(SYNC_THRESHOLD);
 		
 		String[] frequencies = Helpers.getFrequencies();
 		String[] governors = Helpers.getGovernors();
@@ -116,8 +162,16 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 
 		mCpuMaxFreq.setEntries(names);
 		mCpuMaxFreq.setEntryValues(frequencies);
+		
 		mCpuMinFreq.setEntries(names);
 		mCpuMinFreq.setEntryValues(frequencies);
+		
+		mCpuBoostFreq.setEntries(names);
+		mCpuBoostFreq.setEntryValues(frequencies);
+		
+		mCpuSync.setEntries(names);
+		mCpuSync.setEntryValues(frequencies);
+		
 		mCpuGovernor.setEntries(governors);
 		mCpuGovernor.setEntryValues(governors);
 
@@ -127,19 +181,89 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 
 		mCpuMinFreq.setSummary(Helpers.readOneLine(MIN_FREQ_FILE));
 		mCpuMinFreq.setValue(mCpuMinFreq.getSummary().toString());
+		
+		mCpuBoostFreq.setSummary(Helpers.readOneLine(CPU_BOOST_FREQ));
+		mCpuBoostFreq.setValue(mCpuBoostFreq.getSummary().toString());
+		
+		mCpuSync.setSummary(Helpers.readOneLine(SYNC_THRESHOLD));
+		mCpuSync.setValue(mCpuSync.getSummary().toString());
+		
 		Helpers.runRootCommand("chmod 655 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor");
 		mCpuGovernor.setSummary(Helpers.getCurrentGovernor());
 		mCpuGovernor.setValue(mCpuGovernor.getSummary().toString());
 		mCpuTemp.setSummary(Helpers.getFileContent(new File(TEMP_FILE)));
+		mCpuBoostMs.setSummary(Helpers.getFileContent(new File(CPU_BOOST_MS)));
+		mInputBoostMs.setSummary(Helpers.getFileContent(new File(INPUT_BOOST_MS)));
 
 		mCpuMaxFreq.setOnPreferenceChangeListener(this);
 		mCpuMinFreq.setOnPreferenceChangeListener(this);
+		mCpuBoostFreq.setOnPreferenceChangeListener(this);
+		mCpuSync.setOnPreferenceChangeListener(this);
 		mCpuGovernor.setOnPreferenceChangeListener(this);
 		mCpuTemp.setOnPreferenceClickListener(this);
+		mCpuBoostMs.setOnPreferenceClickListener(this);
+		mInputBoostMs.setOnPreferenceClickListener(this);
 		mAdvancedGovernor.excludeFromDialog(true);
 
 		mAdvancedGovernor.hideBoot(true);
 		setRetainInstance(true);
+		
+		mCpuBoostHp.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+
+			@Override
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				String cmd = null;
+				String value = null;
+				if (newValue.toString().equals("true")) {
+					cmd = "echo Y > "+CPU_BOOST_HP;
+					value = "Y";
+				} else {
+					cmd = "echo N > "+CPU_BOOST_HP;
+					value = "N";
+				}
+				CMDProcessor.runSuCommand(cmd);
+				updateListDb(preference, value, ((CustomCheckBoxPreference) preference).isBootChecked());
+				return true;
+			}
+		});
+		
+		String HpBoostState = Helpers.getFileContent(new File(CPU_BOOST_HP));
+		if(HpBoostState.equals("Y")) {
+			mCpuBoostHp.setChecked(true);
+			mCpuBoostHp.setValue("Y");
+		}else if(HpBoostState.equals("N")) {
+			mCpuBoostHp.setChecked(false);
+			mCpuBoostHp.setValue("N");
+		}
+		
+		mCpuBoostLbs.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+
+			@Override
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				String cmd = null;
+				String value = null;
+				if (newValue.toString().equals("true")) {
+					cmd = "echo Y > "+CPU_BOOST_LBS;
+					value = "Y";
+				} else {
+					cmd = "echo N > "+CPU_BOOST_LBS;
+					value = "N";
+				}
+				CMDProcessor.runSuCommand(cmd);
+				updateListDb(preference, value, ((CustomCheckBoxPreference) preference).isBootChecked());
+				return true;
+			}
+		});
+		
+		String LbsState = Helpers.getFileContent(new File(CPU_BOOST_LBS));
+		if(LbsState.equals("Y")) {
+			mCpuBoostLbs.setChecked(true);
+			mCpuBoostLbs.setValue("Y");
+		}else if(LbsState.equals("N")) {
+			mCpuBoostLbs.setChecked(false);
+			mCpuBoostLbs.setValue("N");
+		}
+		
 	}
 
 	@Override
@@ -177,7 +301,20 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 			updateListDb(pref, value, ((CustomListPreference) pref).isBootChecked());
 
 		}
-
+		if(pref == mCpuBoostFreq) {
+			String value = (String) newValue;
+			mCpuBoostFreq.setSummary(value);
+			mCpuBoostFreq.setValue(value);
+			CMDProcessor.runSuCommand("echo "+value+" > "+CPU_BOOST_FREQ);
+			updateListDb(pref, value,((CustomListPreference) pref).isBootChecked());
+		}
+		if(pref == mCpuSync) {
+			String value = (String) newValue;
+			mCpuSync.setSummary(value);
+			mCpuSync.setValue(value);
+			CMDProcessor.runSuCommand("echo "+value+" > "+SYNC_THRESHOLD);
+			updateListDb(pref, value,((CustomListPreference) pref).isBootChecked());
+		}
 		return false;
 	}
 
@@ -221,7 +358,62 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 			Window window = dialog.getWindow();
 			window.setLayout(800, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		}
+		if(pref == mCpuBoostMs) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+			LayoutInflater inflater = getActivity().getLayoutInflater();
+			View v = inflater.inflate(R.layout.dialog_layout, null, false);
+			final EditText et = (EditText) v.findViewById(R.id.et);
+			String val = pref.getSummary().toString();
+			et.setText(val);
+			et.setRawInputType(InputType.TYPE_CLASS_NUMBER);
+			et.setGravity(Gravity.CENTER_HORIZONTAL);
+			List<DataItem> items = db.getAllItems();
+			builder.setView(v);
+			builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
 
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					// TODO Auto-generated method stub
+					String value = et.getText().toString();
+					pref.setSummary(value);
+					CMDProcessor.runSuCommand("echo \""+value+"\" > "+pref.getKey());
+					updateListDb(pref, value, ((CustomPreference) pref).isBootChecked());
+				}
+			} );
+			AlertDialog dialog = builder.create();
+			dialog.show();
+			dialog.getWindow().getAttributes().windowAnimations = R.style.dialog_animation;
+			Window window = dialog.getWindow();
+			window.setLayout(800, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+		}
+		if(pref == mInputBoostMs) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+			LayoutInflater inflater = getActivity().getLayoutInflater();
+			View v = inflater.inflate(R.layout.dialog_layout, null, false);
+			final EditText et = (EditText) v.findViewById(R.id.et);
+			String val = pref.getSummary().toString();
+			et.setText(val);
+			et.setRawInputType(InputType.TYPE_CLASS_NUMBER);
+			et.setGravity(Gravity.CENTER_HORIZONTAL);
+			List<DataItem> items = db.getAllItems();
+			builder.setView(v);
+			builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					// TODO Auto-generated method stub
+					String value = et.getText().toString();
+					pref.setSummary(value);
+					CMDProcessor.runSuCommand("echo \""+value+"\" > "+pref.getKey());
+					updateListDb(pref, value, ((CustomPreference) pref).isBootChecked());
+				}
+			} );
+			AlertDialog dialog = builder.create();
+			dialog.show();
+			dialog.getWindow().getAttributes().windowAnimations = R.style.dialog_animation;
+			Window window = dialog.getWindow();
+			window.setLayout(800, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+		}
 
 		return false;
 	}

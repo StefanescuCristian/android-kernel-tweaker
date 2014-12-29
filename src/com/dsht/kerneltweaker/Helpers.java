@@ -562,6 +562,7 @@ public class Helpers {
 		}
 		return s;
 	}
+	
 
 	public static void waitForMillis(final int millis, Context context) {
 		Thread thread=  new Thread(){
@@ -606,6 +607,7 @@ public class Helpers {
 		}
 		return line.trim().split("\\W+")[0];
 	}
+	
 
 	public static String readFileViaShell(String filePath, boolean useSu) {
 		String command = new String("cat " + filePath);

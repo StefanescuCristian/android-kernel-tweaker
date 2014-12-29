@@ -136,23 +136,6 @@
     <string name="st_cat">Kernel Tweaker settings</string>
     <string name="gift">Just a gift ;)</string>
 
-    <string-array name="lmk_titles">
-        <item>FOREGROUND_APP</item>
-        <item>VISIBLE_APP</item>
-        <item>SECONDARY_SERVER</item>
-        <item>HIDDEN_APP</item>
-        <item>CONTENT_PROVIDER</item>
-        <item>EMPTY_APP</item>
-    </string-array>
-    <string-array name="lmk_descs">
-        <item>The application currently on the screen and running</item>
-        <item>The application that is open and running in background</item>
-        <item>This is a service an application needs that is alive and ready</item>
-        <item>An idle process that wakes up on application request</item>
-        <item>Apps that provide data (content) to the system, like Facebook sync</item>
-        <item>Apps closed by the users but ready to run</item>
-    </string-array>
-
     <string name="vdd_pref">UV VDD Table</string>
     <string name="vdd_desc">The values you have set inside UV Table page will be applied at boot.\nIf you want to edit these values go to UV Table page.</string>
     <string name="menu_del">Delete</string>
@@ -166,13 +149,9 @@
     <string name="cpu_min">CPU Min Frequency</string>
     <string name="cpu_governor">Governor</string>
     <string name="cpu_hotplug">Hotplug</string>
-    <string name="cpu_cpuquiet_title">Cpuquiet Governor</string>
-    <string name="cpu_cpuquiet_desc">This governor controls which of the CPU cores are available and when.</string>
     <string name="cpu_advanced">Advanced Options</string>
     <string name="cpu_adv_gov_title">Governor Tuning</string>
     <string name="cpu_adv_gov_desc">Fine tune governor parameters</string>
-    <string name="cpu_adv_quiet_title">Cpuquiet Governor Tuning</string>
-    <string name="cpu_adv_quiet_desc">Fine tune cpuquiet governor parameters</string>
     <string name="gov_title">Tweakable Governor Values</string>
     <string name="gpu_category">GPU parameters</string>
     <string name="gpu_freq_title">GPU Max Frequency</string>
@@ -183,15 +162,21 @@
         <item>Max Frequency</item>
         <item>Min Frequency</item>
         <item>Governor</item>
-        <item>Cores_on_touch</item>
-        <item>First_level</item>
+        <item>Boost ms</item>
+        <item>Touchboost ms</item>
+        <item>Input Boost Freq</item>
+        <item>Boost sync freq</item>
+        <item>Hotplug boost</item>
     </string-array>
     <string-array name="glo_cpu_descs">
         <item>The maximum frequency the CPU will use. You can lower it to increase battery life, or increase it for performance</item>
         <item>The minimum frequency the CPU will use. You can increase it for better performance or lower it for battery life</item>
         <item>This controls the scaling of the CPU frequencies depending on CPU load\n(Click to show governors explanations)</item>
-        <item>How many cores goes online when you touch the screen</item>
-        <item>The threshold that controls when a core will be woked up. Higher the value, harder for CPU core to become online</item>
+        <item>Minimum interval a CPU is boosted</item>
+        <item>Minimum interval a CPU is boosted when input is detected</item>
+        <item>This will boost your minimum CPU speed to the selected frequency when you touch the screen or press a button</item>
+        <item>When CPU loading crosses the preset threshold, the current CPU is raised to this frequency</item>
+        <item>Hotplug Boost is similar to input boost but it occurs when CPUs go online</item>
     </string-array>
     <string-array name="glo_gov_titles">
         <item>Performance</item>

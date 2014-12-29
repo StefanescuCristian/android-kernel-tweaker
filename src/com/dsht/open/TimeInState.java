@@ -356,7 +356,7 @@ public class TimeInState extends Fragment implements Constants {
 		public void run() {
 			try {
 				while (!mInterrupt) {
-					sleep(500);
+					sleep(1000);
 					List<String> freqs = new ArrayList<String>();
 					for (int i = 0; i < mCpuNum; i++) {
 						String cpuFreq = CPU_PATH + String.valueOf(i) + CPU_FREQ_TAIL;
