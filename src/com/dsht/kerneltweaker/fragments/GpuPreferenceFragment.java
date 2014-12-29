@@ -2,15 +2,7 @@ package com.dsht.kerneltweaker.fragments;
 
 import java.io.File;
 import java.util.List;
-import com.dsht.kerneltweaker.CustomListPreference;
-import com.dsht.kerneltweaker.CustomPreference;
-import com.dsht.kerneltweaker.Helpers;
-import com.dsht.kerneltweaker.MainActivity;
-import com.dsht.kerneltweaker.R;
-import com.dsht.kerneltweaker.database.DataItem;
-import com.dsht.kerneltweaker.database.DatabaseHandler;
-import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
-import com.dsht.settings.SettingsFragment;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -33,6 +25,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.EditText;
+
+import com.dsht.kerneltweaker.CustomListPreference;
+import com.dsht.kerneltweaker.CustomPreference;
+import com.dsht.kerneltweaker.Helpers;
+import com.dsht.kerneltweaker.MainActivity;
+import com.dsht.kerneltweaker.R;
+import com.dsht.kerneltweaker.database.DataItem;
+import com.dsht.kerneltweaker.database.DatabaseHandler;
+import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
+import com.dsht.settings.SettingsFragment;
 
 public class GpuPreferenceFragment extends PreferenceFragment implements OnPreferenceChangeListener {
 	private Context mContext;

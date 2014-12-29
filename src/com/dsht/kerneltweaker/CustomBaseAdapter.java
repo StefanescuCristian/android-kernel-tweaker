@@ -4,13 +4,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
 
-import com.dsht.kerneltweaker.database.DataItem;
-import com.dsht.kerneltweaker.database.DatabaseHandler;
-import com.dsht.settings.SettingsFragment;
-import com.stericson.RootTools.RootTools;
-import com.stericson.RootTools.exceptions.RootDeniedException;
-import com.stericson.RootTools.execution.CommandCapture;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -23,6 +16,13 @@ import android.widget.BaseAdapter;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+
+import com.dsht.kerneltweaker.database.DataItem;
+import com.dsht.kerneltweaker.database.DatabaseHandler;
+import com.dsht.settings.SettingsFragment;
+import com.stericson.RootTools.RootTools;
+import com.stericson.RootTools.exceptions.RootDeniedException;
+import com.stericson.RootTools.execution.CommandCapture;
 
 public class CustomBaseAdapter extends BaseAdapter {
 

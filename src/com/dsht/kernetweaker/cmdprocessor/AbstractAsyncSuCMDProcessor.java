@@ -1,8 +1,8 @@
 package com.dsht.kernetweaker.cmdprocessor;
 
-import com.dsht.kerneltweaker.Helpers;
-
 import android.os.AsyncTask;
+
+import com.dsht.kerneltweaker.Helpers;
 
 /**
  * An abstract implentation of AsyncTask

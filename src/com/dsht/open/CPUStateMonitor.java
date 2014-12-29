@@ -19,8 +19,6 @@
 
 package com.dsht.open;
 
-import android.os.SystemClock;
-
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -31,6 +29,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import android.os.SystemClock;
 
 //@SuppressLint("UseSparseArrays")
 public class CPUStateMonitor implements Constants {

@@ -19,6 +19,11 @@
 
 package com.dsht.open;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -38,11 +43,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import com.dsht.kerneltweaker.Helpers;
 import com.dsht.kerneltweaker.MainActivity;

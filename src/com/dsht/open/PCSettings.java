@@ -18,9 +18,6 @@
 
 package com.dsht.open;
 
-import com.dsht.kerneltweaker.Helpers;
-import com.dsht.kerneltweaker.R;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
@@ -29,6 +26,9 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
+
+import com.dsht.kerneltweaker.Helpers;
+import com.dsht.kerneltweaker.R;
 
 
 public class PCSettings extends PreferenceFragment implements Constants, OnPreferenceChangeListener {

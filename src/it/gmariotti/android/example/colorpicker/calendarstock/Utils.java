@@ -15,8 +15,6 @@
  *******************************************************************************/
 package it.gmariotti.android.example.colorpicker.calendarstock;
 
-import com.dsht.kerneltweaker.R;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -36,6 +34,8 @@ import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.widget.TextView;
+
+import com.dsht.kerneltweaker.R;
 
 /**
  * 

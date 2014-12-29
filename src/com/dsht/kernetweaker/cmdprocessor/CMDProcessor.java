@@ -4,9 +4,9 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.InputStream;
 
-import com.dsht.open.Constants;
-
 import android.util.Log;
+
+import com.dsht.open.Constants;
 
 // convenience import for quick referencing of this method
 

@@ -1,5 +1,7 @@
 package com.dsht.kerneltweaker.fragments;
 
+import java.io.File;
+
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,7 +14,7 @@ import android.preference.PreferenceScreen;
 import android.text.InputFilter;
 import android.util.Log;
 import android.widget.EditText;
-import java.io.File;
+
 import com.dsht.kerneltweaker.Helpers;
 import com.dsht.kerneltweaker.MainActivity;
 import com.dsht.kerneltweaker.R;

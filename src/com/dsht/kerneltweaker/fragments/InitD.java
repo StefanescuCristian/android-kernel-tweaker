@@ -8,10 +8,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import com.dsht.kerneltweaker.MainActivity;
-import com.dsht.kerneltweaker.R;
-import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
-
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -22,6 +18,10 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.util.Log;
+
+import com.dsht.kerneltweaker.MainActivity;
+import com.dsht.kerneltweaker.R;
+import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
 
 
 public class InitD extends PreferenceFragment implements OnPreferenceChangeListener {

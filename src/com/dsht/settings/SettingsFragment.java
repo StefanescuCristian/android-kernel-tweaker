@@ -1,13 +1,8 @@
 package com.dsht.settings;
 
-import java.io.File;
-
 import it.gmariotti.android.example.colorpicker.calendarstock.ColorPickerPreference;
 
-import com.dsht.kerneltweaker.Helpers;
-import com.dsht.kerneltweaker.MainActivity;
-import com.dsht.kerneltweaker.R;
-import com.dsht.kerneltweaker.Startup;
+import java.io.File;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -25,6 +20,11 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+
+import com.dsht.kerneltweaker.Helpers;
+import com.dsht.kerneltweaker.MainActivity;
+import com.dsht.kerneltweaker.R;
+import com.dsht.kerneltweaker.Startup;
 
 public class SettingsFragment extends PreferenceFragment implements OnPreferenceChangeListener, OnPreferenceClickListener {
 

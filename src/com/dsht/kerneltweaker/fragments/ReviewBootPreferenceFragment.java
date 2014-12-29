@@ -2,18 +2,7 @@ package com.dsht.kerneltweaker.fragments;
 
 import java.io.File;
 import java.util.List;
-import com.dsht.kerneltweaker.CustomListPreference;
-import com.dsht.kerneltweaker.CustomPreference;
-import com.dsht.kerneltweaker.Helpers;
-import com.dsht.kerneltweaker.ListViewMultiChoiceModeListener;
-import com.dsht.kerneltweaker.MainActivity;
-import com.dsht.kerneltweaker.R;
-import com.dsht.kerneltweaker.SwipeDismissListViewTouchListener;
-import com.dsht.kerneltweaker.database.DataItem;
-import com.dsht.kerneltweaker.database.DatabaseHandler;
-import com.dsht.kerneltweaker.database.VddDatabaseHandler;
-import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
-import com.dsht.settings.SettingsFragment;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -22,9 +11,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
-import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -37,6 +26,19 @@ import android.view.Window;
 import android.widget.AbsListView;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import com.dsht.kerneltweaker.CustomListPreference;
+import com.dsht.kerneltweaker.CustomPreference;
+import com.dsht.kerneltweaker.Helpers;
+import com.dsht.kerneltweaker.ListViewMultiChoiceModeListener;
+import com.dsht.kerneltweaker.MainActivity;
+import com.dsht.kerneltweaker.R;
+import com.dsht.kerneltweaker.SwipeDismissListViewTouchListener;
+import com.dsht.kerneltweaker.database.DataItem;
+import com.dsht.kerneltweaker.database.DatabaseHandler;
+import com.dsht.kerneltweaker.database.VddDatabaseHandler;
+import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
+import com.dsht.settings.SettingsFragment;
 
 public class ReviewBootPreferenceFragment extends PreferenceFragment {
 

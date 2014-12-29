@@ -1,5 +1,8 @@
 package com.dsht.open;
 
+import java.io.File;
+import java.util.List;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -24,9 +27,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-
-import java.io.File;
-import java.util.List;
 
 import com.dsht.kerneltweaker.CustomPreference;
 import com.dsht.kerneltweaker.Helpers;

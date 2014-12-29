@@ -1,13 +1,13 @@
 package com.dsht.kernetweaker.cmdprocessor;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import android.os.Environment;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 @SuppressWarnings("AccessOfSystemProperties")
 public class CommandResult implements Parcelable {

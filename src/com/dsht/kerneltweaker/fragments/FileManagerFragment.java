@@ -2,10 +2,7 @@ package com.dsht.kerneltweaker.fragments;
 
 import java.io.File;
 import java.util.Arrays;
-import com.dsht.kerneltweaker.FileBaseAdapter;
-import com.dsht.kerneltweaker.MainActivity;
-import com.dsht.kerneltweaker.R;
-import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
+
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -23,6 +20,11 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.dsht.kerneltweaker.FileBaseAdapter;
+import com.dsht.kerneltweaker.MainActivity;
+import com.dsht.kerneltweaker.R;
+import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
 
 public class FileManagerFragment extends Fragment implements OnItemClickListener{
 

@@ -2,16 +2,16 @@ package com.dsht.kerneltweaker;
 
 import java.util.List;
 
-import com.dsht.kerneltweaker.database.DataItem;
-import com.dsht.kerneltweaker.database.DatabaseHandler;
-import com.dsht.kerneltweaker.database.VddDatabaseHandler;
-import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
-
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+
+import com.dsht.kerneltweaker.database.DataItem;
+import com.dsht.kerneltweaker.database.DatabaseHandler;
+import com.dsht.kerneltweaker.database.VddDatabaseHandler;
+import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
 
 public class Startup extends BroadcastReceiver {
 

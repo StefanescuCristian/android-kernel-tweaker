@@ -1,7 +1,5 @@
 package com.dsht.jazzy;
 
-import com.dsht.kerneltweaker.R;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -12,6 +10,8 @@ import android.util.AttributeSet;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
+
+import com.dsht.kerneltweaker.R;
 
 public class OutlineContainer extends FrameLayout implements Animatable {
 

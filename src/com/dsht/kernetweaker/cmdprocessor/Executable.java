@@ -1,10 +1,10 @@
 package com.dsht.kernetweaker.cmdprocessor;
 
+import java.util.Arrays;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
-
-import java.util.Arrays;
 
 /**
  * Created with IntelliJ IDEA.

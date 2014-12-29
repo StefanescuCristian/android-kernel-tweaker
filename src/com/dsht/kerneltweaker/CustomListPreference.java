@@ -2,9 +2,6 @@ package com.dsht.kerneltweaker;
 
 import java.util.List;
 
-import com.dsht.kerneltweaker.database.DataItem;
-import com.dsht.kerneltweaker.database.DatabaseHandler;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -21,6 +18,9 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.dsht.kerneltweaker.database.DataItem;
+import com.dsht.kerneltweaker.database.DatabaseHandler;
 
 public class CustomListPreference extends ListPreference implements OnCheckedChangeListener {
 

@@ -18,6 +18,11 @@
 
 package com.dsht.open;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -28,11 +33,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 
 import com.dsht.kerneltweaker.Helpers;
 import com.dsht.kerneltweaker.MainActivity;
@@ -81,11 +81,6 @@ public class CPUInfo extends Fragment implements Constants {
         if (new File(DSYNC_PATH).exists()) {
             mKernelInfo.append("\n");
             mKernelInfo.append(getString(R.string.dsync_info));
-            mKernelInfo.append("\n");
-        }
-        if (new File(BLX_PATH).exists()) {
-            mKernelInfo.append("\n");
-            mKernelInfo.append(getString(R.string.blx_info));
             mKernelInfo.append("\n");
         }
         readFile(mCPUInfo, CPU_INFO_PATH);

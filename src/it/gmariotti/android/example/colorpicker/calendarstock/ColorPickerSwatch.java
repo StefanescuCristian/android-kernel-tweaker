@@ -19,14 +19,14 @@
 
 package it.gmariotti.android.example.colorpicker.calendarstock;
 
-import com.dsht.kerneltweaker.R;
-
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+
+import com.dsht.kerneltweaker.R;
 
 /**
  * Creates a circular swatch of a specified color.  Adds a checkmark if marked as checked.

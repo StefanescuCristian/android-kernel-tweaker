@@ -1,12 +1,7 @@
 package com.dsht.kerneltweaker.fragments;
 
 import java.util.ArrayList;
-import com.dsht.kerneltweaker.MainActivity;
-import com.dsht.kerneltweaker.R;
-import com.dsht.kerneltweaker.RecoveryBaseAdapter;
-import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
-import com.mobeta.android.dslv.DragSortController;
-import com.mobeta.android.dslv.DragSortListView;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -28,6 +23,13 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
+
+import com.dsht.kerneltweaker.MainActivity;
+import com.dsht.kerneltweaker.R;
+import com.dsht.kerneltweaker.RecoveryBaseAdapter;
+import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
+import com.mobeta.android.dslv.DragSortController;
+import com.mobeta.android.dslv.DragSortListView;
 
 public class CustomRecoveryCommandFragment extends Fragment implements OnClickListener, OnCheckedChangeListener {
 

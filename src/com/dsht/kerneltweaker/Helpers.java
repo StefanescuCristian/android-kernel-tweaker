@@ -15,13 +15,6 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.concurrent.TimeoutException;
 
-import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
-import com.dsht.kernetweaker.cmdprocessor.CMDProcessor.CommandResult2;
-import com.dsht.settings.SettingsFragment;
-import com.stericson.RootTools.RootTools;
-import com.stericson.RootTools.exceptions.RootDeniedException;
-import com.stericson.RootTools.execution.CommandCapture;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -29,6 +22,13 @@ import android.content.res.AssetManager;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
+
+import com.dsht.kernetweaker.cmdprocessor.CMDProcessor;
+import com.dsht.kernetweaker.cmdprocessor.CMDProcessor.CommandResult2;
+import com.dsht.settings.SettingsFragment;
+import com.stericson.RootTools.RootTools;
+import com.stericson.RootTools.exceptions.RootDeniedException;
+import com.stericson.RootTools.execution.CommandCapture;
 
 public class Helpers {
 

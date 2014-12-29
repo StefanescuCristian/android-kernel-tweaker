@@ -2,8 +2,6 @@ package com.dsht.kerneltweaker;
 
 import java.util.ArrayList;
 
-import com.dsht.settings.SettingsFragment;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -12,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.dsht.settings.SettingsFragment;
 
 public class RecoveryBaseAdapter extends BaseAdapter {
 

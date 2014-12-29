@@ -2,10 +2,6 @@ package com.dsht.kerneltweaker;
 
 import java.util.List;
 
-import com.dsht.kerneltweaker.database.DataItem;
-import com.dsht.kerneltweaker.database.DatabaseHandler;
-import com.dsht.kerneltweaker.database.VddDatabaseHandler;
-
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
@@ -21,6 +17,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.AbsListView;
 import android.widget.ListView;
+
+import com.dsht.kerneltweaker.database.DataItem;
+import com.dsht.kerneltweaker.database.DatabaseHandler;
+import com.dsht.kerneltweaker.database.VddDatabaseHandler;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 

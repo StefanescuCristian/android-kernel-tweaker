@@ -1,7 +1,5 @@
 package com.dsht.glossary;
 
-import com.dsht.kerneltweaker.GlossaryArrayAdapter;
-import com.dsht.kerneltweaker.R;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -13,6 +11,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.dsht.kerneltweaker.GlossaryArrayAdapter;
+import com.dsht.kerneltweaker.R;
 
 public class CpuGlossaryFragment extends Fragment implements OnItemClickListener {
 
@@ -42,7 +43,7 @@ public class CpuGlossaryFragment extends Fragment implements OnItemClickListener
 		list.setOnItemClickListener(this);
 		return v;
 	}
-
+	
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View parent, int position, long id) {
 		// TODO Auto-generated method stub
@@ -59,5 +60,5 @@ public class CpuGlossaryFragment extends Fragment implements OnItemClickListener
 		}
 		
 	}
-
+	
 }

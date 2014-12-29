@@ -1,10 +1,10 @@
 package com.dsht.kernetweaker.cmdprocessor;
 
+import static java.lang.System.nanoTime;
+
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.IOException;
-
-import static java.lang.System.nanoTime;
 
 public class ChildProcess {
     private static final int PIPE_SIZE = 1024;

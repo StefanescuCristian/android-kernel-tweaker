@@ -22,8 +22,6 @@ package it.gmariotti.android.example.colorpicker.calendarstock;
 
 
 
-import com.dsht.kerneltweaker.R;
-
 import it.gmariotti.android.example.colorpicker.calendarstock.ColorPickerSwatch.OnColorSelectedListener;
 import android.content.Context;
 import android.content.res.Resources;
@@ -33,6 +31,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+
+import com.dsht.kerneltweaker.R;
 
 
 

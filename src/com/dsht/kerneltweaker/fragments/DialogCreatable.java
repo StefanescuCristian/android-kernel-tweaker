@@ -16,6 +16,8 @@ package com.dsht.kerneltweaker.fragments;
  * limitations under the License.
  */
 
+import java.net.ProxySelector;
+
 import android.app.Dialog;
 
 /**

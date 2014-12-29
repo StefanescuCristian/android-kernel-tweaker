@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Kernel Tweaker</string>
+    <string name="app_name">BbKT</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
 
@@ -111,6 +111,7 @@
         <item>#ff0099cc</item>
         <item>#ff0099cc</item>
         <item>#ff0099cc</item>
+        <item>#ff0099cc</item>
     </string-array>
     <string-array name="flash_dialog">
         <item>Flash Package</item>
@@ -164,9 +165,8 @@
         <item>Governor</item>
         <item>Boost ms</item>
         <item>Touchboost ms</item>
-        <item>Input Boost Freq</item>
+        <item>Input boost freq</item>
         <item>Boost sync freq</item>
-        <item>Hotplug boost</item>
     </string-array>
     <string-array name="glo_cpu_descs">
         <item>The maximum frequency the CPU will use. You can lower it to increase battery life, or increase it for performance</item>
@@ -175,8 +175,7 @@
         <item>Minimum interval a CPU is boosted</item>
         <item>Minimum interval a CPU is boosted when input is detected</item>
         <item>This will boost your minimum CPU speed to the selected frequency when you touch the screen or press a button</item>
-        <item>When CPU loading crosses the preset threshold, the current CPU is raised to this frequency</item>
-        <item>Hotplug Boost is similar to input boost but it occurs when CPUs go online</item>
+        <item>When CPU loading crosses the preset threshold the current CPU is raised to this frequency</item>
     </string-array>
     <string-array name="glo_gov_titles">
         <item>Performance</item>
@@ -482,12 +481,6 @@ never reclaim dentries and inodes due to memory pressure and this can easily
 lead to out-of-memory conditions. Increasing vfs_cache_pressure beyond 100
 causes the kernel to prefer to reclaim dentries and inodes.</item>
     </string-array>
-    <string-array name="glo_lmk_titles">
-        <item>Low Memory Killer</item>
-    </string-array>
-    <string-array name="glo_lmk_descs">
-        <item>When your phone boots up, a file inside the boot image (init.rc) sets the system parameters.  Things like the path to framework files, setting up your networks, and setting the limits at which programs are killed off to free RAM are done by this file. The killing parameters are knows as Low Memory Killer Parameters</item>
-    </string-array>
 
     <!-- Menu -->
     <string name="mt_refresh">Refresh</string>
@@ -532,44 +525,7 @@ causes the kernel to prefer to reclaim dentries and inodes.</item>
     <string name="fast_charge_notification_title">Fast Charge is ON!</string>
     <string name="fast_charge_notification_message">Phone is in charge-only mode!</string>
 
-    <!-- minfree -->
-    <string name="prefcat_oom">MINIMUM FREE MEMORY</string>
-    <string name="title_foreground_app">Foreground applications</string>
-    <string name="title_visible_app">Visible Applications</string>
-    <string name="title_secondary_server">Secondary Server</string>
-    <string name="title_hidden_app">Hidden Applications</string>
-    <string name="title_content_providers">Content Providers</string>
-    <string name="title_empty_app">Empty Applications</string>
-    <string name="prefcat_oom_predefines">PRESETS</string>
-    <string name="pt_oom">Minfree Taskkiller Presets</string>
-    <string name="pt_verylight">Very Light (Kills rarely)</string>
-    <string name="pt_light">Light</string>
-    <string name="pt_medium">Medium</string>
-    <string name="pt_aggressive">Aggressive</string>
-    <string name="pt_veryaggressive">Very Aggressive (Kills often)</string>
-
-    <!-- do not kill proc -->
-    <string name="prefcat_user_proc">NOT KILLABLE USER PROCESSES</string>
-    <string name="prefcat_sys_proc">NOT KILLABLE SYSTEM PROCESSES</string>
-    <string name="pt_user_proc">Enable not killable user processes</string>
-    <string name="pt_sys_proc">Enable not killable system processes</string>
-    <string name="pt_user_names_proc">User Processes whitelist</string>
-    <string name="pt_sys_names_proc">System Processes whitelist</string>
-    <string name="ps_restore_boot">Restore above settings at boot</string>
-    <string name="ps_user_proc">The list of user process names (comma separated)</string>
-    <string name="ps_sys_proc">The list of system process names (comma separated)</string>
-    <string name="no_proc">No packages</string>
-    <!-- bln -->
-    <string name="prefcat_bln">BACKLIGHT NOTIFICATION</string>
-    <string name="pt_bln">Backlight Notification</string>
-    <!-- blx -->
-    <string name="blx_info">Battery Life eXtender feature\nAuthor Ezekeel</string>
-    <string name="prefcat_blx">BATTERY LIFE EXTENDER</string>
-    <string name="pt_blx_boot">Set on boot</string>
-    <string name="ps_blx_boot">Apply the amount above at boot</string>
-    <string name="blx_title">Charge limit:</string>
-    <!-- dsync -->
-    <string name="dsync_info">Dynamic FSync feature\nAuthor Paul Reioux (faux123)</string>
+     <string name="dsync_info">Dynamic FSync feature\nAuthor Paul Reioux (faux123)</string>
     <string name="prefcat_dsync">DYNAMIC FSYNC</string>
     <string name="ps_dsync">Setting will be restored on reboot</string>
     <string name="pt_dsync">Dynamic Fsync</string>
