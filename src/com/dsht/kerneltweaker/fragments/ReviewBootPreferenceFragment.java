@@ -413,9 +413,6 @@ public class ReviewBootPreferenceFragment extends PreferenceFragment {
 		if(mKernel.getPreferenceCount() == 0) {
 			mRoot.removePreference(mKernel);
 		}
-		if(mLmk.getPreferenceCount() == 0) {
-			mRoot.removePreference(mLmk);
-		}
 		if(mGov.getPreferenceCount() == 0) {
 			mRoot.removePreference(mGov);
 		}
