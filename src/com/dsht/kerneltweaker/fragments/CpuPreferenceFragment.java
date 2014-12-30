@@ -336,14 +336,14 @@ public class CpuPreferenceFragment extends PreferenceFragment implements OnPrefe
 			String value = (String) newValue;
 			mCpuMaxFreq.setSummary(value);
 			mCpuMaxFreq.setValue(value);
-			CMDProcessor.runSuCommand("echo "+value+" > "+MAX_FREQ_FILE);
+			CMDProcessor.runSuCommand("for CPU in /sys/devices/system/cpu/cpu[0-3]; do echo 1 > $CPU/online; echo "+value+" > $CPU/cpufreq/scaling_max_freq; done");
 			updateListDb(pref, value, ((CustomListPreference) pref).isBootChecked());
 		}
 		if(pref == mCpuMinFreq) {
 			String value = (String) newValue;
 			mCpuMinFreq.setSummary(value);
 			mCpuMinFreq.setValue(value);
-			CMDProcessor.runSuCommand("echo "+value+" > "+MIN_FREQ_FILE);
+			CMDProcessor.runSuCommand("for CPU in /sys/devices/system/cpu/cpu[0-3]; do echo 1 > $CPU/online; echo "+value+" > $CPU/cpufreq/scaling_min_freq; done");
 			updateListDb(pref, value,((CustomListPreference) pref).isBootChecked());
 		}
 		if(pref == mCpuGovernor) {
